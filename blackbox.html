@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>جعبهٔ سیاه — فست لایف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  :root{
+    --bg:#e9ebf0; --lt:#ffffff; --dk:#c4c8d2;
+    --ink:#4a4e58; --ink-d:#363941; --muted:#969ca8; --line:#d7dae1;
+    --sage:#8aa472; --sage-d:#5f7a45; --warm:#c88f6a;
+    --c-plan:#6d86bd; --c-body:#5f9e86; --c-env:#cc8a63; --c-mind:#a07cc4;
+    --c-plan-d:#46598a; --c-body-d:#3f7560; --c-env-d:#a06241; --c-mind-d:#74519e;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:500px;margin:0 auto;padding:24px 16px 80px}
+
+  header{text-align:center;margin-bottom:6px}
+  h1{font-size:25px;font-weight:800;color:var(--ink-d);margin:0}
+  .sub{color:var(--muted);font-size:12.5px;margin:5px 2px 0;font-weight:600}
+
+  .card{background:var(--bg);border-radius:24px;padding:20px 18px;margin:16px 2px;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}
+  .panel.inset{border-radius:18px;padding:15px 16px;box-shadow:inset 4px 4px 10px var(--dk),inset -4px -4px 10px var(--lt)}
+  .lead{font-size:13.5px;font-weight:800;color:var(--ink-d);text-align:center;margin:0 0 6px}
+  .lead2{font-size:12.5px;color:var(--muted);text-align:center;line-height:1.95;margin:0}
+  .lead2 b{color:var(--sage-d)}
+
+  .bigbtn{display:block;width:100%;border:none;border-radius:18px;background:var(--bg);font-family:inherit;font-size:15px;font-weight:800;color:var(--sage-d);cursor:pointer;padding:16px;margin:14px 0 0;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}
+  .bigbtn:active{box-shadow:inset 5px 5px 11px var(--dk),inset -5px -5px 11px var(--lt)}
+  .ghostbtn{display:block;width:100%;border:none;border-radius:16px;background:var(--bg);font-family:inherit;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;padding:13px;margin:10px 0 0;box-shadow:4px 4px 9px var(--dk),-4px -4px 9px var(--lt)}
+  .ghostbtn:active{box-shadow:inset 4px 4px 9px var(--dk),inset -4px -4px 9px var(--lt)}
+  .ghostbtn small{display:block;font-size:10.5px;color:var(--muted);font-weight:600;margin-top:2px}
+
+  .qlbl{font-size:13px;font-weight:800;color:var(--ink-d);margin:18px 2px 11px}
+  .qlbl.opt{color:var(--muted);font-weight:700}
+  .qhint{font-size:11px;color:var(--muted);font-weight:700}
+  .chiprow{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:none;background:var(--bg);border-radius:999px;padding:10px 14px;font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--ink);box-shadow:4px 4px 9px var(--dk),-4px -4px 9px var(--lt);transition:.16s}
+  .chip:active{transform:scale(.98)}
+  .chip.on{box-shadow:inset 4px 4px 9px var(--dk),inset -4px -4px 9px var(--lt);color:var(--sage-d)}
+
+  .cats{display:grid;gap:11px;margin-top:2px}
+  .catwrap{display:block}
+  .catcard{display:flex;gap:12px;align-items:flex-start;text-align:right;width:100%;border:none;background:var(--bg);border-radius:18px;padding:14px 15px;font-family:inherit;cursor:pointer;box-shadow:5px 5px 11px var(--dk),-5px -5px 11px var(--lt);transition:.16s}
+  .catcard:active{transform:scale(.99)}
+  .catcard .ci{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 3px 3px 6px var(--dk),inset -3px -3px 6px var(--lt)}
+  .catcard .ci svg{width:26px;height:26px}
+  .catcard b{display:block;font-size:13.5px;font-weight:800;color:var(--ink-d)}
+  .catcard small{display:block;font-size:11px;color:var(--muted);line-height:1.7;margin-top:2px}
+  .catcard.on{box-shadow:inset 5px 5px 11px var(--dk),inset -5px -5px 11px var(--lt)}
+  .catcard.on .ci{box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}
+  .catcard.on b{color:var(--sage-d)}
+  .catcard.on.k-plan b{color:var(--c-plan-d)} .catcard.on.k-plan .ci path,.catcard.on.k-plan .ci circle{stroke:var(--c-plan-d)}
+  .catcard.on.k-body b{color:var(--c-body-d)} .catcard.on.k-body .ci path,.catcard.on.k-body .ci circle{stroke:var(--c-body-d)}
+  .catcard.on.k-env  b{color:var(--c-env-d)}  .catcard.on.k-env  .ci path,.catcard.on.k-env  .ci circle{stroke:var(--c-env-d)}
+  .catcard.on.k-mind b{color:var(--c-mind-d)} .catcard.on.k-mind .ci path,.catcard.on.k-mind .ci circle{stroke:var(--c-mind-d)}
+
+  /* inline sub panel that opens under the chosen category */
+  .subpanel{max-height:0;overflow:hidden;opacity:0;margin:0 8px;transition:max-height .3s ease,opacity .26s ease,padding .3s ease,margin .3s ease}
+  .subpanel.open{max-height:320px;opacity:1;padding:13px 14px 5px;margin:7px 10px 2px;border-radius:14px;box-shadow:inset 3px 3px 8px var(--dk),inset -3px -3px 8px var(--lt)}
+  .subpanel .subq{font-size:11.5px;font-weight:800;color:var(--ink-d);margin:0 2px 10px;display:flex;align-items:center;gap:6px}
+  .subpanel .subq span.h{color:var(--muted);font-weight:700}
+
+  .nextin{width:100%;background:var(--bg);border:none;border-radius:14px;padding:12px 14px;font-family:inherit;font-size:13px;color:var(--ink-d);box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt);outline:none}
+
+  .result{border-radius:18px;padding:16px 17px;margin-top:2px;box-shadow:inset 4px 4px 10px var(--dk),inset -4px -4px 10px var(--lt)}
+  .result .rt{font-size:13.5px;font-weight:800;color:var(--sage-d);margin-bottom:6px}
+  .result .rb{font-size:12.5px;color:var(--ink);line-height:1.95}
+  .linkrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .toollink{text-decoration:none;border:none;background:var(--bg);border-radius:999px;padding:9px 14px;font-size:11.5px;font-weight:700;color:var(--sage-d);box-shadow:4px 4px 9px var(--dk),-4px -4px 9px var(--lt)}
+  .toollink:active{box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}
+
+  .recent{margin-top:8px}
+  .secttl{font-size:12px;font-weight:800;color:var(--muted);margin:22px 4px 10px}
+  .ritem{display:flex;align-items:center;gap:10px;border-radius:14px;padding:10px 12px;margin-bottom:9px;box-shadow:4px 4px 9px var(--dk),-4px -4px 9px var(--lt)}
+  .ritem .rc{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 2px 2px 5px var(--dk),inset -2px -2px 5px var(--lt)}
+  .ritem .rc svg{width:18px;height:18px}
+  .ritem .rmain{flex:1;min-width:0}
+  .ritem .rmain b{font-size:12px;font-weight:700;color:var(--ink-d)}
+  .ritem .rmain small{display:block;font-size:10.5px;color:var(--muted)}
+  .ritem .rdate{font-size:10px;color:var(--muted);white-space:nowrap}
+  .ritem .rx{border:none;background:none;color:var(--warm);font-size:15px;cursor:pointer;padding:0 2px}
+  .empty{text-align:center;color:var(--muted);font-size:12px;padding:14px;border-radius:14px;box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}
+
+  /* summary / report shared */
+  .listtop{display:flex;gap:7px;justify-content:flex-end;margin:0 2px 10px}
+  .navbtn{background:var(--bg);border:none;border-radius:999px;font-family:inherit;font-size:11.5px;font-weight:700;color:var(--muted);cursor:pointer;padding:9px 13px;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}
+  .navbtn.prime{color:var(--sage-d)}
+  .navbtn:active{box-shadow:inset 3px 3px 6px var(--dk),inset -3px -3px 6px var(--lt)}
+  .scard{background:var(--bg);border-radius:26px;padding:22px 18px;box-shadow:7px 7px 16px var(--dk),-7px -7px 16px var(--lt)}
+  .shead{text-align:center;border-bottom:1.5px dashed var(--line);padding-bottom:13px;margin-bottom:14px}
+  .shead .st{font-size:18px;font-weight:800;color:var(--ink-d)}
+  .shead .sc{font-size:12px;color:var(--muted);margin-top:3px}
+
+  .subttl{font-size:12.5px;font-weight:800;color:var(--ink-d);margin:22px 4px 4px;display:flex;align-items:center;gap:7px}
+  .subttl .dotc{width:9px;height:9px}
+  .subdesc{font-size:10.5px;color:var(--muted);margin:2px 4px 10px;line-height:1.7}
+
+  /* colored bars (cause / time) */
+  .cbar{display:flex;align-items:center;gap:9px;margin:8px 0}
+  .cbar .cbn{flex:0 0 82px;font-size:11.5px;font-weight:700;color:var(--ink-d)}
+  .cbar .cbt{flex:1;height:14px;border-radius:99px;overflow:hidden;box-shadow:inset 3px 3px 6px var(--dk),inset -3px -3px 6px var(--lt)}
+  .cbar .cbt i{display:block;height:100%;border-radius:99px;width:0;transition:width .6s}
+  .cbar .cbc{flex:0 0 auto;font-size:11px;font-weight:800;color:var(--muted);min-width:42px;text-align:left}
+
+  /* legend / dots */
+  .dotc{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:8px 0 4px}
+  .legend span.lg{font-size:10.5px;color:var(--ink);font-weight:700;display:flex;align-items:center;gap:5px}
+
+  /* week strip (summary) */
+  .weekstrip{display:flex;gap:6px;justify-content:space-between;margin:6px 0 4px}
+  .daycell{flex:1;text-align:center}
+  .daycell .dn{font-size:9.5px;color:var(--muted);font-weight:700;margin-bottom:6px}
+  .daycell .dd{height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;color:#fff;box-shadow:inset 2px 2px 5px var(--dk),inset -2px -2px 5px var(--lt)}
+  .daycell .dd.clean{color:var(--muted)}
+  .daycell.today .dn{color:var(--sage-d);font-weight:800}
+  .stripcap{text-align:center;font-size:10px;color:var(--muted);margin:4px 0 2px}
+
+  /* compare block (summary) */
+  .cmp{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0 6px}
+  .cmp .cbox{text-align:center}
+  .cmp .cbox .cv{font-size:26px;font-weight:800;color:var(--ink-d);line-height:1.1}
+  .cmp .cbox .cl{font-size:10.5px;color:var(--muted);font-weight:700;margin-top:2px}
+  .cmp .arrow{font-size:22px;font-weight:800}
+  .cmpnote{text-align:center;font-size:11.5px;color:var(--ink);line-height:1.8;margin:2px 6px 2px}
+
+  /* stat tiles (report) */
+  .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 4px}
+  .stat{border-radius:16px;padding:13px 12px;text-align:center;box-shadow:inset 3px 3px 8px var(--dk),inset -3px -3px 8px var(--lt)}
+  .stat .sv{font-size:21px;font-weight:800;color:var(--ink-d);line-height:1.2}
+  .stat .sv small{font-size:11px;font-weight:700;color:var(--muted)}
+  .stat .sl{font-size:10.5px;color:var(--muted);font-weight:700;margin-top:3px}
+
+  /* svg trend chart (report) */
+  .chartwrap{margin:8px 2px 0}
+  .chartwrap svg{display:block;width:100%;height:auto}
+  .xlab{display:flex;justify-content:space-between;margin:5px 6px 0}
+  .xlab span{font-size:9.5px;color:var(--muted);font-weight:700}
+
+  /* day-of-week bars (report) */
+  .dow{display:flex;align-items:flex-end;gap:6px;height:88px;margin:8px 4px 2px}
+  .dow .db{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+  .dow .db i{width:100%;max-width:24px;border-radius:8px 8px 5px 5px;background:var(--sage);box-shadow:2px 2px 5px var(--dk),-2px -2px 5px var(--lt);min-height:4px;transition:height .5s}
+  .dow .db .dbl{font-size:9.5px;color:var(--muted);margin-top:6px;font-weight:700}
+  .dow .db.peak i{background:var(--warm)}
+  .dow .db.peak .dbl{color:var(--warm);font-weight:800}
+
+  .priority{margin-top:16px;border-radius:16px;padding:15px 16px;box-shadow:inset 4px 4px 10px var(--dk),inset -4px -4px 10px var(--lt)}
+  .priority .pt{font-size:13px;font-weight:800;color:var(--warm);margin-bottom:8px}
+  .priority ul{margin:0;padding-right:18px}
+  .priority li{font-size:12px;color:var(--ink);line-height:1.95;margin-bottom:5px}
+  .patnote{font-size:12px;color:var(--sage-d);font-weight:600;margin-top:12px;line-height:1.9}
+  .coachbox{border-radius:16px;padding:15px 16px;margin-top:14px;box-shadow:inset 4px 4px 10px var(--dk),inset -4px -4px 10px var(--lt)}
+  .rp{font-size:12.5px;color:var(--ink);line-height:2.05;margin:0 0 9px}
+  .rp:last-child{margin:0}
+  .toplist .ti{font-size:12px;color:var(--ink);line-height:1.95;margin:3px 0;display:flex;align-items:center;gap:7px}
+  .toplist .ti b{color:var(--muted);font-weight:700}
+  .sfoot{text-align:center;font-size:11px;color:var(--muted);font-weight:600;margin-top:16px;padding-top:12px;border-top:1.5px dashed var(--line)}
+  .sfoot b{color:var(--sage-d)}
+
+  .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink-d);color:#fff;font-size:12px;font-weight:600;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:40;max-width:90%;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* smart slip predictor card (home) */
+  .salert{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border-radius:20px;padding:16px 16px;margin:16px 2px;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt);border-right:4px solid var(--warm)}
+  .salert .saic{flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 3px 3px 6px var(--dk),inset -3px -3px 6px var(--lt)}
+  .salert .saic svg{width:24px;height:24px}
+  .salert .samain{flex:1;min-width:0}
+  .salert .sat{font-size:12.5px;font-weight:800;color:var(--warm);margin-bottom:5px}
+  .salert .sab{font-size:12px;color:var(--ink);line-height:1.95}
+  .salert .satip{font-size:12.5px;font-weight:800;color:var(--ink-d);margin-top:9px;border-radius:12px;padding:10px 12px;box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}
+
+  /* backup reminder modal */
+  .modal{position:fixed;inset:0;background:rgba(54,57,65,.5);display:none;align-items:center;justify-content:center;padding:22px;z-index:60;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+  .modal.show{display:flex}
+  .mbox{background:var(--bg);border-radius:24px;padding:22px 20px;max-width:380px;width:100%;box-shadow:8px 8px 20px rgba(0,0,0,.25),-2px -2px 10px var(--lt);text-align:center}
+  .mbox .mt{font-size:16px;font-weight:800;color:var(--ink-d);margin-bottom:10px}
+  .mbox .mtx{font-size:12.5px;color:var(--ink);line-height:2.05;text-align:right}
+  .mbox .mtx b{color:var(--sage-d)}
+  .mbtn{display:block;width:100%;border:none;border-radius:16px;background:var(--bg);font-family:inherit;font-size:13.5px;font-weight:800;color:var(--sage-d);cursor:pointer;padding:14px;margin:14px 0 0;box-shadow:5px 5px 12px var(--dk),-5px -5px 12px var(--lt)}
+  .mbtn:active{box-shadow:inset 4px 4px 9px var(--dk),inset -4px -4px 9px var(--lt)}
+  .mbtn.ghost{font-size:12.5px;font-weight:700;color:var(--muted);margin-top:10px;box-shadow:3px 3px 8px var(--dk),-3px -3px 8px var(--lt)}
+</style>
+</head>
+<body>
+<!-- ───── fastlife intro popup (injected) ───── -->
+<div id="flIntroOv" class="flintro-ov" role="dialog" aria-modal="true" aria-labelledby="flIntroTtl">
+  <div class="flintro-card">
+    <div class="flintro-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4-8 4-8-4 8-4z"/><path d="M4 7v9l8 4 8-4V7"/><path d="M12 11v9"/></svg></div>
+    <h2 class="flintro-ttl" id="flIntroTtl">جعبه سیاه</h2>
+    <p class="flintro-txt">جعبه سیاه جاییه که لغزش‌هات رو بدونِ قضاوت ثبت می‌کنی. نه برای اینکه خودت رو سرزنش کنی، برای اینکه بفهمی معمولاً کِی، کجا، با چه حالی و بعد از چه اتفاقی از مسیر خارج می‌شی. کم‌کم از دلِ همین ثبت‌های ساده، الگوی شخصیِ خودت معلوم می‌شه؛ مثلاً می‌فهمی بیشترِ وقت‌ها خستگی، مهمونی، کم‌خوابی، استرس یا نبودنِ غذای آماده باعثِ لغزشت می‌شه. جعبه سیاه بهت گزارشِ هفتگی و گزارشِ کامل‌تر هم می‌ده.</p>
+    <label class="flintro-dont"><input type="checkbox" id="flIntroDont"><span>دیگه این راهنما رو نشونم نده</span></label>
+    <button type="button" class="flintro-ok" id="flIntroOk">متوجه شدم، بریم</button>
+  </div>
+</div>
+<style>
+.flintro-ov{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(54,57,65,.34);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);direction:rtl;font-family:'Vazirmatn',Tahoma,sans-serif}
+.flintro-ov.flopen{display:flex;animation:flfade .25s ease}
+@keyframes flfade{from{opacity:0}to{opacity:1}}
+.flintro-card{background:#e9ebf0;border-radius:26px;max-width:380px;width:100%;padding:26px 24px 22px;text-align:center;box-shadow:10px 10px 26px #c4c8d2,-10px -10px 26px #ffffff;animation:flpop .3s cubic-bezier(.22,.9,.32,1.04)}
+@keyframes flpop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.flintro-badge{width:60px;height:60px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;background:#e9ebf0;color:#5f7a45;box-shadow:5px 5px 12px #c4c8d2,-5px -5px 12px #ffffff}
+.flintro-badge svg{width:28px;height:28px}
+.flintro-ttl{margin:0 0 10px;font-size:19px;font-weight:800;color:#363941}
+.flintro-txt{margin:0;font-size:13px;line-height:2.05;color:#4a4e58;text-align:right}
+.flintro-dont{display:flex;align-items:center;gap:9px;justify-content:center;margin:18px 0 16px;cursor:pointer;font-size:12px;color:#969ca8;font-weight:600;-webkit-user-select:none;user-select:none}
+.flintro-dont input{width:17px;height:17px;accent-color:#5f7a45;cursor:pointer}
+.flintro-ok{display:block;width:100%;border:none;font-family:inherit;cursor:pointer;background:#e9ebf0;color:#5f7a45;font-size:15px;font-weight:800;padding:14px;border-radius:16px;box-shadow:5px 5px 12px #c4c8d2,-5px -5px 12px #ffffff;transition:.15s}
+.flintro-ok:active{box-shadow:inset 4px 4px 9px #c4c8d2,inset -4px -4px 9px #ffffff;transform:scale(.99)}
+</style>
+<script>
+(function(){
+  var KEY="fl_intro_blackbox_v1";
+  var ov=document.getElementById("flIntroOv");
+  var ok=document.getElementById("flIntroOk");
+  var dont=document.getElementById("flIntroDont");
+  if(!ov) return;
+  var seen=false;
+  try{seen=localStorage.getItem(KEY)==="1";}catch(e){}
+  if(!seen){
+    ov.classList.add("flopen");
+    document.documentElement.style.overflow="hidden";
+  }
+  function close(){
+    if(dont&&dont.checked){try{localStorage.setItem(KEY,"1");}catch(e){}}
+    ov.classList.remove("flopen");
+    document.documentElement.style.overflow="";
+  }
+  if(ok) ok.addEventListener("click",close);
+  ov.addEventListener("click",function(e){if(e.target===ov) close();});
+})();
+</script>
+<!-- ───── /fastlife intro popup ───── -->
+
+
+<!-- HOME -->
+<div class="wrap" id="homeView">
+  <header>
+    <h1>جعبهٔ سیاه</h1>
+    <p class="sub">هر لغزش، یه داده برای تنظیمِ مسیر</p>
+  </header>
+
+  <div class="card">
+    <p class="lead">اینجا جعبهٔ سیاهِ مسیرته.</p>
+    <p class="lead2">جعبهٔ سیاهِ هواپیما چی‌کار می‌کنه؟ ثبت می‌کنه چی شد، تا تو پروازهای بعدی همون اتفاق تکرار نشه. هر بار که لغزیدی، اینجا ثبتش کن، تا کم‌کم <b>الگوی لغزش‌هات</b> رو پیدا کنی.</p>
+    <button class="bigbtn" id="newBtn">ثبتِ یک لغزشِ جدید</button>
+    <button class="ghostbtn" id="sumBtn">خلاصهٔ هفته<small>نگاهِ سریع به ۷ روزِ گذشته</small></button>
+    <button class="ghostbtn" id="reportBtn">گزارشِ کامل<small>تصویرِ کاملِ مسیرت، با نمودار و تحلیل</small></button>
+  </div>
+
+  <div id="alertSlot"></div>
+  <div id="resultSlot"></div>
+  <div class="recent" id="recentSlot"></div>
+</div>
+
+<!-- LOG -->
+<div class="wrap" id="logView" style="display:none">
+  <div class="listtop"><button class="navbtn" id="logBack">بازگشت</button></div>
+  <div class="card">
+    <div class="qlbl">چی شد؟ <span class="qhint">(یکی یا چندتا)</span></div>
+    <div class="chiprow" id="whatRow"></div>
+
+    <div class="qlbl">ریشهٔ لغزش همیشه یکی از ۴ تاست. مالِ تو این دفعه کدوم بود؟</div>
+    <div class="cats" id="catRow"></div>
+
+    <div class="qlbl opt">این بیشتر شبیه چی بود؟ (دلخواه)</div>
+    <div class="chiprow" id="patRow"></div>
+
+    <div class="qlbl opt">دفعهٔ بعد فقط یه کارِ کوچیک چی کمک می‌کنه؟ (دلخواه)</div>
+    <input class="nextin" id="nextIn" type="text" placeholder="مثلاً: شب خوراکی جلوی چشمم نباشه">
+
+    <button class="bigbtn" id="saveBtn" style="margin-top:18px">ثبتش کن</button>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="wrap" id="summaryView" style="display:none">
+  <div class="listtop">
+    <button class="navbtn prime" id="saveImg">ذخیرهٔ عکس</button>
+    <button class="navbtn" id="sumBack">بازگشت</button>
+  </div>
+  <div id="summaryBody"></div>
+</div>
+
+<!-- REPORT -->
+<div class="wrap" id="reportView" style="display:none">
+  <div class="listtop">
+    <button class="navbtn prime" id="saveImgR">ذخیرهٔ عکس</button>
+    <button class="navbtn" id="repBack">بازگشت</button>
+  </div>
+  <div id="reportBody"></div>
+</div>
+
+<div class="modal" id="backupModal">
+  <div class="mbox">
+    <div class="mt">یه چیزِ مهم 🤍</div>
+    <div class="mtx">داده‌های جعبهٔ سیاه فقط روی همین مرورگر ذخیره می‌شه. اگه تاریخچهٔ مرورگرت پاک شه یا گوشی عوض کنی، این لغزش‌ها و الگوهات می‌پره.<br><br>هر چند وقت یه‌بار از <b>خلاصه</b> یا <b>گزارشِ کامل</b> یه «ذخیرهٔ عکس» بگیر و یه‌جا نگهش دار تا مسیرت گم نشه.</div>
+    <button class="mbtn" id="mGoReport">همین الان از گزارش عکس بگیرم</button>
+    <button class="mbtn ghost" id="mDismiss">باشه، حواسم هست</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  function fa(n){return String(n).replace(/[0-9]/g,function(d){return "۰۱۲۳۴۵۶۷۸۹"[d];});}
+  function faDec(x){return fa(Number(x).toFixed(1)).replace(".","٫");}
+  function esc(v){return String(v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c];});}
+  var el=function(id){return document.getElementById(id);};
+
+  var IC={
+    plan:'<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="12" fill="none" stroke="#5f7a45" stroke-width="2"/><path d="M22 15 v7 l5 3" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"/></svg>',
+    body:'<svg viewBox="0 0 44 44"><path d="M9 23 h6 l3 -8 4 16 3 -8 h7" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    env:'<svg viewBox="0 0 44 44"><path d="M12 22 L22 13 L32 22" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 21 v9 h16 v-9" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linejoin="round"/></svg>',
+    mind:'<svg viewBox="0 0 44 44"><path d="M17 29 q-6 0 -6 -6 q0 -7 7 -7 q1 -4 6 -4 q6 0 6 6 q4 0 4 5 q0 6 -6 6 z" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linejoin="round"/></svg>'
+  };
+
+  var CATS=[
+    {key:'plan',label:'برنامه',t:'برنامه‌ام نیاز به تنظیم داشت',d:'فست سنگین بود، ساعت‌ها درست نبود، یا وعدهٔ قبلی کافی نبود.',
+      sugg:'احتمالاً برنامه یه‌خرده سفت بوده؛ یا بازهٔ فست رو یه پله سبک‌تر کن، یا وعدهٔ قبلش رو پروتئین‌دارتر.',
+      prev:['بازهٔ فست رو یه پله سبک‌تر کن.','وعدهٔ قبل از فست رو پروتئین و فیبردار کن.','ساعتِ شروع و پایان رو واقعی‌تر بچین.'],
+      links:[],subs:['فستم زیادی سنگین بود','بازهٔ فستم درست نبود','وعدهٔ قبلی پروتئین‌دار نبود']},
+    {key:'body',label:'بدن',t:'بدنم کم آورده بود',d:'خواب بد، خستگی، ورزش سنگین، پریود یا پی‌ام‌اس.',
+      sugg:'شاید مسئله اصلاً غذا نبوده؛ خواب، خستگی یا سیکلِ بدنت نقش داشته.',
+      prev:['خواب رو این هفته جدی بگیر.','ورزشِ سنگین رو با یه وعدهٔ کامل همراه کن.','اگه سیکلت اثر داره، فست رو سبک‌تر بگیر.'],
+      links:[],subs:['بی‌خوابی یا خستگی شدید','تغییرات هورمونی (مثل PMS)','ورزش سنگین کرده بودم']},
+    {key:'env',label:'محیط',t:'محیطم کمکم نکرد',d:'خوراکی جلوی چشم، مهمونی، تعارف، یا نبودِ گزینهٔ سالم.',
+      sugg:'لازم نیست قوی‌تر باشی؛ کافیه محیطت رو یه‌کم کم‌وسوسه‌تر بچینی.',
+      prev:['خوراکیِ وسوسه‌کننده رو از جلوی چشم بردار.','قبلِ مهمونی یه جملهٔ آماده برای تعارف داشته باش.','یه گزینهٔ سالمِ دم‌دستی آماده کن.'],
+      links:[{l:'پک موتتاینای — نمی‌خرم',u:'پک-موتتاینای.html'}],subs:['تعارف شدید یا فشار جمع','خوراکی وسوسه‌کننده جلوی چشم','جایی بودم که گزینهٔ سالم نبود']},
+    {key:'mind',label:'فکر و حال',t:'فکرم یا حالم درگیر بود',d:'استرس، تنهایی، بی‌حوصلگی، ناراحتی، یا فراموشی.',
+      sugg:'شاید بدنت دنبالِ غذا نبوده؛ دنبالِ آرامش، حواس‌پرتی یا یه لذتِ کوتاه بوده.',
+      prev:['یه سرگرمیِ جایگزین برای لحظه‌های سخت آماده کن.','وقتی بی‌حوصله‌ای، اول یه کارِ کوتاهِ غیرغذایی امتحان کن.','به خودت یادآوری کن این موج معمولاً زود رد می‌شه.'],
+      links:[],subs:['استرس یا اضطراب','بی‌حوصلگی یا تنهایی','یادم رفت فست بودم!']}
+  ];
+  var CATMAP={}; CATS.forEach(function(c){CATMAP[c.key]=c;});
+  var CATHEX={plan:'#6d86bd',body:'#5f9e86',env:'#cc8a63',mind:'#a07cc4'};
+  var WDAYS=['شنبه','یک‌شنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه'];
+  var WDAYS_S=['ش','ی','د','س','چ','پ','ج'];
+  var TBUCKETS=['صبح','بعدازظهر','عصر','شب']; // 6-12 / 12-17 / 17-21 / 21-6
+
+  // هر زیرعلت → یک تنظیمِ مشخص (برای اولویتِ پویا، بر اساسِ همان چیزی که کاربر ثبت کرده)
+  var SUBFIX={
+    'فستم زیادی سنگین بود':'بازهٔ فستت رو یه پله سبک‌تر کن؛ لازم نیست قهرمان‌بازی کنی.',
+    'بازهٔ فستم درست نبود':'ساعتِ شروع و پایانِ فست رو طوری بچین که به زندگیت بخوره.',
+    'وعدهٔ قبلی پروتئین‌دار نبود':'وعدهٔ قبلِ فست رو پر از پروتئین و فیبر کن تا گرسنگی زود نزنه.',
+    'بی‌خوابی یا خستگی شدید':'این هفته خواب رو جدی بگیر؛ بدنِ خسته دنبالِ سوختِ سریعه.',
+    'تغییرات هورمونی (مثل PMS)':'دور و برِ پریود/پی‌ام‌اس فست رو سبک بگیر و به خودت سخت نگیر.',
+    'ورزش سنگین کرده بودم':'بعدِ تمرینِ سنگین، یه وعدهٔ کامل کنارش بذار.',
+    'تعارف شدید یا فشار جمع':'قبلِ مهمونی یه جملهٔ آماده برای ردِ تعارف داشته باش.',
+    'خوراکی وسوسه‌کننده جلوی چشم':'خوراکیِ وسوسه‌کننده رو از جلوی چشم و از خونه بردار.',
+    'جایی بودم که گزینهٔ سالم نبود':'یه گزینهٔ سالمِ دم‌دستی همرات داشته باش که غافلگیر نشی.',
+    'استرس یا اضطراب':'وقتِ استرس، اول یه کارِ کوتاهِ غیرغذایی امتحان کن (قدم، آب، نفس).',
+    'بی‌حوصلگی یا تنهایی':'یه سرگرمیِ جایگزین برای لحظه‌های بی‌حوصلگی آماده کن.',
+    'یادم رفت فست بودم!':'یه یادآور/آلارمِ ساده برای ساعتِ فستت بذار.'
+  };
+  var WHAT=['فستم رو زودتر شکستم','نون یا برنج زیاد خوردم','ولع شیرینی کار دستم داد','ریزه‌خواری کردم','مهمونی یا بیرون بودم','تنها بودم خراب کردم'];
+  var PAT=['قابل پیش‌بینی بود','ناگهانی بود','تکراری بود','اولین بار بود'];
+
+  var STORAGE="hansei-mottainai-v1";
+  var entries=load();
+  var sel={what:[],cat:null,pat:null,subs:[]};
+  var lastResult=null, toastTimer;
+
+  function load(){try{var a=JSON.parse(localStorage.getItem(STORAGE));return Array.isArray(a)?a:[];}catch(e){return [];}}
+  function save(){try{localStorage.setItem(STORAGE,JSON.stringify(entries));}catch(e){}}
+  function showToast(m){clearTimeout(toastTimer);el("toast").textContent=m;el("toast").classList.add("show");toastTimer=setTimeout(function(){el("toast").classList.remove("show");},2400);}
+  function dateStr(ts){try{return new Date(ts).toLocaleDateString("fa-IR",{month:"long",day:"numeric"});}catch(e){return "";}}
+
+  /* ---------- date / data helpers ---------- */
+  function whatArr(en){return Array.isArray(en.what)?en.what:(en.what?[en.what]:[]);}
+  function dayStartTs(ts){var d=new Date(ts);d.setHours(0,0,0,0);return d.getTime();}
+  function pWeekday(ts){return (new Date(ts).getDay()+1)%7;} // 0=شنبه ... 6=جمعه
+  function hourOf(ts){return new Date(ts).getHours();}
+  function tbucket(h){if(h>=6&&h<12)return 0;if(h>=12&&h<17)return 1;if(h>=17&&h<21)return 2;return 3;}
+
+  /* ---------- views + hardware back ---------- */
+  function showView(name,push){
+    ["homeView","logView","summaryView","reportView"].forEach(function(v){el(v).style.display=(v===name+"View")?"block":"none";});
+    if(push) history.pushState({v:name},"");
+    if(name==="home")renderHome();
+    if(name==="log")renderLog();
+    if(name==="summary")renderSummary();
+    if(name==="report")renderReport();
+    window.scrollTo(0,0);
+  }
+  window.addEventListener("popstate",function(e){var v=(e.state&&e.state.v)||"home";showView(v,false);});
+
+  /* ---------- smart slip predictor ---------- */
+  var WARN_IC='<svg viewBox="0 0 24 24" fill="none" stroke="#c88f6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 L21 19 H3 Z"/><path d="M12 10 v4"/><circle cx="12" cy="17" r="0.6" fill="#c88f6a" stroke="none"/></svg>';
+  function smartAlert(){
+    if(entries.length<5)return "";
+    var tb=[0,0,0,0]; entries.forEach(function(e){tb[tbucket(hourOf(e.ts))]++;});
+    var tmax=Math.max.apply(null,tb),tIdx=tb.indexOf(tmax),tShare=tmax/entries.length;
+    var dw=[0,0,0,0,0,0,0]; entries.forEach(function(e){dw[pWeekday(e.ts)]++;});
+    var dmax=Math.max.apply(null,dw),dIdx=dw.indexOf(dmax),dShare=dmax/entries.length;
+    var top=topCat(catCounts(entries));
+    var now=new Date(),curB=tbucket(now.getHours()),curW=pWeekday(now.getTime());
+    var timeHit=tShare>=0.45&&tmax>=3&&curB===tIdx;
+    var dayHit =dShare>=0.34&&dmax>=3&&curW===dIdx;
+    if(!timeHit&&!dayHit)return "";
+    var when=timeHit&&dayHit?('«'+WDAYS[dIdx]+'»‌ها و مخصوصاً «'+TBUCKETS[tIdx]+'»‌ها'):timeHit?('«'+TBUCKETS[tIdx]+'»‌ها'):('«'+WDAYS[dIdx]+'»‌ها');
+    var pct=Math.round((timeHit?tShare:dShare)*100);
+    return '<div class="salert"><span class="saic">'+WARN_IC+'</span><div class="samain">'+
+      '<div class="sat">لغزش‌یابِ هوشمند</div>'+
+      '<div class="sab">الگوت می‌گه '+when+' بیشتر می‌لغزی ('+fa(pct)+'٪ لغزش‌هات)، و معمولاً ریشه‌اش «'+CATMAP[top].label+'»ه. الان داری می‌رسی به همون نقطه — قبل از اینکه شروع شه، همین حالا یه قدمِ کوچیک بردار:</div>'+
+      '<div class="satip">'+focusTip(entries,top)+'</div></div></div>';
+  }
+
+  /* ---------- home ---------- */
+  function renderHome(){
+    el("alertSlot").innerHTML=smartAlert();
+    var rs=el("resultSlot");
+    if(lastResult){
+      var c=CATMAP[lastResult.cat];
+      var links=c.links.map(function(L){return '<a class="toollink" href="'+L.u+'">'+L.l+' ←</a>';}).join("");
+      rs.innerHTML='<div class="card"><div class="result"><div class="rt">لغزش‌هات رو ببین، ولی خودتو قضاوت نکن.</div>'+
+        '<div class="rb" style="margin-bottom:8px">کم‌کم خودت می‌فهمی که مشکل از ارادهٔ تو نیست، از طراحیِ محیطِ زندگیته.</div>'+
+        '<div class="rb">'+c.sugg+'</div>'+(links?'<div class="linkrow">'+links+'</div>':'')+'</div></div>';
+    } else rs.innerHTML='';
+
+    var rec=el("recentSlot");
+    if(!entries.length){rec.innerHTML='<div class="secttl">لغزش‌های اخیر</div><div class="empty">هنوز چیزی ثبت نکردی. اولین لغزش که ثبت شه، کم‌کم الگوش پیدا می‌شه.</div>';return;}
+    var rows=entries.slice().reverse().slice(0,6).map(function(en){
+      var c=CATMAP[en.cat];
+      var w=whatArr(en).join("، ")||c.t;
+      return '<div class="ritem"><span class="rc">'+IC[c.key]+'</span><div class="rmain"><b>'+esc(w)+'</b><small>'+c.label+((en.subs&&en.subs.length)?' — '+esc(en.subs.join('، ')):'')+(en.next?' · '+esc(en.next):'')+'</small></div><span class="rdate">'+dateStr(en.ts)+'</span><button class="rx" data-id="'+en.ts+'">×</button></div>';
+    }).join("");
+    rec.innerHTML='<div class="secttl">لغزش‌های اخیر</div>'+rows;
+    rec.querySelectorAll(".rx").forEach(function(b){b.onclick=function(){entries=entries.filter(function(x){return String(x.ts)!==b.dataset.id;});save();renderHome();};});
+  }
+
+  /* ---------- log ---------- */
+  function renderLog(){
+    sel={what:[],cat:null,pat:null,subs:[]};
+    el("nextIn").value="";
+    el("whatRow").innerHTML=WHAT.map(function(w,i){return '<button class="chip" data-w="'+i+'">'+w+'</button>';}).join("");
+    el("patRow").innerHTML=PAT.map(function(p,i){return '<button class="chip" data-p="'+i+'">'+p+'</button>';}).join("");
+    el("catRow").innerHTML=CATS.map(function(c){
+      var subchips=(c.subs||[]).map(function(s,i){return '<button class="chip" data-s="'+i+'">'+s+'</button>';}).join("");
+      return '<div class="catwrap">'+
+        '<button class="catcard k-'+c.key+'" data-c="'+c.key+'"><span class="ci">'+IC[c.key]+'</span><span><b>'+c.t+'</b><small>'+c.d+'</small></span></button>'+
+        '<div class="subpanel" id="sp-'+c.key+'"><div class="subq"><span class="dotc" style="background:'+CATHEX[c.key]+'"></span>دقیق‌تر: چی شد؟ <span class="h">(چندتا هم می‌تونی بزنی)</span></div><div class="chiprow">'+subchips+'</div></div>'+
+      '</div>';
+    }).join("");
+
+    // چی شد؟ — چندانتخابی
+    el("whatRow").querySelectorAll(".chip").forEach(function(b){b.onclick=function(){
+      var w=WHAT[+b.dataset.w], k=sel.what.indexOf(w);
+      if(k>=0){sel.what.splice(k,1);b.classList.remove("on");}else{sel.what.push(w);b.classList.add("on");}
+    };});
+
+    // جنسِ لغزش — تک‌انتخابی و قابلِ لغو
+    el("patRow").querySelectorAll(".chip").forEach(function(b){b.onclick=function(){
+      var was=b.classList.contains("on");
+      el("patRow").querySelectorAll(".chip").forEach(function(x){x.classList.remove("on");});
+      if(was){sel.pat=null;}else{b.classList.add("on");sel.pat=PAT[+b.dataset.p];}
+    };});
+
+    // ریشه + زیرعلت‌هایِ هم‌جا (زیرِ همون کارت)
+    el("catRow").querySelectorAll(".catcard").forEach(function(b){b.onclick=function(){
+      var key=b.dataset.c, already=b.classList.contains("on");
+      el("catRow").querySelectorAll(".catcard").forEach(function(x){x.classList.remove("on");});
+      el("catRow").querySelectorAll(".subpanel").forEach(function(x){x.classList.remove("open");x.querySelectorAll(".chip").forEach(function(ch){ch.classList.remove("on");});});
+      sel.subs=[];
+      if(already){sel.cat=null;return;}
+      b.classList.add("on");sel.cat=key;
+      var sp=el("sp-"+key);sp.classList.add("open");
+      var subs=CATMAP[key].subs||[];
+      sp.querySelectorAll(".chip").forEach(function(sb){sb.onclick=function(){
+        var s=subs[+sb.dataset.s],kk=sel.subs.indexOf(s);
+        if(kk>=0){sel.subs.splice(kk,1);sb.classList.remove("on");}else{sel.subs.push(s);sb.classList.add("on");}
+      };});
+    };});
+  }
+  el("saveBtn").onclick=function(){
+    if(!sel.cat){showToast("فقط یه قدمِ کوچیک مونده: ریشه‌اش رو از چهار دسته انتخاب کن.");return;}
+    var en={ts:Date.now(),what:sel.what.slice(),cat:sel.cat,subs:sel.subs.slice(),pat:sel.pat,next:el("nextIn").value.trim()};
+    entries.push(en);save();lastResult=en;
+    history.back();
+  };
+
+  /* ---------- shared analytics helpers ---------- */
+  function catCounts(scope){var c={plan:0,body:0,env:0,mind:0};scope.forEach(function(e){c[e.cat]=(c[e.cat]||0)+1;});return c;}
+  function topCat(counts){var t=null,n=-1;CATS.forEach(function(c){if(counts[c.key]>n){n=counts[c.key];t=c.key;}});return t;}
+  function topPat(scope){var pc={};scope.forEach(function(e){if(e.pat)pc[e.pat]=(pc[e.pat]||0)+1;});var t=null,n=0;for(var k in pc){if(pc[k]>n){n=pc[k];t=k;}}return t;}
+  function topSub(scope,cat){var sc={};scope.forEach(function(e){if((!cat||e.cat===cat)&&e.subs)e.subs.forEach(function(s){sc[s]=(sc[s]||0)+1;});});var arr=Object.keys(sc).sort(function(a,b){return sc[b]-sc[a];});return arr.length?{s:arr[0],n:sc[arr[0]]}:null;}
+  function focusTip(scope,cat){var ts=topSub(scope,cat);if(ts)return SUBFIX[ts.s]||ts.s;return CATMAP[cat].prev[0];}
+
+  function dynamicPriority(scope,top){
+    var tc=CATMAP[top];
+    var sc={}; scope.forEach(function(e){if(e.cat===top&&e.subs)e.subs.forEach(function(s){sc[s]=(sc[s]||0)+1;});});
+    var tips=Object.keys(sc).sort(function(a,b){return sc[b]-sc[a];}).map(function(s){return '<li>'+(SUBFIX[s]||s)+' <span style="color:var(--muted);font-weight:700">('+fa(sc[s])+' بار)</span></li>';});
+    if(!tips.length)tips=tc.prev.map(function(p){return '<li>'+p+'</li>';});
+    var prio='<div class="priority"><div class="pt" style="color:'+CATHEX[top]+'">روی این کار کن: '+tc.label+'</div><div style="font-size:11.5px;color:var(--muted);margin:0 0 8px">این‌ها از روی خودِ چیزایی ساخته شده که ثبت کردی، نه توصیهٔ کلی:</div><ul>'+tips.join("")+'</ul>';
+    var links=tc.links.map(function(L){return '<a class="toollink" href="'+L.u+'">'+L.l+' ←</a>';}).join("");
+    if(links)prio+='<div class="linkrow">'+links+'</div>';
+    else if(top==='mind')prio+='<div class="linkrow"><span class="toollink" style="color:var(--muted);cursor:default">ابزارِ این دسته (لذت‌های غیرغذایی) در راهه</span></div>';
+    return prio+'</div>';
+  }
+
+  /* ======================================================
+     WEEKLY SUMMARY  —  a quick glance at the last 7 days
+     ====================================================== */
+  function renderSummary(){
+    var todayS=dayStartTs(Date.now());
+    var weekStart=todayS-6*86400000;          // 7 days incl today
+    var prevStart=todayS-13*86400000;
+    var wk=entries.filter(function(e){return dayStartTs(e.ts)>=weekStart;});
+    var prev=entries.filter(function(e){var d=dayStartTs(e.ts);return d>=prevStart&&d<weekStart;});
+    var total=wk.length, ptotal=prev.length;
+
+    var head='<div class="shead"><div class="st">خلاصهٔ هفته</div><div class="sc">نگاهِ سریع به ۷ روزِ گذشته</div></div>';
+
+    if(!total){
+      var msg=entries.length
+        ? 'این هفته هیچ لغزشی ثبت نکردی. یعنی ۷ روزِ بی‌لغزش پشتِ سرته 🤍 برای دیدنِ کلِ مسیرت، گزارشِ کامل رو باز کن.'
+        : 'این هفته هنوز چیزی ثبت نشده. اشکالی نداره؛ این ابزار وقتی به‌کار میاد که چیزی برای دیدن باشه.';
+      el("summaryBody").innerHTML='<div class="scard" id="scard">'+head+'<div class="empty" style="box-shadow:none">'+msg+'</div>'+sumFoot()+'</div>';
+      return;
+    }
+
+    // headline numbers + week-over-week
+    var diff=total-ptotal;
+    var arrow=diff<0?'<span class="arrow" style="color:var(--sage-d)">↓</span>':diff>0?'<span class="arrow" style="color:var(--warm)">↑</span>':'<span class="arrow" style="color:var(--muted)">→</span>';
+    var note=ptotal===0?'هفتهٔ قبل داده‌ای برای مقایسه نبود — همین که الان داری ثبت می‌کنی، یعنی شروع کردی به دیدن.'
+      :diff<0?('نسبت به هفتهٔ قبل '+fa(Math.abs(diff))+' تا کمتر — داری مسیرت رو تنظیم می‌کنی.')
+      :diff>0?('نسبت به هفتهٔ قبل '+fa(diff)+' تا بیشتر — یه نگاه به الگوی پایین بنداز، نه به خودت.')
+      :'دقیقاً مثلِ هفتهٔ قبل. حالا وقتِ یه تنظیمِ کوچیکه که فرق رو بسازه.';
+    var cmp='<div class="cmp"><div class="cbox"><div class="cv">'+fa(total)+'</div><div class="cl">این هفته</div></div>'+arrow+
+            '<div class="cbox"><div class="cv" style="color:var(--muted)">'+fa(ptotal)+'</div><div class="cl">هفتهٔ قبل</div></div></div>'+
+            '<div class="cmpnote">'+note+'</div>';
+
+    // 7-day strip — oldest on the right, today on the left (RTL reading)
+    var days=[];
+    for(var i=0;i<7;i++){
+      var ds=weekStart+i*86400000;
+      var de=entries.filter(function(e){return dayStartTs(e.ts)===ds;});
+      var cc={},dom=null,dn=0; de.forEach(function(e){cc[e.cat]=(cc[e.cat]||0)+1;});
+      for(var k in cc){if(cc[k]>dn){dn=cc[k];dom=k;}}
+      days.push({ts:ds,n:de.length,dom:dom,today:ds===todayS});
+    }
+    var strip='<div class="weekstrip">'+days.map(function(d){
+      var style=d.n?('background:'+CATHEX[d.dom]):'';
+      return '<div class="daycell'+(d.today?' today':'')+'"><div class="dn">'+WDAYS_S[pWeekday(d.ts)]+'</div>'+
+             '<div class="dd '+(d.n?'':'clean')+'" style="'+style+'">'+(d.n?fa(d.n):'·')+'</div></div>';
+    }).join("")+'</div><div class="stripcap">رنگِ هر روز = ریشهٔ غالبِ همون روز · روزِ بی‌رنگ = روزِ بی‌لغزش</div>';
+
+    // colored cause bars (this week)
+    var counts=catCounts(wk);
+    var maxc=Math.max(1,counts.plan,counts.body,counts.env,counts.mind);
+    var top=topCat(counts);
+    var bars=CATS.filter(function(c){return counts[c.key]>0;}).sort(function(a,b){return counts[b.key]-counts[a.key];}).map(function(c){
+      var n=counts[c.key],w=n/maxc*100;
+      return '<div class="cbar"><span class="cbn">'+c.label+'</span><span class="cbt"><i style="width:'+w+'%;background:'+CATHEX[c.key]+'"></i></span><span class="cbc">'+fa(n)+'</span></div>';
+    }).join("");
+
+    // one focus for the week
+    var focus='<div class="priority"><div class="pt" style="color:'+CATHEX[top]+'">یه تمرکز برای این هفته · '+CATMAP[top].label+'</div><ul><li>'+focusTip(wk,top)+'</li></ul></div>';
+
+    // pattern flavor
+    var ptop=topPat(wk),pnote='';
+    if(ptop==='تکراری بود')pnote='بیشترِ لغزش‌های این هفته تکراری بوده — یعنی یه الگو داری، و دقیقاً همینه که ارزشِ پیشگیری ساختن داره.';
+    else if(ptop==='قابل پیش‌بینی بود')pnote='بیشترش قابلِ پیش‌بینی بوده — پس می‌شه از قبل براش نقشه چید.';
+    else if(ptop==='ناگهانی بود')pnote='بیشترش ناگهانی بوده؛ شاید فقط دادست و لازم نیست سنگینش بگیری.';
+
+    var body=cmp+
+      '<div class="subttl">کجای هفته لغزیدی؟</div>'+strip+
+      '<div class="subttl">ریشه‌ها — این هفته</div>'+bars+
+      focus+(pnote?'<div class="patnote">'+pnote+'</div>':'');
+
+    el("summaryBody").innerHTML='<div class="scard" id="scard">'+head+body+sumFoot()+'</div>';
+  }
+  function sumFoot(){return '<div class="sfoot">خلاصهٔ هفته یه <b>نگاهِ سریعه</b> — برای نمودارها و تحلیلِ کاملِ مسیرت، <b>گزارشِ کامل</b> رو ببین.</div>';}
+
+  /* ======================================================
+     FULL REPORT  —  the whole journey, with charts
+     ====================================================== */
+  function weekBuckets(){
+    var todayS=dayStartTs(Date.now()),m={},maxIdx=0;
+    entries.forEach(function(e){var idx=Math.floor((todayS-dayStartTs(e.ts))/(7*86400000));m[idx]=(m[idx]||0)+1;if(idx>maxIdx)maxIdx=idx;});
+    var span=Math.max(2,Math.min(maxIdx+1,8)),arr=[];
+    for(var i=span-1;i>=0;i--)arr.push({idx:i,n:m[i]||0}); // oldest first (left) → این هفته last (right)
+    return arr;
+  }
+  function bestCleanStreak(){
+    if(entries.length<1)return 0;
+    var d=entries.map(function(e){return dayStartTs(e.ts);}).sort(function(a,b){return a-b;}),best=0;
+    for(var i=1;i<d.length;i++){var g=(d[i]-d[i-1])/86400000-1;if(g>best)best=g;}
+    var tail=(dayStartTs(Date.now())-d[d.length-1])/86400000;if(tail>best)best=tail;
+    return Math.round(best);
+  }
+  function trendDir(data){
+    if(data.length<3)return null;
+    var mid=Math.floor(data.length/2),o=data.slice(0,mid),n=data.slice(mid);
+    var oa=o.reduce(function(s,d){return s+d.n;},0)/o.length, na=n.reduce(function(s,d){return s+d.n;},0)/n.length;
+    if(na<oa-0.4)return 'down';if(na>oa+0.4)return 'up';return 'flat';
+  }
+  function areaChart(data){
+    var W=320,H=120,padX=12,padT=16,padB=10,n=data.length,max=1;
+    data.forEach(function(d){if(d.n>max)max=d.n;});
+    var iw=W-padX*2,ih=H-padT-padB,step=n>1?iw/(n-1):0;
+    var pts=data.map(function(d,i){return {x:padX+i*step,y:padT+ih-(d.n/max)*ih,n:d.n};});
+    var line=pts.map(function(p,i){return (i?'L':'M')+p.x.toFixed(1)+' '+p.y.toFixed(1);}).join(' ');
+    var base=padT+ih;
+    var area=line+' L'+pts[n-1].x.toFixed(1)+' '+base+' L'+pts[0].x.toFixed(1)+' '+base+' Z';
+    var dots=pts.map(function(p,i){var last=i===n-1;return '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="'+(last?4:2.6)+'" fill="'+(last?'#5f7a45':'#8aa472')+'" stroke="#e9ebf0" stroke-width="'+(last?2:1.5)+'"/>';}).join('');
+    var vlabs=pts.map(function(p){return '<text x="'+p.x.toFixed(1)+'" y="'+(p.y-7).toFixed(1)+'" font-size="9" fill="#969ca8" text-anchor="middle" font-family="Vazirmatn">'+fa(p.n)+'</text>';}).join('');
+    return '<svg viewBox="0 0 '+W+' '+H+'">'+
+      '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8aa472" stop-opacity="0.34"/><stop offset="1" stop-color="#8aa472" stop-opacity="0.02"/></linearGradient></defs>'+
+      '<line x1="'+padX+'" y1="'+base+'" x2="'+(W-padX)+'" y2="'+base+'" stroke="#d7dae1" stroke-width="1"/>'+
+      '<path d="'+area+'" fill="url(#ag)"/>'+
+      '<path d="'+line+'" fill="none" stroke="#5f7a45" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>'+
+      vlabs+dots+'</svg>';
+  }
+
+  function reportNarrative(ctx){
+    var tc=CATMAP[ctx.top];
+    var meaning={plan:'یعنی بیشتر برنامه‌ات بهت فشار آورده، نه ضعفِ تو.',body:'یعنی بیشتر بدنت کم آورده (خواب، خستگی، سیکل)، نه بی‌ارادگی.',env:'یعنی بیشتر محیط و آدمای دور و برت کار دستت دادن، نه خودت.',mind:'یعنی بیشترش حالِ ذهنی و روحی بوده، نه واقعاً گرسنگی.'}[ctx.top];
+    var p='<p class="rp">ببین، از '+fa(ctx.total)+' باری که ثبت کردی، بیشترش — '+fa(ctx.counts[ctx.top])+' تا — ریشه‌اش «'+tc.label+'» بوده. '+meaning+'</p>';
+    if(ctx.dsub)p+='<p class="rp">یه نکته که شاید خودت زیاد بهش دقت نکرده باشی: «'+esc(ctx.dsub.s)+'»'+(ctx.dsub.n>1?(' '+fa(ctx.dsub.n)+' بار'):'')+' تکرار شده. این یعنی مشکلِ تو اراده نیست؛ یه نقطهٔ مشخصه که می‌شه از قبل براش نقشه کشید.</p>';
+    if(ctx.peakDay)p+='<p class="rp">از نظرِ زمان، «'+ctx.peakDay+'»‌ها برات سخت‌تره'+(ctx.peakTime?(' و بیشتر هم حوالیِ «'+ctx.peakTime+'»'):'')+'. همین رو که بدونی، می‌تونی دقیقاً همون موقع سپرتو از قبل بچینی.</p>';
+    if(ctx.trend==='down')p+='<p class="rp" style="color:var(--sage-d)">و خبرِ خوب: روندِ لغزش‌هات داره کم می‌شه. هرچی این جعبه‌رو بیشتر پر می‌کنی، مسیرتو واضح‌تر می‌بینی — همینه که جواب می‌ده.</p>';
+    else if(ctx.trend==='up')p+='<p class="rp">روندِ این چند هفته یه‌کم بالا رفته — لازم نیست سرزنش؛ فقط یعنی وقتِ یه تنظیمِ کوچیکه.</p>';
+    if(ctx.ptop==='تکراری بود')p+='<p class="rp">جنسِ بیشترِ لغزش‌هات «تکراری» بوده؛ و این در واقع خبرِ خوبیه: تکراری یعنی قابلِ‌پیش‌بینی، و قابلِ‌پیش‌بینی یعنی قابلِ‌پیشگیری.</p>';
+    else if(ctx.ptop==='قابل پیش‌بینی بود')p+='<p class="rp">بیشترِ لغزش‌هات «قابلِ پیش‌بینی» بوده؛ یعنی از قبل می‌دونی کِی و کجا قراره سخت شه — پس می‌تونی همون موقع از قبل سپرتو بچینی.</p>';
+    p+='<p class="rp">اگه جای تو بودم، این هفته فقط روی یه چیز وقت می‌ذاشتم: <b style="color:var(--sage-d)">'+esc(ctx.tip)+'</b> بقیه‌اش رو فعلاً ول کن؛ همین یکی اگه جا بیفته، خیلی از این لغزش‌ها خودبه‌خود کم می‌شن.</p>';
+    if(ctx.second&&ctx.counts[ctx.second]>0)p+='<p class="rp" style="color:var(--muted)">بعدِ اون، «'+CATMAP[ctx.second].label+'» دومین گیرِ پرتکرارته ('+fa(ctx.counts[ctx.second])+' بار) — ولی فعلاً بهش فکر نکن؛ اول همون یکی رو درست کن.</p>';
+    if(ctx.streak>=2)p+='<p class="rp" style="color:var(--muted)">و یادت باشه: طولانی‌ترین دوره‌ای که بی‌لغزش رفتی '+fa(ctx.streak)+' روز بوده — یعنی بلدی؛ فقط باید دوباره همون شرایط رو بسازی.</p>';
+    var links=tc.links.map(function(L){return '<a class="toollink" href="'+L.u+'">'+L.l+' ←</a>';}).join("");
+    return '<div class="coachbox">'+p+(links?'<div class="linkrow" style="margin-top:10px">'+links+'</div>':'')+'</div>';
+  }
+
+  function renderReport(){
+    var total=entries.length;
+    var head='<div class="shead"><div class="st">گزارشِ کاملِ جعبهٔ سیاه</div><div class="sc">'+(total?('تصویرِ کاملِ مسیرت — روی '+fa(total)+' لغزشِ ثبت‌شده'):'هنوز داده‌ای نیست')+'</div></div>';
+    if(!total){
+      el("reportBody").innerHTML='<div class="scard" id="rcard">'+head+'<div class="empty" style="box-shadow:none">هنوز چیزی ثبت نکردی. چندتا لغزش که ثبت بشه، اینجا تصویرِ کامل، نمودارِ روند، و تحلیلِ شخصی‌ت رو می‌بینی.</div><div class="sfoot">جعبهٔ سیاه سرزنشت نمی‌کنه — فقط ثبت می‌کنه چی شد تا تنظیمش کنی.</div></div>';
+      return;
+    }
+
+    var counts=catCounts(entries);
+    var maxc=Math.max(1,counts.plan,counts.body,counts.env,counts.mind);
+    var top=topCat(counts);
+    var second=null,sn=-1; CATS.forEach(function(c){if(c.key!==top&&counts[c.key]>sn){sn=counts[c.key];second=c.key;}});
+
+    var tsList=entries.map(function(e){return e.ts;});
+    var firstTs=Math.min.apply(null,tsList),lastTs=Math.max.apply(null,tsList);
+    var spanDays=Math.max(1,Math.round((dayStartTs(Date.now())-dayStartTs(firstTs))/86400000)+1);
+    var weeksTracked=Math.max(1,Math.ceil(spanDays/7));
+    var streak=bestCleanStreak();
+    var avg=total/weeksTracked;
+
+    // stat tiles
+    var stats='<div class="statgrid">'+
+      '<div class="stat"><div class="sv">'+fa(total)+'</div><div class="sl">کل لغزش‌ها</div></div>'+
+      '<div class="stat"><div class="sv">'+faDec(avg)+' <small>در هفته</small></div><div class="sl">میانگینِ هفتگی</div></div>'+
+      '<div class="stat"><div class="sv">'+fa(streak)+' <small>روز</small></div><div class="sl">طولانی‌ترین دورهٔ بی‌لغزش</div></div>'+
+      '<div class="stat"><div class="sv">'+fa(spanDays)+' <small>روز</small></div><div class="sl">بازهٔ پیگیری</div></div>'+
+    '</div>';
+
+    // trend chart
+    var wb=weekBuckets();
+    var trend=trendDir(wb);
+    var chart='<div class="subttl">مسیرت در طولِ زمان</div><div class="subdesc">تعدادِ لغزش در هر هفته — راست همین هفته، چپ هفته‌های قدیمی‌تر.</div>'+
+      '<div class="chartwrap">'+areaChart(wb)+'</div><div class="xlab"><span>این هفته</span><span>قدیمی‌تر</span></div>';
+
+    // cause distribution + legend
+    var legend='<div class="legend">'+CATS.map(function(c){return '<span class="lg"><span class="dotc" style="background:'+CATHEX[c.key]+'"></span>'+c.label+'</span>';}).join("")+'</div>';
+    var causeBars=CATS.slice().sort(function(a,b){return counts[b.key]-counts[a.key];}).map(function(c){
+      var n=counts[c.key],w=n/maxc*100,pct=Math.round(n/total*100);
+      return '<div class="cbar"><span class="cbn">'+c.label+'</span><span class="cbt"><i style="width:'+w+'%;background:'+CATHEX[c.key]+'"></i></span><span class="cbc">'+fa(n)+(n?' · '+fa(pct)+'٪':'')+'</span></div>';
+    }).join("");
+
+    // day-of-week
+    var dow=[0,0,0,0,0,0,0]; entries.forEach(function(e){dow[pWeekday(e.ts)]++;});
+    var dmax=Math.max.apply(null,dow)||1,peakDayIdx=dow.indexOf(dmax);
+    var dowHtml='<div class="dow">'+WDAYS.map(function(name,i){
+      var isPk=dow[i]===dmax&&dmax>0;
+      return '<div class="db'+(isPk?' peak':'')+'"><i style="height:'+Math.max(dow[i]/dmax*100,4)+'%"></i><div class="dbl">'+WDAYS_S[i]+'</div></div>';
+    }).join("")+'</div>';
+
+    // time of day
+    var tb=[0,0,0,0]; entries.forEach(function(e){tb[tbucket(hourOf(e.ts))]++;});
+    var tmax=Math.max.apply(null,tb)||1,peakTimeIdx=tb.indexOf(tmax);
+    var timeHtml=TBUCKETS.map(function(l,i){
+      var w=tb[i]/tmax*100;
+      return '<div class="cbar"><span class="cbn">'+l+'</span><span class="cbt"><i style="width:'+w+'%;background:var(--sage)"></i></span><span class="cbc">'+fa(tb[i])+'</span></div>';
+    }).join("");
+
+    // top root causes
+    var subC={}; entries.forEach(function(e){if(e.subs)e.subs.forEach(function(s){subC[s]=(subC[s]||0)+1;});});
+    var subList=Object.keys(subC).sort(function(a,b){return subC[b]-subC[a];}).slice(0,6).map(function(s){return '<div class="ti">• '+esc(s)+' <b>('+fa(subC[s])+')</b></div>';}).join("");
+
+    // where you went off (what — now multi)
+    var wc={}; entries.forEach(function(e){whatArr(e).forEach(function(w){wc[w]=(wc[w]||0)+1;});});
+    var whatList=Object.keys(wc).sort(function(a,b){return wc[b]-wc[a];}).slice(0,5).map(function(w){return '<div class="ti">• '+esc(w)+' <b>('+fa(wc[w])+')</b></div>';}).join("");
+
+    // patterns
+    var pcAll={}; entries.forEach(function(e){if(e.pat)pcAll[e.pat]=(pcAll[e.pat]||0)+1;});
+    var patChips=Object.keys(pcAll).sort(function(a,b){return pcAll[b]-pcAll[a];}).map(function(p){return '<span class="chip" style="margin:3px">'+esc(p)+' ('+fa(pcAll[p])+')</span>';}).join("");
+
+    var dsub=topSub(entries,top),ptop=topPat(entries);
+    var narrative=reportNarrative({
+      top:top,second:second,counts:counts,total:total,ptop:ptop,dsub:dsub,streak:streak,trend:trend,
+      peakDay:(total>=4&&dmax>=2)?WDAYS[peakDayIdx]:null,
+      peakTime:(total>=4&&tmax>=2)?TBUCKETS[peakTimeIdx]:null,
+      tip:focusTip(entries,top)
+    });
+
+    var prio=dynamicPriority(entries,top);
+    var range='<div style="font-size:10.5px;color:var(--muted);text-align:center;margin-top:14px">از '+dateStr(firstTs)+' تا '+dateStr(lastTs)+'</div>';
+
+    var body=stats+chart+
+      '<div class="subttl"><span class="dotc" style="background:'+CATHEX[top]+'"></span>ریشهٔ لغزش‌ها</div>'+legend+causeBars+
+      '<div class="subttl">روزهای سخت‌ترت</div><div class="subdesc">'+((total>=4&&dmax>=2)?('انگار «'+WDAYS[peakDayIdx]+'»‌ها بیشتر می‌لغزی — همون روز رو از قبل سبک‌تر بچین.'):'هنوز برای جمع‌بندیِ روزها داده کمه؛ چندتای دیگه که ثبت بشه، الگوش پیدا می‌شه.')+'</div>'+dowHtml+
+      '<div class="subttl">ساعت‌های پرخطر</div>'+timeHtml+
+      (subList?'<div class="subttl">بیشترین ریشه‌ها</div><div class="toplist">'+subList+'</div>':'')+
+      (whatList?'<div class="subttl">بیشتر کجا از مسیر خارج شدی</div><div class="toplist">'+whatList+'</div>':'')+
+      (patChips?'<div class="subttl">جنسِ لغزش‌ها</div><div class="chiprow">'+patChips+'</div>':'')+
+      narrative+prio+range;
+
+    el("reportBody").innerHTML='<div class="scard" id="rcard">'+head+body+'<div class="sfoot">جعبهٔ سیاه سرزنشت نمی‌کنه — فقط ثبت می‌کنه چی شد تا تنظیمش کنی.</div></div>';
+  }
+
+  function saveImage(cardId,fname){
+    var card=el(cardId);if(!card)return;
+    if(typeof html2canvas==="undefined"){alert("برای ذخیرهٔ عکس به اینترنت نیاز است. می‌توانی اسکرین‌شات بگیری.");return;}
+    html2canvas(card,{backgroundColor:"#e9ebf0",scale:2,useCORS:true}).then(function(canvas){
+      try{var a=document.createElement("a");a.href=canvas.toDataURL("image/jpeg",0.95);a.download=fname;document.body.appendChild(a);a.click();a.remove();}
+      catch(e){var w=window.open();if(w)w.document.write('<img src="'+canvas.toDataURL("image/jpeg",0.95)+'" style="width:100%">');}
+    }).catch(function(){alert("ساختِ عکس ناموفق بود؛ می‌توانی اسکرین‌شات بگیری.");});
+  }
+
+  el("newBtn").onclick=function(){lastResult=null;showView("log",true);};
+  el("sumBtn").onclick=function(){showView("summary",true);};
+  el("reportBtn").onclick=function(){showView("report",true);};
+  el("logBack").onclick=function(){history.back();};
+  el("sumBack").onclick=function(){history.back();};
+  el("repBack").onclick=function(){history.back();};
+  el("saveImg").onclick=function(){saveImage("scard","خلاصه-جعبه-سیاه.jpg");};
+  el("saveImgR").onclick=function(){saveImage("rcard","گزارش-جعبه-سیاه.jpg");};
+
+  /* ---------- backup reminder (data lives only in this browser) ---------- */
+  var visits=1;
+  try{visits=(parseInt(localStorage.getItem("bb_v"),10)||0)+1;localStorage.setItem("bb_v",String(visits));}catch(e){}
+  function closeBackup(){el("backupModal").classList.remove("show");try{localStorage.setItem("bb_remind",String(visits));}catch(e){}}
+  el("mDismiss").onclick=closeBackup;
+  el("mGoReport").onclick=function(){closeBackup();showView("report",true);};
+  el("backupModal").onclick=function(e){if(e.target===el("backupModal"))closeBackup();};
+  function maybeBackupReminder(){
+    if(entries.length<3)return;
+    var last=parseInt(localStorage.getItem("bb_remind"),10); if(isNaN(last))last=-4;
+    if(visits-last>=4)setTimeout(function(){if(el("homeView").style.display!=="none")el("backupModal").classList.add("show");},800);
+  }
+
+  history.replaceState({v:"home"},"");
+  renderHome();
+  maybeBackupReminder();
+})();
+</script>
+</body>
+</html>
