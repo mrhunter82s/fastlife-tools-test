@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ایده‌ساز وعدهٔ کوچک — فست لایف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+
+  :root{--bg:#e9ebf0;--lt:#fff;--dk:#c4c8d2;--ink:#4a4e58;--ink-d:#363941;--muted:#969ca8;--line:#d7dae1;--sage:#8aa472;--sage-d:#5f7a45;--warm:#c88f6a}
+  *{box-sizing:border-box}html,body{margin:0}button,a{font:inherit}
+  body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+  [hidden]{display:none!important}.wrap{max-width:500px;margin:0 auto;padding:22px 16px 80px}
+  header{text-align:center;margin-bottom:8px}h1{font-size:25px;font-weight:800;color:var(--ink-d);margin:0}.sub{color:var(--muted);font-size:12px;margin:4px 0 0}
+  .card{background:var(--bg);border-radius:24px;padding:19px 17px;margin:16px 2px;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}
+  .lead{font-size:15px;color:var(--ink-d);text-align:center;line-height:2;margin:0;font-weight:700}.lead b{color:var(--sage-d)}
+  .qlbl{font-size:12.5px;font-weight:800;color:var(--ink-d);margin:18px 2px 10px}.chiprow,.chips{display:flex;flex-wrap:wrap;gap:8px}
+  .schip,.chip{border:0;background:var(--bg);border-radius:999px;padding:8px 12px;font-size:11px;font-weight:700;color:var(--ink);box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}
+  .schip{cursor:pointer}.schip.on{box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt);color:var(--sage-d)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:10px}.pick{position:relative;background:var(--bg);border:0;border-radius:16px;padding:10px 4px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;box-shadow:5px 5px 11px var(--dk),-5px -5px 11px var(--lt)}
+  .pick:active{transform:scale(.97)}.pick .mo{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 3px 3px 6px var(--dk),inset -3px -3px 6px var(--lt)}.pick .mo svg{width:27px;height:27px}.pick b{font-size:10.5px;font-weight:600;line-height:1.35}.pick.on{box-shadow:inset 5px 5px 11px var(--dk),inset -5px -5px 11px var(--lt)}.pick.on b{color:var(--sage-d);font-weight:700}
+  .tick{position:absolute;top:5px;right:5px;width:15px;height:15px;border-radius:50%;background:var(--sage);opacity:0}.pick.on .tick{opacity:1}.tick:after{content:'';position:absolute;top:3px;right:5px;width:3px;height:6px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}
+  .morebtn{display:none;margin:9px 2px 2px;border:0;background:var(--bg);border-radius:999px;font-size:11px;font-weight:700;color:var(--sage-d);padding:8px 14px;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}.grid .pick.more{display:none}.grid.show-all .pick.more{display:flex}.custom-area{margin-top:18px;padding-top:13px;border-top:1px solid var(--line)}.custom-toggle{border:0;background:none;color:var(--warm);font-size:12px;font-weight:800;cursor:pointer;padding:8px 2px}.addrow{display:none;grid-template-columns:minmax(0,1fr) auto auto;gap:7px;margin-top:8px}.addrow.open{display:grid}.addrow input,.addrow select{min-width:0;border:0;outline:0;background:var(--bg);border-radius:12px;padding:10px;font-size:11px;color:var(--ink);box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}.addbtn{border:0;background:var(--bg);border-radius:12px;padding:9px 12px;color:var(--sage-d);font-size:11px;font-weight:800;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}@media(max-width:390px){.addrow{grid-template-columns:1fr auto}.addrow select{grid-column:1/-1;grid-row:2}}
+  .bigbtn,.ghostbtn{display:block;width:100%;border:0;background:var(--bg);border-radius:18px;cursor:pointer;font-weight:800;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}.bigbtn{font-size:15px;color:var(--sage-d);padding:16px;margin-top:18px}.ghostbtn{font-size:12px;color:var(--muted);padding:13px;margin-top:10px}.bigbtn:active,.ghostbtn:active,.navbtn:active,.openbtn:active{box-shadow:inset 4px 4px 9px var(--dk),inset -4px -4px 9px var(--lt)}
+  .secttl{font-size:12px;font-weight:800;color:var(--muted);margin:22px 4px 10px}.link{display:block;text-decoration:none;border-radius:14px;padding:12px 14px;margin-bottom:9px;font-size:12px;color:var(--ink);box-shadow:4px 4px 9px var(--dk),-4px -4px 9px var(--lt)}.link b{color:var(--sage-d)}
+  .results-top,.listtop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:3px 2px 18px}.results-top h2{font-size:18px;color:var(--ink-d);margin:0}.results-top p{font-size:11px;color:var(--muted);margin:2px 0 0}.navbtn,.backbtn{border:0;background:var(--bg);border-radius:999px;padding:9px 13px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}.backbtn{color:var(--sage-d)}
+  .result-count{font-size:12px;font-weight:800;color:var(--sage-d);margin:0 4px 12px}
+  .results{display:grid;gap:16px}.recipe{overflow:hidden;border-radius:22px;background:var(--bg);box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}.art{position:relative;width:100%;aspect-ratio:16/9;border:0;padding:0;display:block;overflow:hidden;background:#d6d9df;cursor:pointer}.cardthumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.match{position:absolute;top:12px;right:12px;z-index:2;background:rgba(233,235,240,.9);color:var(--sage-d);border-radius:999px;padding:6px 10px;font-size:10.5px;font-weight:800;backdrop-filter:blur(6px)}
+  .cardplay,.playmark span{border:1px solid rgba(255,255,255,.48);border-radius:50%;display:grid;place-items:center;background:rgba(233,235,240,.86);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);box-shadow:0 8px 22px rgba(20,22,26,.22),inset 2px 2px 5px rgba(255,255,255,.72),inset -2px -2px 5px rgba(145,150,160,.32)}.cardplay{position:absolute;z-index:2;left:12px;bottom:12px;width:40px;height:40px}.play-svg{display:block;color:var(--warm);width:18px;height:18px;transform:translateX(1px)}
+  .rbody{padding:15px 16px 17px}.rtitle{font-size:16px;font-weight:800;color:var(--ink-d);margin:0}.en{font-size:10.5px;color:var(--muted);direction:ltr;text-align:right;margin:1px 0 9px}.missing{font-size:11.5px;color:var(--muted);margin:10px 0}.card-actions{display:flex;gap:9px;align-items:center}.openbtn{display:inline-block;text-decoration:none;border:0;background:var(--bg);border-radius:999px;padding:9px 14px;font-size:11px;font-weight:800;color:var(--sage-d);cursor:pointer;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}.fav{margin-right:auto;width:36px;height:36px;border:0;border-radius:50%;background:var(--bg);display:grid;place-items:center;cursor:pointer;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}.fav svg{width:19px;height:19px}
+  .empty,.prov{font-size:12px;color:var(--muted);text-align:center;border-radius:18px;padding:18px;line-height:2}.empty{box-shadow:inset 4px 4px 9px var(--dk),inset -4px -4px 9px var(--lt)}.prov{margin-top:22px}
+  .dmodal{position:fixed;inset:0;background:rgba(54,57,65,.5);display:none;align-items:flex-end;justify-content:center;z-index:50}.dmodal.open{display:flex}.dmcard{background:var(--bg);width:100%;max-width:500px;max-height:94dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;border-radius:28px 28px 0 0;padding:10px 18px 30px;box-shadow:0 -14px 36px rgba(54,57,65,.32);touch-action:pan-y}.handle{width:44px;height:5px;border-radius:999px;background:var(--dk);margin:2px auto 10px}.dmbar{display:flex;justify-content:flex-end;position:sticky;top:0;z-index:4}.dmx{width:38px;height:38px;border:0;border-radius:50%;background:var(--bg);color:var(--ink);font-size:20px;cursor:pointer;box-shadow:3px 3px 7px var(--dk),-3px -3px 7px var(--lt)}
+  .video-thumb{display:block;position:relative;margin:4px 0 15px;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:#d6d9df;box-shadow:inset 3px 3px 8px var(--dk),inset -3px -3px 8px var(--lt)}.video-thumb img{width:100%;height:100%;object-fit:cover;display:block}.playmark{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(to bottom,rgba(25,27,31,.02),rgba(25,27,31,.14))}.playmark span{width:62px;height:62px}.playmark .play-svg{width:27px;height:27px;transform:translateX(1.5px)}
+  .dtitle{font-size:19px;font-weight:800;color:var(--ink-d);margin:5px 1px 0}.source-note{font-size:10.5px;color:var(--muted);line-height:1.8;margin:9px 0}.detailbox{border-radius:18px;padding:14px 15px;margin:12px 0;box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}.detailbox h3{font-size:12px;color:var(--ink-d);margin:0 0 7px}.detailbox p{font-size:12px;margin:0;line-height:2}.detailbox.mod{border-right:3px solid var(--sage)}.dmact{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}.ytbtn{flex:1 1 100%;text-align:center;color:#fff;background:var(--sage-d);box-shadow:none}.materials{display:flex;flex-wrap:wrap;gap:6px}.materials span{font-size:11px;background:rgba(255,255,255,.35);border-radius:999px;padding:5px 9px}
+  .scard{background:var(--bg);border-radius:24px;padding:20px 18px;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}.shead{text-align:center;border-bottom:1.5px dashed var(--line);padding-bottom:13px;margin-bottom:12px}.shead .st{font-size:18px;font-weight:800;color:var(--ink-d)}.shead .sc{font-size:11.5px;color:var(--muted)}.srow{display:flex;align-items:center;gap:9px;padding:8px 2px;font-size:13px;border-bottom:1px dashed var(--line)}.srow .sn{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px;color:var(--sage-d);box-shadow:2px 2px 4px var(--dk),-2px -2px 4px var(--lt)}.srow .rx{margin-right:auto;border:0;background:none;color:var(--warm);font-size:17px}.sfoot{font-size:11px;color:var(--muted);line-height:1.9;text-align:center;margin-top:14px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink-d);color:#fff;font-size:12px;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:70}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(min-width:560px){.dmodal{align-items:center}.dmcard{border-radius:28px}}
+
+</style>
+</head>
+<body>
+
+<div class="wrap" id="homeView">
+  <header><h1>ته بندی</h1><p class="sub">میان‌وعده‌های سالم، سبک و سیرکننده</p></header>
+  <div class="card"><p class="lead">بگو تو خونه چی داری؛ تا چندتا <b>میان‌وعدهٔ سالم و خوشمزه</b> بهت پیشنهاد بدم.</p></div>
+  <div class="card">
+    <div class="qlbl">الان دنبال چی هستی؟</div><div class="chiprow" id="scenRow"></div>
+    <div class="qlbl">پروتئین</div><div class="grid" id="gP"></div><button class="morebtn" id="moreP" type="button">بیشتر</button>
+    <div class="qlbl">سبزیجات</div><div class="grid" id="gV"></div><button class="morebtn" id="moreV" type="button">بیشتر</button>
+    <div class="qlbl">کربوهیدرات و حبوبات</div><div class="grid" id="gC"></div><button class="morebtn" id="moreC" type="button">بیشتر</button>
+    <div class="qlbl">میوه‌ها</div><div class="grid" id="gF"></div><button class="morebtn" id="moreF" type="button">بیشتر</button>
+    <div class="qlbl">همراه</div><div class="grid" id="gH"></div><button class="morebtn" id="moreH" type="button">بیشتر</button>
+    <div class="custom-area"><button class="custom-toggle" id="customToggle" type="button">＋ موارد دیگه</button><form class="addrow" id="customForm"><input id="customInput" maxlength="28" placeholder="اسم مادهٔ دلخواه" aria-label="نام مادهٔ دلخواه"><select id="customGroup" aria-label="دستهٔ مادهٔ دلخواه"><option value="P">پروتئین</option><option value="V">سبزیجات</option><option value="C">کربوهیدرات و حبوبات</option><option value="F">میوه‌ها</option><option value="H">همراه</option></select><button class="addbtn" type="submit">اضافه</button></form></div>
+    <button class="bigbtn" id="goBtn">ایده بده</button><button class="ghostbtn" id="surpriseBtn">فرقی نمی‌کنه، چند ایدهٔ خوب نشونم بده</button>
+  </div>
+  <button class="ghostbtn" id="menuBtn">منوی من</button>
+  <div class="prov">این ویدیوها از منابع پرمخاطب انتخاب شده‌اند و پیش از انتشار نهایی باید دستی بررسی شوند.</div>
+</div>
+<div class="wrap" id="resView" hidden>
+  <div class="results-top"><div><h2>ایده‌های ته بندی</h2><p>سبک، واقعی و قابل انجام</p></div><button class="backbtn" id="rBack">ویرایش مواد</button></div>
+  <div class="result-count" id="resCount"></div><section class="results" id="resBody"></section>
+  <div class="prov">این ویدیوها از منابع پرمخاطب انتخاب شده‌اند و پیش از انتشار نهایی باید دستی بررسی شوند.</div>
+</div>
+<div class="wrap" id="menuView" hidden>
+  <div class="listtop"><button class="navbtn" id="saveImg">ذخیرهٔ عکس</button><button class="backbtn" id="mBack">بازگشت</button></div><div id="menuBody"></div>
+</div>
+<div class="dmodal" id="dmodal" role="dialog" aria-modal="true" aria-labelledby="detailTitle"><article class="dmcard" id="dmcard"><div class="handle"></div><div class="dmbar"><button class="dmx" id="dmClose" aria-label="بستن">×</button></div><div id="dmBody"></div></article></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  function fa(n){return String(n).replace(/[0-9]/g,function(d){return "۰۱۲۳۴۵۶۷۸۹"[d];});}
+  function esc(v){return String(v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c];});}
+  // لحن گفتاری و نزدیک به محصول — هم‌سان «وعده‌ساز». متن‌های رسمی قدیمی و جدید را یکدست می‌کند.
+  function spoken(s){return String(s).replace(/نشود/g,'نشه').replace(/شود/g,'بشه').replace(/می‌توانی/g,'می‌تونی').replace(/می‌تواند/g,'می‌تونه').replace(/ را(?=[ ،؛.!؟]|$)/g,' رو');}
+  var el=function(id){return document.getElementById(id);};
+  var I={
+    egg:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="24" rx="12" ry="15" fill="#f4ead2" stroke="#cdbb97" stroke-width="1.6"/><ellipse cx="18" cy="19" rx="3.2" ry="4.5" fill="#fff" opacity=".55"/></svg>',
+    eggwhite:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="24" rx="12" ry="15" fill="#fbfaf6" stroke="#cdd2da" stroke-width="1.6"/><ellipse cx="18" cy="19" rx="3.2" ry="4.5" fill="#fff"/></svg>',
+    yogurt:'<svg viewBox="0 0 44 44"><path d="M14 16 h16 l-2 16 h-12 z" fill="#fff" stroke="#cdbb97" stroke-width="1.6"/><ellipse cx="22" cy="16" rx="8" ry="2.6" fill="#fff" stroke="#cdbb97" stroke-width="1.6"/><rect x="17" y="21" width="10" height="4" rx="2" fill="#d9c6a0" opacity=".5"/></svg>',
+    tuna:'<svg viewBox="0 0 44 44"><rect x="12" y="14" width="20" height="18" rx="3" fill="#cfd3d9" stroke="#8a8f99" stroke-width="1.6"/><ellipse cx="22" cy="14" rx="10" ry="3.2" fill="#e2e4e8" stroke="#8a8f99" stroke-width="1.6"/><path d="M16 23 q6 -3 12 0" stroke="#aeb3bb" stroke-width="1.4" fill="none"/></svg>',
+    cheese:'<svg viewBox="0 0 44 44"><path d="M10 28 L31 15 L33 28 Z" fill="#ecc873" stroke="#bd982f" stroke-width="1.6" stroke-linejoin="round"/><circle cx="20" cy="24" r="1.9" fill="#d8ab3c"/><circle cx="26" cy="23" r="1.4" fill="#d8ab3c"/></svg>',
+    chicken:'<svg viewBox="0 0 44 44"><circle cx="27" cy="17" r="11" fill="#e2b07a" stroke="#b07f47" stroke-width="1.6"/><rect x="6" y="25" width="17" height="6.5" rx="3.2" transform="rotate(-32 14 28)" fill="#efe3cb" stroke="#b07f47" stroke-width="1.6"/></svg>',
+    turkey:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="26" rx="13" ry="8.5" fill="#d8a36a" stroke="#a9763f" stroke-width="1.6"/><circle cx="22" cy="20" r="6.2" fill="#e0b27e" stroke="#a9763f" stroke-width="1.6"/><path d="M15 32 l-2 4 M29 32 l2 4" stroke="#a9763f" stroke-width="2.4" stroke-linecap="round"/></svg>',
+    shrimp:'<svg viewBox="0 0 44 44"><path d="M29 14 q-13 1 -15 12 q-1 8 8 8 q9 0 11 -7 q-7 3 -11 -1 q-4 -5 1 -9 q4 -3 6 -3z" fill="#e89a86" stroke="#b35e48" stroke-width="1.5"/><path d="M29 14 l4 -3 M14 33 l-2 3" stroke="#b35e48" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    cucumber:'<svg viewBox="0 0 44 44"><rect x="9" y="18" width="26" height="9" rx="4.5" transform="rotate(-18 22 22)" fill="#9bb87a" stroke="#5f7a3f" stroke-width="1.6"/><circle cx="17" cy="21" r="1.3" fill="#456029"/><circle cx="23" cy="23" r="1.3" fill="#456029"/></svg>',
+    tomato:'<svg viewBox="0 0 44 44"><circle cx="22" cy="24" r="12" fill="#d9705c" stroke="#b04a39" stroke-width="1.6"/><path d="M22 12 l-4 -3 M22 12 l4 -3 M22 12 v-4" stroke="#6f8a5b" stroke-width="2" stroke-linecap="round"/></svg>',
+    lettuce:'<svg viewBox="0 0 44 44"><path d="M22 12 q12 2 11 14 q-11 6 -22 0 q-1 -12 11 -14z" fill="#9dbe73" stroke="#5f7a3f" stroke-width="1.6"/><path d="M22 16 v14 M16 20 q6 4 12 0" stroke="#6f8a5b" stroke-width="1.3" fill="none"/></svg>',
+    celery:'<svg viewBox="0 0 44 44"><path d="M16 16 q-2 14 6 18 M22 14 v20 M28 16 q2 14 -6 18" fill="none" stroke="#6f9a50" stroke-width="2.4" stroke-linecap="round"/><path d="M14 13 h16 l-1 4 h-14z" fill="#9dbe73" stroke="#5f7a3f" stroke-width="1.4"/></svg>',
+    pepper:'<svg viewBox="0 0 44 44"><path d="M14 19 q8 -5 16 0 q3 9 -3 15 q-5 3 -10 0 q-6 -6 -3 -15z" fill="#e0a94e" stroke="#b9802f" stroke-width="1.6"/><path d="M22 14 v-3 q3 0 3 3" stroke="#6f8a5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    carrot:'<svg viewBox="0 0 44 44"><path d="M14 17 L30 17 L23 35 Z" fill="#e09a52" stroke="#b56f2f" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 13 v4 M22 11 v6 M28 13 v4" stroke="#6f8a5b" stroke-width="2.2" stroke-linecap="round"/></svg>',
+    herbs:'<svg viewBox="0 0 44 44"><path d="M22 34 q-8 -10 -2 -22 q3 8 2 22z" fill="#6f9a50" stroke="#4f7036" stroke-width="1.4"/><path d="M22 34 q8 -8 4 -19 q-4 7 -4 19z" fill="#8aab63" stroke="#4f7036" stroke-width="1.4"/></svg>',
+    broccoli:'<svg viewBox="0 0 44 44"><circle cx="16" cy="18" r="5" fill="#7f9e5c" stroke="#5f7a3f" stroke-width="1.4"/><circle cx="25" cy="16" r="5.5" fill="#8aab63" stroke="#5f7a3f" stroke-width="1.4"/><circle cx="22" cy="22" r="5" fill="#7f9e5c" stroke="#5f7a3f" stroke-width="1.4"/><path d="M19 24 l-2 9 M24 25 l2 8" stroke="#9aa15f" stroke-width="3" stroke-linecap="round"/></svg>',
+    berry:'<svg viewBox="0 0 44 44"><circle cx="18" cy="24" r="6" fill="#9a5a8a" stroke="#6f3a60" stroke-width="1.4"/><circle cx="27" cy="22" r="6" fill="#b06a9a" stroke="#6f3a60" stroke-width="1.4"/><path d="M27 16 q1 -4 4 -5" stroke="#6f8a5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    apple:'<svg viewBox="0 0 44 44"><path d="M22 18 q-6 -6 -11 1 q-3 12 11 16 q14 -4 11 -16 q-5 -7 -11 -1z" fill="#cf6f5e" stroke="#a84a3a" stroke-width="1.6"/><path d="M22 18 v-5 q4 -1 5 -4" stroke="#6f8a5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    walnut:'<svg viewBox="0 0 44 44"><circle cx="22" cy="23" r="12" fill="#cdaf86" stroke="#9a7b54" stroke-width="1.6"/><path d="M22 11 v24 M16 14 q4 9 0 18 M28 14 q-4 9 0 18 M11 19 q11 4 22 0 M11 27 q11 -4 22 0" stroke="#9a7b54" stroke-width="1" fill="none" opacity=".6"/></svg>',
+    choc:'<svg viewBox="0 0 44 44"><rect x="14" y="12" width="16" height="20" rx="2" fill="#8a5230" stroke="#5f3620" stroke-width="1.6"/><path d="M22 12 v20 M14 22 h16" stroke="#5f3620" stroke-width="1.1"/></svg>',
+    avocado:'<svg viewBox="0 0 44 44"><path d="M22 12 q8 4 8 13 q0 9 -8 9 q-8 0 -8 -9 q0 -9 8 -13z" fill="#9dbe73" stroke="#5f7a3f" stroke-width="1.6"/><circle cx="22" cy="25" r="4.5" fill="#8a5230"/></svg>',
+    spinach:'<svg viewBox="0 0 44 44"><path d="M12 30 q3 -16 20 -18 q1 16 -16 18 q-3 0 -4 0z" fill="#6f9a50" stroke="#4f7036" stroke-width="1.5"/><path d="M14 28 q9 -9 16 -13" stroke="#cfe0b8" stroke-width="1.3" fill="none"/></svg>',
+    mushroom:'<svg viewBox="0 0 44 44"><path d="M11 21 q0 -10 11 -10 q11 0 11 10 q-11 5 -22 0z" fill="#cdbb97" stroke="#9a7b54" stroke-width="1.6"/><rect x="19" y="21" width="6" height="11" rx="2.5" fill="#efe7d6" stroke="#9a7b54" stroke-width="1.5"/></svg>',
+    cabbage:'<svg viewBox="0 0 44 44"><circle cx="22" cy="23" r="12" fill="#bcd29a" stroke="#6f8a5b" stroke-width="1.6"/><path d="M22 11 v24 M11 23 q11 7 22 0 M14 15 q8 10 0 16" stroke="#6f8a5b" stroke-width="1.3" fill="none" opacity=".7"/></svg>',
+    olive:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="24" rx="7" ry="10" fill="#6f8a3f" stroke="#4f6030" stroke-width="1.6"/><path d="M22 14 q2 -4 6 -4" stroke="#6f8a5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    corn:'<svg viewBox="0 0 44 44"><path d="M22 12 q7 2 7 12 q0 9 -7 10 q-7 -1 -7 -10 q0 -10 7 -12z" fill="#e6c45e" stroke="#bd9a2f" stroke-width="1.5"/><path d="M18 17 v16 M22 16 v18 M26 17 v16" stroke="#bd9a2f" stroke-width="1" opacity=".6"/><path d="M22 12 l-4 -3 M22 12 l4 -3" stroke="#7f9e5c" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    potato:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="24" rx="13" ry="10" fill="#cdaf86" stroke="#9a7b54" stroke-width="1.6"/><circle cx="17" cy="22" r="1.2" fill="#8a6c46"/><circle cx="25" cy="26" r="1.2" fill="#8a6c46"/><circle cx="27" cy="21" r="1" fill="#8a6c46"/></svg>',
+    legume:'<svg viewBox="0 0 44 44"><circle cx="16" cy="20" r="4.5" fill="#b5604c" stroke="#8a3f30" stroke-width="1.3"/><circle cx="25" cy="18" r="4.5" fill="#d8b87a" stroke="#a9853f" stroke-width="1.3"/><circle cx="21" cy="26" r="4.5" fill="#7f9e5c" stroke="#5f7a3f" stroke-width="1.3"/></svg>',
+    oats:'<svg viewBox="0 0 44 44"><path d="M12 24 q10 -5 20 0 q-2 10 -10 10 q-8 0 -10 -10z" fill="#e3d8bf" stroke="#b3a07a" stroke-width="1.6"/><path d="M16 23 q6 -3 12 0" stroke="#c2b08a" stroke-width="1.3" fill="none"/></svg>',
+    chia:'<svg viewBox="0 0 44 44"><circle cx="17" cy="19" r="2.4" fill="#4a4e58"/><circle cx="24" cy="17" r="2.4" fill="#7a7264"/><circle cx="21" cy="24" r="2.4" fill="#4a4e58"/><circle cx="27" cy="23" r="2.4" fill="#7a7264"/><circle cx="16" cy="26" r="2.4" fill="#4a4e58"/></svg>',
+    banana:'<svg viewBox="0 0 44 44"><path d="M13 14 q2 16 18 18 q4 -1 3 -4 q-14 -2 -16 -15 q-1 -3 -5 1z" fill="#e6c45e" stroke="#bd9a2f" stroke-width="1.6"/></svg>',
+    orange:'<svg viewBox="0 0 44 44"><circle cx="22" cy="24" r="12" fill="#e69a4e" stroke="#bd7530" stroke-width="1.6"/><circle cx="22" cy="12.5" r="2" fill="#6f8a5b"/></svg>',
+    grape:'<svg viewBox="0 0 44 44"><g fill="#9a6fb0" stroke="#6f4a82" stroke-width="1.1"><circle cx="18" cy="22" r="3.4"/><circle cx="25" cy="22" r="3.4"/><circle cx="21.5" cy="27" r="3.4"/><circle cx="28" cy="27" r="3.4"/><circle cx="18" cy="31" r="3.4"/></g><path d="M23 16 q1 -4 5 -5" stroke="#6f8a5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    kiwi:'<svg viewBox="0 0 44 44"><circle cx="22" cy="23" r="12" fill="#8aa05a" stroke="#5f7a3f" stroke-width="1.6"/><circle cx="22" cy="23" r="6.5" fill="#cfe0b0"/><g fill="#3a4a24"><circle cx="22" cy="16.5" r="1"/><circle cx="22" cy="29.5" r="1"/><circle cx="15.5" cy="23" r="1"/><circle cx="28.5" cy="23" r="1"/></g></svg>',
+    pear:'<svg viewBox="0 0 44 44"><path d="M22 14 q-4 0 -4 5 q-6 3 -6 10 q0 6 10 6 q10 0 10 -6 q0 -7 -6 -10 q0 -5 -4 -5z" fill="#bcd27a" stroke="#7a8a3f" stroke-width="1.6"/><path d="M22 14 q1 -4 4 -4" stroke="#7a5a3a" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    peach:'<svg viewBox="0 0 44 44"><circle cx="22" cy="24" r="12" fill="#f0b58f" stroke="#cf8a5e" stroke-width="1.6"/><path d="M22 12 v24" stroke="#cf8a5e" stroke-width="1" opacity=".5"/><path d="M22 12 q3 -2 5 -1" stroke="#6f8a5b" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    watermelon:'<svg viewBox="0 0 44 44"><path d="M11 16 a11 11 0 0 0 22 0z" fill="#d9705c" stroke="#6f8a5b" stroke-width="1.6"/><path d="M11 16 a11 11 0 0 1 22 0" fill="none" stroke="#6f8a5b" stroke-width="2.4"/><circle cx="19" cy="20" r="1" fill="#3a2a24"/><circle cx="24" cy="21" r="1" fill="#3a2a24"/></svg>',
+    melon:'<svg viewBox="0 0 44 44"><circle cx="22" cy="23" r="12" fill="#e6d29a" stroke="#bda86a" stroke-width="1.6"/><path d="M14 18 q8 10 16 0 M13 24 q9 9 18 0" stroke="#bda86a" stroke-width="1" fill="none" opacity=".6"/></svg>',
+    pineapple:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="26" rx="9" ry="10" fill="#e6c45e" stroke="#bd9a2f" stroke-width="1.6"/><path d="M16 22 l12 8 M28 22 l-12 8" stroke="#bd9a2f" stroke-width="1" opacity=".6"/><path d="M22 16 l-4 -6 M22 16 v-7 M22 16 l4 -6" stroke="#6f9a50" stroke-width="2" stroke-linecap="round"/></svg>',
+    pomegranate:'<svg viewBox="0 0 44 44"><circle cx="22" cy="24" r="11" fill="#c5503a" stroke="#9a3a2a" stroke-width="1.6"/><path d="M22 13 l-3 -4 M22 13 l3 -4 M22 13 v-4" stroke="#9a3a2a" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="24" r="1.3" fill="#e3b3a8"/><circle cx="25" cy="26" r="1.3" fill="#e3b3a8"/></svg>',
+    grapefruit:'<svg viewBox="0 0 44 44"><circle cx="22" cy="23" r="12" fill="#e2897f" stroke="#bd5c50" stroke-width="1.6"/><circle cx="22" cy="23" r="7" fill="#f0b3a8" opacity=".55"/></svg>',
+    date:'<svg viewBox="0 0 44 44"><ellipse cx="22" cy="23" rx="8" ry="12" fill="#8a5230" stroke="#5f3620" stroke-width="1.6"/><path d="M22 11 v-2" stroke="#5f3620" stroke-width="2" stroke-linecap="round"/></svg>',
+    sweetpotato:'<svg viewBox="0 0 44 44"><path d="M11 26 q4 -10 16 -12 q9 0 6 7 q-4 9 -16 11 q-8 1 -6 -6z" fill="#c87a6a" stroke="#9a5040" stroke-width="1.6"/></svg>',
+    quinoa:'<svg viewBox="0 0 44 44"><path d="M12 23 q10 -5 20 0 q-2 11 -10 11 q-8 0 -10 -11z" fill="#e6dcc6" stroke="#b3a07a" stroke-width="1.6"/><circle cx="18" cy="24" r="1.3" fill="#c79850"/><circle cx="23" cy="26" r="1.3" fill="#c79850"/><circle cx="27" cy="24" r="1.3" fill="#c79850"/></svg>',
+    rice:'<svg viewBox="0 0 44 44"><path d="M11 22 q11 -5 22 0 q-2 11 -11 11 q-9 0 -11 -11z" fill="#eef1f5" stroke="#9aa0ab" stroke-width="1.6"/><circle cx="18" cy="24" r="1" fill="#c2c8d0"/><circle cx="22" cy="26" r="1" fill="#c2c8d0"/><circle cx="26" cy="24" r="1" fill="#c2c8d0"/></svg>',
+    bread:'<svg viewBox="0 0 44 44"><path d="M11 22 q0 -8 11 -8 q11 0 11 8 v9 q0 2 -2 2 h-18 q-2 0 -2 -2 z" fill="#cda66e" stroke="#9a7440" stroke-width="1.6"/><path d="M16 22 v9 M22 21 v10 M28 22 v9" stroke="#9a7440" stroke-width="1" opacity=".5"/></svg>',
+    honey:'<svg viewBox="0 0 44 44"><path d="M14 18 h16 v13 q0 2 -2 2 h-12 q-2 0 -2 -2z" fill="#e6c26a" stroke="#b3902f" stroke-width="1.6"/><rect x="13" y="15" width="18" height="4" rx="1.5" fill="#cda84a" stroke="#b3902f" stroke-width="1.4"/><path d="M22 8 v7" stroke="#9a7b54" stroke-width="2"/></svg>',
+    seeds:'<svg viewBox="0 0 44 44"><ellipse cx="17" cy="20" rx="3.6" ry="2.1" transform="rotate(-20 17 20)" fill="#9dbe73" stroke="#5f7a3f" stroke-width="1.1"/><ellipse cx="25" cy="18" rx="3.6" ry="2.1" transform="rotate(-20 25 18)" fill="#cdaf86" stroke="#9a7b54" stroke-width="1.1"/><ellipse cx="22" cy="26" rx="3.6" ry="2.1" transform="rotate(-20 22 26)" fill="#9dbe73" stroke="#5f7a3f" stroke-width="1.1"/></svg>',
+    heart:'<svg viewBox="0 0 24 24"><path d="M12 20 q-7 -5 -9 -10 q-1.6 -4 2 -5.4 q3 -1 5 2 q2 -3 5 -2 q3.6 1.4 2 5.4 q-2 5 -9 10z" fill="none" stroke="#5f7a45" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    heartf:'<svg viewBox="0 0 24 24"><path d="M12 20 q-7 -5 -9 -10 q-1.6 -4 2 -5.4 q3 -1 5 2 q2 -3 5 -2 q3.6 1.4 2 5.4 q-2 5 -9 10z" fill="#8aa472" stroke="#5f7a45" stroke-width="1.4" stroke-linejoin="round"/></svg>',
+    plate:'<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="12" fill="none" stroke="#5f7a45" stroke-width="2"/><circle cx="22" cy="22" r="6.5" fill="none" stroke="#5f7a45" stroke-width="1.4"/></svg>',
+    sit:'<svg viewBox="0 0 44 44"><circle cx="18" cy="13" r="3.2" fill="none" stroke="#5f7a45" stroke-width="2"/><path d="M14 18 l3 7 h6 M17 25 v8 M30 20 v13" fill="none" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"/></svg>',
+    order:'<svg viewBox="0 0 44 44"><path d="M12 16 h14 M12 22 h10 M12 28 h16" stroke="#5f7a45" stroke-width="2" stroke-linecap="round"/><circle cx="31" cy="16" r="2" fill="#c88f6a"/></svg>'
+  };
+  I.custom='<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="13" fill="#dce4d5" stroke="#8aa472" stroke-width="1.6"/><path d="M22 15v14M15 22h14" stroke="#5f7a45" stroke-width="2.6" stroke-linecap="round"/></svg>';
+  var ico=function(id){return I[id]||(String(id).indexOf('custom-')===0?I.custom:I.plate);};
+  var GROUPS={
+    P:[['تخم‌مرغ','egg'],['سفیدهٔ تخم‌مرغ','eggwhite'],['ماست یونانی','yogurt'],['تن ماهی','tuna'],['پنیر','cheese'],['مرغ','chicken'],['بوقلمون','turkey'],['میگو','shrimp']],
+    V:[['خیار','cucumber'],['گوجه','tomato'],['کاهو','lettuce'],['کرفس','celery'],['فلفل دلمه','pepper'],['هویج','carrot'],['سبزی','herbs'],['بروکلی','broccoli'],['اسفناج','spinach'],['قارچ','mushroom'],['کلم','cabbage'],['ذرت','corn']],
+    C:[['سیب‌زمینی پخته','potato'],['سیب‌زمینی شیرین','sweetpotato'],['حبوبات پخته','legume'],['جو دو سر','oats'],['کینوا','quinoa'],['برنج قهوه‌ای','rice'],['نان سبوس‌دار','bread']],
+    F:[['سیب','apple'],['موز','banana'],['پرتقال','orange'],['توت','berry'],['انگور','grape'],['کیوی','kiwi'],['گلابی','pear'],['هلو/شلیل','peach'],['هندوانه','watermelon'],['طالبی','melon'],['آناناس','pineapple'],['انار','pomegranate'],['گریپ‌فروت','grapefruit'],['خرما','date']],
+    H:[['مغزها','walnut'],['شکلات تلخ','choc'],['چیا','chia'],['زیتون','olive'],['آووکادو','avocado'],['عسل','honey'],['تخمه/دانه','seeds']]
+  };
+  var NAME={egg:'تخم‌مرغ',eggwhite:'سفیدهٔ تخم‌مرغ',yogurt:'ماست یونانی',tuna:'تن ماهی',cheese:'پنیر',chicken:'مرغ',turkey:'بوقلمون',shrimp:'میگو',cucumber:'خیار',tomato:'گوجه',lettuce:'کاهو',celery:'کرفس',pepper:'فلفل دلمه',carrot:'هویج',herbs:'سبزی',broccoli:'بروکلی',berry:'توت',apple:'سیب',walnut:'مغز',choc:'شکلات تلخ',avocado:'آووکادو',spinach:'اسفناج',mushroom:'قارچ',cabbage:'کلم',olive:'زیتون',corn:'ذرت',potato:'سیب‌زمینی پخته',legume:'حبوبات پخته',oats:'جو دو سر',chia:'چیا',banana:'موز',orange:'پرتقال',grape:'انگور',kiwi:'کیوی',pear:'گلابی',peach:'هلو/شلیل',watermelon:'هندوانه',melon:'طالبی',pineapple:'آناناس',pomegranate:'انار',grapefruit:'گریپ‌فروت',date:'خرما',sweetpotato:'سیب‌زمینی شیرین',quinoa:'کینوا',rice:'برنج قهوه‌ای',bread:'نان سبوس‌دار',honey:'عسل',seeds:'تخمه/دانه'};
+  // یک آیتم وقتی به یک سناریو می‌خورد که برچسبِ tg یا برچسبِ sc آن را داشته باشد.
+  // این کار باعث می‌شود هم آیتم‌های قدیمی و هم seedهای جدید (که سناریو را داخل sc می‌نویسند) درست match شوند.
+  function scenHit(it,tags,scs){
+    var i;
+    for(i=0;i<tags.length;i++)if(it.tg.indexOf(tags[i])>=0)return true;
+    for(i=0;i<scs.length;i++)if(it.sc.indexOf(scs[i])>=0)return true;
+    return false;
+  }
+  var SNACK_PROTEINS=['egg','eggwhite','yogurt','tuna','cheese','chicken','turkey','shrimp','legume'];
+  var SCEN=[
+    {k:'nocook',l:'الان حوصلهٔ آشپزی ندارم',f:function(it){return scenHit(it,['بدون پخت'],['الان حوصلهٔ آشپزی ندارم']);}},
+    {k:'sweet',l:'دلم یه چیز شیرین می‌خواد',f:function(it){return scenHit(it,['شیرین','شکلاتی','دسر سالم'],['دلم یه چیز شیرین می‌خواد','ولع شیرینی']);}},
+    {k:'crunch',l:'یه چیز ترد مثل چیپس',f:function(it){return scenHit(it,['ترد'],['یه چیز ترد مثل چیپس']);}},
+    {k:'night',l:'تو مایه‌های اسنک شبانه',f:function(it){return scenHit(it,[],['شب‌خوری سبک','تو مایه‌های اسنک شبانه']);}},
+    {k:'gym',l:'از ورزش اومدم و گرسنه‌ام',f:function(it){return scenHit(it,[],['بعد ورزش','از ورزش اومدم و گرسنه‌ام']);}},
+    {k:'protein',l:'یه چیز پروتئینی و سبک',f:function(it){return scenHit(it,['پروتئینی','کم‌کربوهیدرات','کم‌چرب'],['یه چیز پروتئینی و سبک'])||it.ing.some(function(k){return SNACK_PROTEINS.indexOf(k)>=0;});}}
+  ];
+function S(id,t,en,vid,ing,ex,tg,sc,tm,r,w,mod,score,channel,engagement,opts){
+  var o={
+    id:id,
+    t:t,
+    en:en,
+    youtube_video_id:vid,
+    youtube_url:'https://www.youtube.com/watch?v='+vid,
+    source_channel:channel || 'YouTube',
+    engagement_note:engagement || 'popular/reputable source',
+    ing:ing,
+    ex:ex||[],
+    tg:tg||[],
+    sc:sc||[],
+    tm:tm||'۵ دقیقه',
+    r:r,
+    w:w,
+    mod:mod,
+    fast_life_score:score||8,
+    review_status:'popular_source_needs_final_content_check'
+  };
+  if(opts)for(var k in opts)o[k]=opts[k];
+  return o;
+}
+
+var DATA = [
+  S(
+    'snack-001-downshiftology-healthy-snacks-overview',
+    'چند ایده سالم آماده برای هفته',
+    'Healthy Snacks to Meal Prep for the Week',
+    'o61b33Yw7W4',
+    ['yogurt','chia','berry','egg','legume','carrot','cucumber'],
+    ['چند ایده در یک ویدیو'],
+    ['چندمدلی','Meal prep','سالم','پرطرفدار'],
+    ['الان حوصلهٔ آشپزی ندارم','عصر','سرِ کار'],
+    'متغیر',
+    'این ویدیو چند مدل اسنک سالم و قابل آماده‌سازی نشان می‌دهد. در ته‌بندی، فقط ایده‌هایی را نگه دار که با مواد فعلی ما هماهنگ‌اند: ماست و میوه، چیا، تخم‌مرغ، حمص و سبزیجات ترد.',
+    'برای کاربرهایی خوب است که نمی‌دانند دقیقاً چه می‌خواهند و فقط چند انتخاب سالم آماده لازم دارند.',
+    'از ایده‌های پرقند یا گرانولای شیرین‌شده استفاده نشود. خروجی اپ باید پروتئین/فیبر/چربی سالم کنترل‌شده داشته باشد.',
+    9.4,
+    'Downshiftology',
+    'High-view video / large trusted channel',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-002-chia-pudding-downshiftology',
+    'پودینگ چیا برای آماده‌سازی هفتگی',
+    'Meal Prep Chia Pudding',
+    '51_Vg15u1m4',
+    ['chia','yogurt','berry'],
+    ['دارچین','وانیل'],
+    ['سرد','شیرین','فیبردار','Meal prep'],
+    ['صبح','ولع شیرینی','شب‌خوری سبک'],
+    '۵ دقیقه + استراحت',
+    'چیا را با ماست یونانی مخلوط کن، بگذار غلیظ شود، بعد با توت و کمی دارچین سرو کن.',
+    'چیا حجم و فیبر می‌دهد، ماست پروتئین می‌آورد و توت حس دسر سالم می‌دهد.',
+    'شیرین‌کننده حذف یا خیلی کم شود. اگر با شیر درست می‌شود، برای نسخه فست‌لایف ماست یونانی یا اسکیر بهتر است.',
+    9.2,
+    'Downshiftology',
+    'Very popular channel / chia pudding video'
+  ),
+
+  S(
+    'snack-003-basic-chia-pudding-downshiftology',
+    'چیا پودینگ ساده',
+    'How to Make Chia Seed Pudding',
+    'l4YOwzbAGrk',
+    ['chia','yogurt','berry'],
+    ['وانیل','دارچین'],
+    ['سرد','شیرین','فیبردار'],
+    ['ولع شیرینی','صبح'],
+    '۵ دقیقه + استراحت',
+    'چیا را با ماست یا پایه لبنی مخلوط کن، بعد از غلیظ شدن با توت یا میوه کم‌شیرین سرو کن.',
+    'برای کسی که دسر می‌خواهد ولی نمی‌خواهد سراغ شیرینی صنعتی برود، گزینه قابل دفاعی است.',
+    'اگر ویدیو با شیر یا شیرین‌کننده زیاد اجرا شده بود، نسخه اپ را با ماست یونانی و شیرین‌کننده کم بازنویسی کن.',
+    8.9,
+    'Downshiftology',
+    'Known recipe/channel; related result shows high views'
+  ),
+
+  S(
+    'snack-004-hummus-veggie-dip-downshiftology',
+    'حمص با سبزیجات ترد',
+    'How to Make Hummus',
+    'GbxnB53IExY',
+    ['legume','cucumber','carrot','celery'],
+    ['لیمو','سیر','ارده'],
+    ['سرد','دیپ','ترد','گیاهی'],
+    ['یه چیز ترد مثل چیپس','عصر خستگی','جلوی تلویزیون'],
+    '۱۰ دقیقه',
+    'حمص را با نخود، لیمو، سیر و مقدار کنترل‌شده ارده درست کن و با خیار، هویج و کرفس بخور.',
+    'برای حس چیپس و دیپ، این نسخه خیلی بهتر است چون فیبر و پروتئین گیاهی دارد.',
+    'ارده و روغن زیتون کنترل شود. همراه اصلی باید سبزیجات ترد باشد، نه نان و کراکر زیاد.',
+    9.1,
+    'Downshiftology',
+    'Large channel; related results show 2.9M views'
+  ),
+
+  S(
+    'snack-005-banana-bread-energy-balls-downshiftology',
+    'توپک موز و جو دوسر',
+    'Banana Bread Energy Balls',
+    'o61b33Yw7W4',
+    ['banana','oats','walnut'],
+    ['دارچین','وانیل'],
+    ['شیرین','بدون پخت','Meal prep'],
+    ['ولع شیرینی','سفر','بعد ورزش'],
+    '۱۵ دقیقه',
+    'موز، جو دوسر، گردو و دارچین را مخلوط کن و توپک‌های کوچک درست کن.',
+    'برای جایگزینی شیرینی خوب است، ولی چون موز و جو و مغز دارد باید مقدارش مشخص بماند.',
+    'این گزینه پروتئین بالا نیست. بهتر است کنار ماست یونانی یا بعد از وعده پروتئینی مصرف شود. تعداد محدود: ۱ تا ۲ عدد کوچک.',
+    8.1,
+    'Downshiftology',
+    'Part of high-view healthy snacks video'
+  ),
+
+  S(
+    'snack-006-toasty-apron-energy-balls-base',
+    'انرژی بال جو و خرما',
+    'No-Bake Energy Balls - 5 Flavours',
+    'DVVaWdE3yoU',
+    ['oats','date','walnut'],
+    ['دارچین','پودر کاکائو'],
+    ['شیرین','بدون پخت','قابل حمل'],
+    ['ولع شیرینی','سفر','بعد ورزش'],
+    '۱۵ دقیقه',
+    'جو دوسر، خرما و مغزها را مخلوط کن و توپک‌های کوچک بساز.',
+    'برای وقتی که واقعاً چیز شیرین می‌خواهی، از شیرینی صنعتی بهتر است.',
+    'خرما و مغزها انرژی بالا دارند. در اپ حتماً مقدار را محدود کن: ۱ تا ۲ توپک کوچک.',
+    7.9,
+    'Toasty Apron',
+    'Search result shows 3.2M views',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-007-toasty-apron-chocolate-energy-balls',
+    'توپک شکلاتی جو و خرما',
+    'Chocolate Energy Balls',
+    'DVVaWdE3yoU',
+    ['oats','date','walnut','choc'],
+    ['پودر کاکائو'],
+    ['شیرین','شکلاتی','بدون پخت'],
+    ['ولع شیرینی','بعد شام'],
+    '۱۵ دقیقه',
+    'جو دوسر، خرما، گردو، پودر کاکائو و کمی شکلات تلخ را مخلوط کن و توپک کوچک بساز.',
+    'حس شکلاتی می‌دهد، اما با فیبر و چربی خوب همراه است.',
+    'شکلات و خرما را کم نگه دار. این باید جایگزین کنترل‌شده شیرینی باشد، نه خوراکی آزاد.',
+    7.8,
+    'Toasty Apron',
+    'Search result shows 3.2M views',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-008-toasty-apron-oat-date-bites',
+    'لقمه جو، خرما و دارچین',
+    'Oat & Date Energy Bites',
+    'DVVaWdE3yoU',
+    ['oats','date','walnut'],
+    ['دارچین'],
+    ['شیرین','بدون پخت','فیبردار'],
+    ['سفر','عصر','ولع شیرینی'],
+    '۱۵ دقیقه',
+    'جو دوسر، خرما، گردو و دارچین را مخلوط کن و لقمه‌های کوچک درست کن.',
+    'برای همراه داشتن بیرون از خانه خوب است و جلوی خرید خوراکی تصادفی را می‌گیرد.',
+    'به خاطر خرما و گردو، مقدار سرو کوچک باشد. اگر کاربر فقط شیرینی می‌خواهد، کنار ماست یونانی بهتر است.',
+    7.7,
+    'Toasty Apron',
+    'Search result shows 3.2M views'
+  ),
+
+  S(
+    'snack-009-clean-delicious-roasted-chickpeas',
+    'نخود برشته ترد',
+    'Crunchy and Delicious Roasted Chickpeas',
+    'v3CcNs92GN0',
+    ['legume'],
+    ['پاپریکا','زیره','ادویه دلخواه'],
+    ['ترد','گیاهی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','عصر خستگی','جلوی تلویزیون'],
+    '۲۵ دقیقه',
+    'نخود پخته را آبکش و خشک کن، با ادویه و روغن کم مخلوط کن و در فر یا هواپز برشته کن.',
+    'برای هوس چیپس عالی است چون تردی دارد ولی فیبر و پروتئین گیاهی هم دارد.',
+    'روغن کم. نمک کم. مقدار سرو محدود: یک کاسه کوچک.',
+    9.4,
+    'Clean & Delicious',
+    'Large trusted healthy recipe channel'
+  ),
+
+  S(
+    'snack-010-foodwishes-crunchy-spiced-chickpeas',
+    'نخود ادویه‌ای ترد',
+    'Crunchy Spiced Chickpeas',
+    'kT5L7JYiPXA',
+    ['legume'],
+    ['ادویه','پاپریکا'],
+    ['ترد','گیاهی','فیبردار'],
+    ['یه چیز ترد مثل چیپس'],
+    '۲۵ دقیقه',
+    'نخود را کاملاً خشک کن، ادویه بزن و تا ترد شدن در فر بپز.',
+    'یک جایگزین جدی برای چیپس است و از ویدیوی بسیار پرمخاطب آمده.',
+    'روغن و نمک کنترل شود. اگر کنار غذا استفاده می‌شود مقدارش کمتر از حالت اسنک تنها باشد.',
+    9.2,
+    'Food Wishes',
+    'Search result shows 478K views and 13K likes'
+  ),
+
+  S(
+    'snack-011-oven-roasted-chickpeas-4ways',
+    'نخود برشته چند طعم',
+    'Oven Roasted Chickpeas - 4 Ways',
+    'bjnbD_TR95o',
+    ['legume'],
+    ['ادویه‌های مختلف'],
+    ['ترد','گیاهی','Meal prep'],
+    ['یه چیز ترد مثل چیپس','سفر','سرِ کار'],
+    '۲۵ دقیقه',
+    'نخود را برشته کن و با چند ادویه مختلف طعم بده تا برای چند روز اسنک آماده داشته باشی.',
+    'چند طعم داشتن باعث می‌شود کاربر از نخود برشته زود خسته نشود.',
+    'هر طعم باید کم‌روغن باشد. طعم‌های شیرین یا پرنمک در اپ حذف یا سبک شوند.',
+    8.8,
+    'Feelgoodfoodie / YouTube recipe',
+    'Popular recipe format; use after final manual check'
+  ),
+
+  S(
+    'snack-012-clean-delicious-tuna-egg-salad',
+    'سالاد تن و تخم‌مرغ',
+    'Tuna Egg Salad',
+    'e2VUemyscvQ',
+    ['tuna','egg','celery','lettuce'],
+    ['ماست یونانی','خردل','آبلیمو'],
+    ['سرد','بدون پخت','پروتئینی'],
+    ['بعد ورزش','ناهارِ سبک','الان حوصلهٔ آشپزی ندارم'],
+    '۸ دقیقه',
+    'تن آبکش‌شده را با تخم‌مرغ آب‌پز، کرفس، کمی ماست یونانی و خردل مخلوط کن و روی کاهو یا با خیار بخور.',
+    'پروتئین بالایی دارد و برای وقتی مناسب است که میان‌وعده سبک کافی نیست و واقعاً گرسنه‌ای.',
+    'مایونز حذف یا خیلی کم. پایه سس باید ماست یونانی باشد.',
+    9.5,
+    'Clean & Delicious',
+    'Large trusted healthy recipe channel'
+  ),
+
+  S(
+    'snack-013-calla-healthy-tuna-salad',
+    'سالاد تن سالم و خامه‌ای',
+    'The BEST Healthy Tuna Salad',
+    'SbD5jnIPH1g',
+    ['tuna','cheese','cucumber','lettuce'],
+    ['خردل','آبلیمو'],
+    ['سرد','بدون پخت','پروتئینی'],
+    ['الان حوصلهٔ آشپزی ندارم','ناهارِ سبک','سرِ کار'],
+    '۵ دقیقه',
+    'تن را با کاتیج‌چیز یا ماست، خیار، خردل و لیمو مخلوط کن و روی کاهو یا خیار سرو کن.',
+    'خیلی سریع است و با کاتیج‌چیز از تن ساده جذاب‌تر و سیرکننده‌تر می‌شود.',
+    'اگر ویدیو نان یا wrap پیشنهاد می‌دهد، نسخه ته‌بندی باید با خیار، کاهو یا کراکر محدود باشد.',
+    9.2,
+    'Calla Ramont',
+    'Search result shows 48K views and 1.1K likes'
+  ),
+
+  S(
+    'snack-014-spain-on-fork-cucumber-tuna-egg',
+    'خیار با تن و تخم‌مرغ',
+    'Creamy Cucumber Tuna Sandwich',
+    '1X0WWuVHyjw',
+    ['cucumber','tuna','egg'],
+    ['آبلیمو','خردل'],
+    ['سرد','بدون پخت','پروتئینی','ترد'],
+    ['سرِ کار','ناهارِ سبک','یه چیز پروتئینی و سبک'],
+    '۱۰ دقیقه',
+    'خیار را به عنوان پایه ترد استفاده کن و ترکیب تن و تخم‌مرغ را روی آن بگذار.',
+    'حس ساندویچ می‌دهد ولی نان را کم یا حذف می‌کند؛ خیار هم تردی و حجم می‌دهد.',
+    'اگر در ویدیو نان استفاده شده، نسخه اپ باید cucumber boat یا کاهوپیچ باشد.',
+    8.9,
+    'Spain on a Fork',
+    'Verified channel; search result shows 19K views and 1.3K likes'
+  ),
+
+  S(
+    'snack-015-clean-delicious-egg-bites',
+    'لقمه تخم‌مرغ و کاتیج‌چیز',
+    'Cottage Cheese Egg Bites',
+    'ynm-8oKPnUg',
+    ['egg','cheese','spinach','pepper'],
+    [],
+    ['گرم','Meal prep','پروتئینی'],
+    ['بعد ورزش','صبحانه','سرِ کار'],
+    '۲۰ دقیقه',
+    'تخم‌مرغ و کاتیج‌چیز را مخلوط کن، اسفناج و فلفل دلمه اضافه کن و در قالب کوچک بپز.',
+    'برای چند روز قابل آماده‌سازی است و یک اسنک پروتئینی واقعی می‌دهد.',
+    'پنیر اضافه لازم نیست. کاتیج‌چیز برای بافت و پروتئین کافی است.',
+    9.4,
+    'Clean & Delicious',
+    'Large trusted channel; recipe page lists 14g protein per serving'
+  ),
+
+  S(
+    'snack-016-clean-delicious-cottage-recipes',
+    'کاتیج‌چیز شیرین یا شور',
+    'Cottage Cheese Recipes',
+    'UV0YaNJExv0',
+    ['cheese','berry','cucumber','tomato'],
+    ['دارچین','فلفل سیاه'],
+    ['بدون پخت','پروتئینی','چندمدلی'],
+    ['ولع شیرینی','الان حوصلهٔ آشپزی ندارم','عصر'],
+    '۵ دقیقه',
+    'کاتیج‌چیز را بسته به حال کاربر شیرین یا شور کن: با توت و دارچین، یا با خیار و گوجه و فلفل.',
+    'یک ماده مادر خوب برای ته‌بندی است چون هم مسیر شیرین را پوشش می‌دهد هم شور را.',
+    'مدل‌های شیرین نباید با عسل یا شکلات زیاد سنگین شوند. تاپینگ کم.',
+    9,
+    'Clean & Delicious',
+    'Large trusted healthy recipe channel',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-017-clean-delicious-cottage-mousse',
+    'موس شکلاتی کاتیج‌چیز',
+    'Healthy Cottage Cheese Chocolate Mousse',
+    'SkSov0q5NgQ',
+    ['cheese','choc'],
+    ['پودر کاکائو تلخ','وانیل'],
+    ['سرد','شیرین','پروتئینی','دسر سالم'],
+    ['ولع شیرینی','بعد شام'],
+    '۵ دقیقه',
+    'کاتیج‌چیز را با پودر کاکائو تلخ و وانیل بزن تا کرمی شود. کمی شکلات تلخ خردشده اضافه کن.',
+    'برای هوس دسر شکلاتی خوب است چون پایه‌اش پروتئینی است.',
+    'شیرین‌کننده و شکلات باید کم باشد. حجم سرو کوچک بماند.',
+    8.7,
+    'Clean & Delicious',
+    'Search results show related Clean & Delicious mousse video at 562K views'
+  ),
+
+  S(
+    'snack-018-clean-delicious-buffalo-chicken-dip',
+    'دیپ مرغ بافلو پروتئینی',
+    'Buffalo Chicken Dip with Cottage Cheese',
+    '-eTsMa0qZog',
+    ['chicken','yogurt','cheese','carrot','celery'],
+    ['سس تند'],
+    ['گرم','دیپ','پروتئینی'],
+    ['بعد ورزش','یه چیز ترد مثل چیپس','عصر'],
+    '۲۰ دقیقه',
+    'مرغ ریش‌ریش را با ماست یونانی، کاتیج‌چیز و کمی سس تند مخلوط کن و گرم کن. با هویج و کرفس بخور.',
+    'حس دیپ هیجان‌انگیز می‌دهد ولی با پایه پروتئینی و سبزیجات ترد.',
+    'پنیر اضافه و سس تند زیاد کنترل شود. همراه اصلی باید هویج و کرفس باشد نه چیپس.',
+    8.4,
+    'Clean & Delicious',
+    'Large trusted channel; lower than top videos but relevant and quality source'
+  ),
+
+  S(
+    'snack-019-henryford-buffalo-chicken-dip',
+    'دیپ مرغ بافلو سبک با سبزیجات',
+    'Healthy Buffalo Chicken Dip',
+    'replace_with_youtube_id_after_manual_check',
+    ['chicken','yogurt','cheese','carrot','celery'],
+    ['سس تند کم‌نمک'],
+    ['گرم','دیپ','پروتئینی'],
+    ['مهمانی','یه چیز ترد مثل چیپس'],
+    '۲۵ دقیقه',
+    'مرغ پخته را با ماست یونانی، کاتیج‌چیز و مقدار کم پنیر مخلوط کن و گرم سرو کن. کنار هویج و کرفس بخور.',
+    'این فرمول از نظر تغذیه‌ای خیلی به درد ته‌بندی می‌خورد: پروتئین بالا، سبزیجات ترد، حس دیپ واقعی.',
+    'این آیتم فعلاً لینک مستقیم ویدیو ندارد؛ اگر می‌خواهی فقط YouTube باشد حذفش کن. اگر نگه داشتی، باید دستی ویدیو/لینک درست جایگزین شود.',
+    8.2,
+    'Henry Ford Health',
+    'Authoritative health source; needs YouTube ID replacement',
+    {hidden:true}
+  ),
+
+  S(
+    'snack-020-cottage-cheese-bark-popular',
+    'برک کاتیج‌چیز یخ‌زده',
+    'Cottage Cheese Bark',
+    'pkbvP9qPKTM',
+    ['cheese','berry','choc'],
+    ['دارچین'],
+    ['یخ‌زده','شیرین','پروتئینی'],
+    ['ولع شیرینی','بعد شام'],
+    '۱۰ دقیقه + فریز',
+    'کاتیج‌چیز را کرمی کن، روی کاغذ روغنی پهن کن، توت و کمی شکلات تلخ اضافه کن و فریز کن.',
+    'حس بستنی و شکلات می‌دهد، اما پایه‌اش پروتئینی است.',
+    'شکلات و شیرین‌کننده کم. اگر بافت خیلی سنگین شد، نصف کاتیج‌چیز را با ماست یونانی سبک کن.',
+    8,
+    'YouTube popular cottage cheese trend',
+    'Related search results connect it to popular cottage cheese dessert videos'
+  ),
+
+  S(
+    'snack-021-yogurt-bark-toasty-apron',
+    'برک ماست یخ‌زده با توت',
+    'Yogurt Bark - Healthy Snack',
+    'BJS3KNqw7ys',
+    ['yogurt','berry','choc'],
+    ['عسل خیلی کم'],
+    ['یخ‌زده','شیرین','دسر سالم'],
+    ['ولع شیرینی','بعد شام'],
+    '۱۰ دقیقه + فریز',
+    'ماست یونانی را پهن کن، توت و کمی شکلات تلخ اضافه کن و فریز کن.',
+    'برای جایگزینی بستنی یا شیرینی بعد شام مناسب است.',
+    'اگر ویدیو گرانولا یا عسل زیاد دارد، در نسخه اپ حذف یا خیلی کم شود.',
+    8.4,
+    'Toasty Apron / YouTube',
+    'Related to high-view healthy snack ecosystem; final manual check needed'
+  ),
+
+  S(
+    'snack-022-protein-chef-tuna-ranch-dip',
+    'دیپ تن و ماست با سبزیجات',
+    'Healthy Ranch Tuna Dip with Greek Yogurt',
+    'kDEZYiUmpUU',
+    ['tuna','yogurt','cucumber','carrot','celery'],
+    ['ادویه ranch','لیمو'],
+    ['سرد','دیپ','پروتئینی'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم'],
+    '۵ دقیقه',
+    'تن را با ماست یونانی و ادویه سبک مخلوط کن و با خیار، هویج و کرفس بخور.',
+    'دیپ پروتئینی باعث می‌شود سبزیجات ترد واقعاً سیرکننده شوند.',
+    'ادویه آماده ممکن است شور باشد؛ کم استفاده شود. چیپس حذف، سبزیجات ترد اولویت.',
+    8.5,
+    'The Protein Chef',
+    'Reputable high-protein recipe channel'
+  ),
+
+  S(
+    'snack-023-french-onion-yogurt-dip-proteinchef',
+    'دیپ پیاز با ماست یونانی',
+    'Easy French Onion Dip Using Greek Yogurt',
+    'dWwjVy4ku6w',
+    ['yogurt','carrot','celery','cucumber'],
+    ['پیاز','ادویه'],
+    ['سرد','دیپ','پروتئینی'],
+    ['یه چیز ترد مثل چیپس','جلوی تلویزیون'],
+    '۵ دقیقه',
+    'ماست یونانی را با پیاز مزه‌دارشده و ادویه مخلوط کن و با هویج، کرفس و خیار بخور.',
+    'حس دیپ چیپسی می‌دهد ولی همراهش سبزیجات و پروتئین است.',
+    'اگر ویدیو چیپس پیشنهاد داد، در اپ فقط سبزیجات ترد نمایش داده شود.',
+    8.3,
+    'The Protein Chef',
+    'Reputable high-protein recipe channel'
+  ),
+
+  S(
+    'snack-024-cucumber-high-protein-salads',
+    'سالاد خیار پروتئینی',
+    'High Protein Cucumber Salads',
+    'J-yIrctuXb0',
+    ['cucumber','egg','yogurt','tomato'],
+    ['پیاز','سبزی'],
+    ['سرد','ترد','پروتئینی'],
+    ['یه چیز ترد مثل چیپس','عصر','ناهارِ سبک'],
+    '۷ دقیقه',
+    'خیار خردشده را با تخم‌مرغ آب‌پز، گوجه و ماست یونانی مخلوط کن.',
+    'خیار تردی و حجم می‌دهد و تخم‌مرغ و ماست باعث می‌شوند سالاد واقعاً سیرکننده شود.',
+    'اگر ویدیو سس زیاد دارد، نسخه فست‌لایف با ماست یونانی و چاشنی ساده باشد.',
+    8.8,
+    'YouTube cucumber salad recipe',
+    'Selected for ingredient match and snack relevance; final engagement check recommended'
+  ),
+
+  S(
+    'snack-025-cucumber-3ways',
+    'خیار سه مدل سالم',
+    'Cucumbers Made 3 Ways',
+    'Rmpnuy-jjwY',
+    ['cucumber','yogurt','tuna','egg'],
+    ['خردل','لیمو'],
+    ['ترد','بدون پخت','چندمدلی'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم'],
+    '۵ دقیقه',
+    'از خیار به عنوان پایه استفاده کن و با ماست، تن یا تخم‌مرغ چند اسنک ترد و سریع بساز.',
+    'خیار کمک می‌کند اسنک حجیم و ترد شود بدون اینکه کالری زیادی اضافه کند.',
+    'مدل‌های پرسس یا پرپنیر باید سبک‌تر شوند.',
+    8.4,
+    'YouTube cucumber snack recipe',
+    'Useful match; final engagement check recommended'
+  ),
+
+  S(
+    'snack-026-downshiftology-green-smoothie',
+    'اسموتی سبز سبک',
+    'Best Green Smoothie',
+    'o61b33Yw7W4',
+    ['spinach','apple','banana','avocado'],
+    ['آب یا شیر بدون شکر'],
+    ['نوشیدنی','شیرین','فیبردار'],
+    ['صبح','عصر','ولع شیرینی'],
+    '۵ دقیقه',
+    'اسفناج، سیب، موز کم، آووکادو و آب یا شیر بدون شکر را مخلوط کن.',
+    'برای وقتی خوب است که چیزی شیرین و خنک می‌خواهی ولی نمی‌خواهی سراغ آبمیوه یا بستنی بروی.',
+    'موز و آووکادو با هم زیاد نشوند. برای پروتئین بیشتر کنار ماست یونانی یا با کمی ماست ترکیب شود.',
+    7.8,
+    'Downshiftology',
+    'From high-view healthy snacks ecosystem'
+  ),
+
+  S(
+    'snack-027-downshiftology-peach-chia-yogurt',
+    'اسموتی هلو، ماست و چیا',
+    'Peach Chia Yogurt Smoothie',
+    'o61b33Yw7W4',
+    ['peach','yogurt','chia'],
+    ['دارچین'],
+    ['نوشیدنی','شیرین','فیبردار'],
+    ['ولع شیرینی','صبح','عصر'],
+    '۵ دقیقه',
+    'هلو، ماست یونانی، چیا و کمی دارچین را مخلوط کن.',
+    'شیرین و خنک است ولی چیا و ماست کمک می‌کنند سریع دوباره گرسنه نشوی.',
+    'آبمیوه اضافه نشود. شیرینی از خود هلو کافی است.',
+    8,
+    'Downshiftology',
+    'From high-view healthy snacks ecosystem'
+  ),
+
+  S(
+    'snack-028-downshiftology-egg-and-fruit-snack',
+    'تخم‌مرغ آب‌پز با میوه',
+    'Healthy Snack Meal Prep Idea',
+    'o61b33Yw7W4',
+    ['egg','apple','orange'],
+    ['مغزها کم'],
+    ['بدون پخت','سریع','قابل حمل'],
+    ['سفر','سرِ کار','عصر'],
+    '۲ دقیقه',
+    'تخم‌مرغ آب‌پز را با یک میوه مثل سیب یا پرتقال و چند مغز محدود کنار هم بگذار.',
+    'خیلی ساده است ولی ترکیب پروتئین و فیبر دارد و برای بیرون از خانه خوب جواب می‌دهد.',
+    'مغزها فقط چند عدد. اگر فقط میوه باشد، برای بعضی افراد ولع را کامل جمع نمی‌کند.',
+    8.5,
+    'Downshiftology',
+    'From high-view healthy snacks video'
+  ),
+
+  S(
+    'snack-029-clean-delicious-chocolate-cottage-bowl',
+    'کاسه شکلاتی کاتیج‌چیز',
+    'Healthy Cottage Cheese Chocolate Mousse',
+    'SkSov0q5NgQ',
+    ['cheese','berry','choc'],
+    ['پودر کاکائو تلخ'],
+    ['شیرین','پروتئینی','سرد'],
+    ['ولع شیرینی','بعد شام'],
+    '۵ دقیقه',
+    'کاتیج‌چیز را با پودر کاکائو کرمی کن و با توت و مقدار کمی شکلات تلخ سرو کن.',
+    'حس دسر دارد ولی پروتئینش بیشتر از دسرهای معمولی است.',
+    'شکلات تلخ و شیرین‌کننده محدود. این نسخه باید کوچک و دسرمانند باشد.',
+    8.6,
+    'Clean & Delicious',
+    'Search results show related Clean & Delicious mousse video at 562K views'
+  ),
+
+  S(
+    'snack-030-clean-delicious-cottage-savory-bowl',
+    'کاسه کاتیج‌چیز شور',
+    'Cottage Cheese Recipes',
+    'UV0YaNJExv0',
+    ['cheese','cucumber','tomato','herbs'],
+    ['فلفل سیاه'],
+    ['سرد','بدون پخت','پروتئینی'],
+    ['الان حوصلهٔ آشپزی ندارم','عصر','ناهارِ سبک'],
+    '۵ دقیقه',
+    'کاتیج‌چیز را با خیار، گوجه و سبزی خردشده سرو کن.',
+    'برای کسی که غذای شیرین نمی‌خواهد یک اسنک پروتئینی سریع و تمیز است.',
+    'نمک زیاد لازم نیست؛ فلفل، لیمو و سبزی طعم کافی می‌دهند.',
+    8.9,
+    'Clean & Delicious',
+    'Large trusted healthy recipe channel',
+    {multi_recipe_video:true}
+  )
+];
+
+  // ===== seedهای جدید میان‌وعده — هم‌سطح کیفیت/سبک «وعده‌ساز»، فقط با مواد فعلی ابزار =====
+  var ADDITIONAL_TAHBANDI_SNACK_SEEDS=[
+
+  S(
+    'snack-add-001-lightened-egg-salad',
+    'سالاد تخم‌مرغ با ماست یونانی',
+    'Lightened Up Egg Salad with Greek Yogurt',
+    '806KXhH5f1g',
+    ['egg','yogurt','celery','lettuce'],
+    ['خردل','شوید','لیمو'],
+    ['سرد','بدون پخت','پروتئینی','سریع'],
+    ['الان حوصلهٔ آشپزی ندارم','یه چیز پروتئینی و سبک','سرِ کار'],
+    '۷ دقیقه',
+    'تخم‌مرغ آب‌پز را خرد کن، با ماست یونانی، کمی خردل، کرفس ریزشده و سبزی خشک مخلوط کن. با کاهو یا خیار بخور.',
+    'همان حس سالاد تخم‌مرغ را می‌دهد، ولی به جای مایونز پایه‌اش ماست یونانیه و سیرکننده‌تر می‌شه.',
+    'مایونز حذف یا خیلی کم. اگر با نان سرو شد، فقط یک تکه کوچک نان سبوس‌دار؛ نسخه اصلی با کاهو، خیار یا کرفس.',
+    9.2,
+    'Clean & Delicious',
+    'Popular healthy recipe channel; verify current metrics before production'
+  ),
+
+  S(
+    'snack-add-002-greek-yogurt-egg-salad',
+    'سالاد تخم‌مرغ یونانی',
+    'Greek Yogurt Egg Salad',
+    'dDNSfwzP364',
+    ['egg','yogurt','lettuce'],
+    ['خردل','شوید','لیمو'],
+    ['سرد','بدون پخت','پروتئینی'],
+    ['یه چیز پروتئینی و سبک','الان حوصلهٔ آشپزی ندارم','شب‌خوری سبک'],
+    '۷ دقیقه',
+    'تخم‌مرغ آب‌پز را با ماست یونانی، خردل، شوید و کمی لیمو مخلوط کن و داخل برگ کاهو یا کنار خیار بخور.',
+    'برای وقتی خوبه که اسنک ساده می‌خوای ولی میوه یا خوراکی شیرین راضیت نمی‌کنه.',
+    'سس را ماست‌محور نگه دار. نمک و پنیر اضافه نشه.',
+    8.8,
+    'YouTube / Greek yogurt egg salad source',
+    'Check engagement; keep only if channel/video quality is acceptable'
+  ),
+
+  S(
+    'snack-add-003-tuna-egg-salad-extra',
+    'سالاد تن و تخم‌مرغ پروتئینی',
+    'High Protein Tuna and Egg Salad',
+    'CkB93u3TtqU',
+    ['tuna','egg','yogurt','cucumber'],
+    ['خردل','لیمو'],
+    ['سرد','بدون پخت','پروتئینی'],
+    ['از ورزش اومدم و گرسنه‌ام','یه چیز پروتئینی و سبک','ناهارِ سبک'],
+    '۸ دقیقه',
+    'تن آبکش‌شده را با تخم‌مرغ آب‌پز خردشده، ماست یونانی، خیار و کمی لیمو مخلوط کن.',
+    'پروتئینش بالاست؛ برای وقتی که بعد ورزش یا وسط روز واقعاً گرسنه‌ای بهتر از اسنک شیرین جواب می‌ده.',
+    'تن را کامل آبکش کن. اگر سدیم بالاست، خیار و کاهو را بیشتر کن و نمک اضافه نزن.',
+    9.1,
+    'YouTube / high protein tuna egg salad',
+    'Check current views/likes before production'
+  ),
+
+  S(
+    'snack-add-004-tuna-melt-hack-light',
+    'تن ملتی سبک با کاتیج‌چیز',
+    '43g Protein Tuna Melt Hack',
+    '5xaQdUMfRnE',
+    ['tuna','cheese','bread','tomato'],
+    ['خردل','خیارشور'],
+    ['گرم','پروتئینی','سریع'],
+    ['از ورزش اومدم و گرسنه‌ام','یه چیز پروتئینی و سبک'],
+    '۱۰ دقیقه',
+    'تن را با کاتیج‌چیز یا پنیر سبک، خردل و گوجه مخلوط کن. روی یک تکه کوچک نان سبوس‌دار بگذار و کوتاه گرم کن.',
+    'برای وقتی خوبه که اسنک خیلی سبک کافی نیست و چیزی شبیه ساندویچ می‌خوای.',
+    'نان فقط یک تکه کوچک. پنیر زیاد نشه. کنارش خیار یا کاهو اضافه کن.',
+    8.3,
+    'YouTube / tuna melt hack',
+    'Search result describes 43g protein; verify metrics and ingredients before production'
+  ),
+
+  S(
+    'snack-add-005-greek-yogurt-tuna-salad',
+    'سالاد تن با ماست یونانی',
+    'Greek Yogurt Tuna Salad',
+    'HsuOv8ZZbbw',
+    ['tuna','yogurt','cucumber','lettuce'],
+    ['خردل','لیمو','کرفس'],
+    ['سرد','بدون پخت','پروتئینی','سریع','کم‌کربوهیدرات'],
+    ['الان حوصلهٔ آشپزی ندارم','یه چیز پروتئینی و سبک','سرِ کار','شب‌خوری سبک'],
+    '۵ دقیقه',
+    'تن آبکش‌شده را با ماست یونانی، خیار خردشده، لیمو و خردل مخلوط کن. روی کاهو یا کنار خیار بخور.',
+    'تن ساده را به یک اسنک واقعی تبدیل می‌کنه، بدون اینکه به مایونز یا نان زیاد نیاز باشه.',
+    'سس باید ماست یونانی باشه. اگر ویدیو با نان سرو می‌کنه، در اپ نان اختیاری و محدود باشه.',
+    9,
+    'YouTube / Greek yogurt tuna salad',
+    'Check engagement before production'
+  ),
+
+  S(
+    'snack-add-006-cottage-chicken-salad',
+    'سالاد مرغ و کاتیج‌چیز',
+    'Healthy Chicken Salad with Cottage Cheese',
+    'gcNsYmU0oIg',
+    ['chicken','cheese','cucumber','lettuce'],
+    ['خردل','لیمو'],
+    ['سرد','بدون پخت','پروتئینی'],
+    ['از ورزش اومدم و گرسنه‌ام','یه چیز پروتئینی و سبک','ناهارِ سبک'],
+    '۸ دقیقه',
+    'مرغ پخته ریش‌ریش را با کاتیج‌چیز یا پنیر سبک، خیار، کمی خردل و لیمو مخلوط کن و روی کاهو سرو کن.',
+    'مرغ پختهٔ خشک و تکراری را به یک اسنک یا وعدهٔ کوچک سیرکننده تبدیل می‌کنه.',
+    'اگر ویدیو cream cheese یا مایونز داره، حذف یا با ماست یونانی جایگزین شه.',
+    8.9,
+    'YouTube / cottage cheese chicken salad',
+    'Check metrics; keep only if engagement is acceptable'
+  ),
+
+  S(
+    'snack-add-007-low-carb-cottage-chicken-salad',
+    'سالاد مرغ کاتیج کم‌کربوهیدرات',
+    'High-Protein Cottage Cheese Chicken Salad',
+    'kxpzlinL-rQ',
+    ['chicken','cheese','celery','lettuce'],
+    ['خردل','لیمو'],
+    ['سرد','بدون پخت','کم‌کربوهیدرات','پروتئینی'],
+    ['یه چیز پروتئینی و سبک','شب‌خوری سبک','از ورزش اومدم و گرسنه‌ام'],
+    '۸ دقیقه',
+    'مرغ پخته را با کاتیج‌چیز، کرفس خردشده و لیمو مخلوط کن. با کاهو یا خیار سرو کن.',
+    'پروتئین بالا داره و کرفس تردی می‌ده؛ برای وقتی که دنبال اسنک سبک ولی جدی هستی.',
+    'کاتیج‌چیز و مرغ کافی‌ان؛ پنیر اضافه یا نان زیاد لازم نیست.',
+    8.8,
+    'YouTube / high-protein chicken salad',
+    'Verify current video metrics'
+  ),
+
+  S(
+    'snack-add-008-buffalo-chicken-salad-cottage',
+    'سالاد مرغ بافلو با کاتیج‌چیز',
+    'Healthy Buffalo Chicken Salad with Cottage Cheese',
+    'BgsGeFxp4NE',
+    ['chicken','cheese','celery','carrot'],
+    ['سس تند','لیمو'],
+    ['سرد','تند','پروتئینی'],
+    ['از ورزش اومدم و گرسنه‌ام','یه چیز ترد مثل چیپس','عصر'],
+    '۸ دقیقه',
+    'مرغ ریش‌ریش را با کاتیج‌چیز و کمی سس تند مخلوط کن. با ساقه کرفس و هویج چوبی بخور.',
+    'حس دیپ و اسنک هیجان‌انگیز می‌ده، ولی پایه‌اش پروتئینیه و با سبزیجات ترد خورده می‌شه.',
+    'سس تند و نمک کنترل شه. همراه اصلی سبزیجات ترد باشه، نه چیپس.',
+    8.5,
+    'YouTube / buffalo chicken cottage salad',
+    'Check engagement and ingredient quality'
+  ),
+
+  S(
+    'snack-add-009-french-onion-yogurt-dip',
+    'دیپ پیاز با ماست یونانی',
+    'Easy French Onion Dip Using Greek Yogurt',
+    'dWwjVy4ku6w',
+    ['yogurt','carrot','celery','cucumber'],
+    ['پیاز','ادویه'],
+    ['سرد','بدون پخت','دیپ','پروتئینی','ترد'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم','جلوی تلویزیون'],
+    '۵ دقیقه',
+    'ماست یونانی را با پیاز مزه‌دارشده و ادویه مخلوط کن. با هویج، کرفس و خیار چوبی بخور.',
+    'همان حس چیپس و دیپ را می‌ده، اما با سبزیجات ترد و پایه پروتئینی.',
+    'اگر ویدیو چیپس یا کراکر پیشنهاد می‌ده، در اپ فقط سبزیجات ترد نمایش بده.',
+    8.7,
+    'The Protein Chef',
+    'Reputable high-protein channel; verify metrics'
+  ),
+
+  S(
+    'snack-add-010-greek-yogurt-dips-5',
+    'چند دیپ ماست یونانی برای سبزیجات',
+    '5 Healthy & Easy Dips Made with Greek Yogurt',
+    'BPgzLGAIRA4',
+    ['yogurt','cucumber','carrot','celery','pepper'],
+    ['سیر','شوید','لیمو'],
+    ['سرد','بدون پخت','دیپ','چندمدلی','ترد'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم','عصر خستگی'],
+    '۵ دقیقه',
+    'از ماست یونانی به‌عنوان پایهٔ چند دیپ ساده بساز و با خیار، هویج، کرفس یا فلفل دلمه بخور.',
+    'برای کاربری خوبه که فقط دنبال یک چیز ترد و خوش‌طعمه و نمی‌خواد آشپزی کنه.',
+    'دیپ‌ها باید با ماست یونانی بمانند. خامه، مایونز و پنیر خامه‌ای زیاد حذف شه.',
+    8.8,
+    'YouTube / Greek yogurt dips',
+    'Search result shows related popular videos; verify exact engagement',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-011-greek-yogurt-dips-3',
+    'سه دیپ سبک با ماست یونانی',
+    '3 Easy Greek Yogurt Dips',
+    'lv4FTjVblmo',
+    ['yogurt','carrot','cucumber','celery'],
+    ['سیر','لیمو','ادویه'],
+    ['سرد','بدون پخت','دیپ','پروتئینی'],
+    ['یه چیز ترد مثل چیپس','سرِ کار','عصر'],
+    '۵ دقیقه',
+    'ماست یونانی را با سه طعم مختلف آماده کن و با سبزیجات چوبی بخور.',
+    'چند طعم داشتن باعث می‌شه کاربر از خیار و هویج ساده خسته نشه.',
+    'اگر کنار دیپ نان/چیپس زیاد آمده، حذف یا محدود شه.',
+    8.4,
+    'YouTube / Greek yogurt dip recipes',
+    'Check metrics before production',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-012-greek-yogurt-spinach-dip',
+    'دیپ اسفناج با ماست یونانی',
+    'Greek Yogurt Spinach Dip',
+    'XW9aPHqJ4x0',
+    ['yogurt','spinach','carrot','cucumber'],
+    ['سیر','لیمو'],
+    ['سرد','دیپ','پروتئینی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','شب‌خوری سبک','عصر'],
+    '۱۰ دقیقه',
+    'اسفناج را نرم کن و با ماست یونانی، سیر و کمی لیمو مخلوط کن. با خیار و هویج بخور.',
+    'هم فیبر داره هم پروتئین، و برای هوس دیپ گزینهٔ بهتری از سس‌های آماده‌ست.',
+    'اگر رسپی پنیر یا خامهٔ زیاد داره، در نسخه فست‌لایف حذف یا خیلی کم شه.',
+    8.6,
+    'YouTube / Greek yogurt spinach dip',
+    'Verify engagement before production'
+  ),
+
+  S(
+    'snack-add-013-dill-pickle-yogurt-dip',
+    'دیپ ماست یونانی و خیارشور',
+    'High-Protein Dill Pickle Dip',
+    'SbvF18Cb-o4',
+    ['yogurt','cucumber','carrot','celery'],
+    ['خیارشور','شوید'],
+    ['سرد','بدون پخت','دیپ','پروتئینی'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم','شب‌خوری سبک'],
+    '۵ دقیقه',
+    'ماست یونانی را با خیارشور ریز، شوید و کمی لیمو مخلوط کن و با خیار، هویج یا کرفس بخور.',
+    'طعم شور و دیپ‌مانند می‌ده، ولی پایه‌اش ماست و سبزیجاته.',
+    'به خاطر خیارشور، نمک اضافه نشه و مقدار خیارشور کنترل شه.',
+    8.2,
+    'YouTube / high protein dill pickle dip',
+    'Check metrics; keep only if engagement is acceptable'
+  ),
+
+  S(
+    'snack-add-014-high-protein-dips-3',
+    'سه دیپ پروتئینی و فیبردار',
+    'How To Make Healthy High Protein Dip 3 Ways',
+    'U-V7zly9mjU',
+    ['yogurt','legume','carrot','cucumber','celery'],
+    ['ارده','ادویه','لیمو'],
+    ['سرد','دیپ','چندمدلی','پروتئینی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','عصر خستگی','سرِ کار'],
+    '۱۰ دقیقه',
+    'از ماست یونانی یا حبوبات پخته به‌عنوان پایهٔ دیپ استفاده کن و با سبزیجات ترد سرو کن.',
+    'برای ته‌بندی عالیه چون چند گزینه برای یک سناریو می‌ده و هم پروتئین/فیبر داره.',
+    'دیپ‌هایی که روغن، ارده یا پنیر زیاد دارند باید سبک‌سازی شوند.',
+    8.8,
+    'YouTube / high protein dips',
+    'Check channel quality and engagement before production',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-015-crispy-dry-roasted-edamame',
+    'ادامامه برشته ترد',
+    'Crispy Dry Roasted Edamame',
+    'qPS1A5frxOQ',
+    ['legume'],
+    ['ادامامه','ادویه'],
+    ['ترد','گیاهی','پروتئینی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','سرِ کار','عصر خستگی'],
+    '۲۰ دقیقه',
+    'ادامامه را با ادویهٔ سبک مزه‌دار کن و در فر یا هواپز خشک و ترد کن.',
+    'برای هوس تردی خوبه چون هم پروتئین گیاهی داره هم فیبر.',
+    'روغن و نمک کم. مقدار سرو باید مشخص باشه؛ یک کاسهٔ کوچک کافیه.',
+    9,
+    'The Protein Chef',
+    'Reputable high-protein source; verify metrics'
+  ),
+
+  S(
+    'snack-add-016-easy-edamame-snack',
+    'ادامامه تند و سریع',
+    'Easy Edamame High Protein Snack',
+    'V-zlmyJgE_c',
+    ['legume'],
+    ['ادامامه','سس تند','لیمو'],
+    ['گرم','سریع','گیاهی','پروتئینی'],
+    ['الان حوصلهٔ آشپزی ندارم','یه چیز پروتئینی و سبک','عصر'],
+    '۷ دقیقه',
+    'ادامامه را بخارپز یا گرم کن و با لیمو و ادویهٔ سبک مزه‌دار کن.',
+    'خیلی سریعه و برای وقتی که چیزی شور و پروتئینی می‌خوای خوب کار می‌کنه.',
+    'سس شور یا روغن زیاد لازم نیست. لیمو، فلفل و ادویه کافیه.',
+    8.3,
+    'YouTube / edamame snack',
+    'Verify engagement before production'
+  ),
+
+  S(
+    'snack-add-017-steamed-edamame',
+    'ادامامه بخارپز با لیمو',
+    'How to Steam and Season Edamame',
+    'xu_p_KSeH9Q',
+    ['legume'],
+    ['ادامامه','لیمو','فلفل'],
+    ['گرم','سریع','گیاهی','پروتئینی'],
+    ['الان حوصلهٔ آشپزی ندارم','شب‌خوری سبک','یه چیز پروتئینی و سبک'],
+    '۷ دقیقه',
+    'ادامامه را بخارپز کن و با لیمو، فلفل و کمی نمک مزه‌دار کن.',
+    'ساده، سریع و کم‌دردسره و بهتر از رفتن سمت تنقلات شور آماده جواب می‌ده.',
+    'نمک کم. اگر شبه، مقدار را کوچک نگه دار.',
+    8.1,
+    'YouTube / steamed edamame',
+    'Verify video quality and metrics'
+  ),
+
+  S(
+    'snack-add-018-edamame-hummus',
+    'حمص ادامامه',
+    'Protein-Packed Edamame Hummus',
+    'ZaFOWWCiSlE',
+    ['legume','cucumber','carrot','celery'],
+    ['ادامامه','لیمو','سیر','ارده کم'],
+    ['سرد','دیپ','گیاهی','پروتئینی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم','سرِ کار'],
+    '۱۰ دقیقه',
+    'ادامامهٔ پخته را با لیمو، سیر و مقدار کم ارده بزن تا دیپ شه. با خیار، هویج و کرفس بخور.',
+    'مثل حمصه ولی پروتئین گیاهی‌اش بالاتر حس می‌شه و برای دیپ‌خواهی خیلی خوبه.',
+    'ارده و روغن کنترل شه. همراه اصلی سبزیجات ترد باشه، نه نان زیاد.',
+    8.7,
+    'YouTube / edamame hummus',
+    'Check engagement before production'
+  ),
+
+  S(
+    'snack-add-019-crispy-baked-chickpeas',
+    'نخود ترد فرپز',
+    'Crispy Baked Chickpeas',
+    'mhWW-sdBUrQ',
+    ['legume'],
+    ['پاپریکا','زیره','ادویه'],
+    ['ترد','گیاهی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','جلوی تلویزیون','عصر خستگی'],
+    '۲۵ دقیقه',
+    'نخود پخته را کاملاً خشک کن، با ادویه و روغن خیلی کم مخلوط کن و در فر یا هواپز تا ترد شدن بپز.',
+    'یکی از بهترین جایگزین‌ها برای چیپسه چون واقعاً ترد می‌شه و فیبر هم داره.',
+    'روغن و نمک کم. مقدار سرو یک کاسهٔ کوچک باشه.',
+    9,
+    'YouTube / crispy baked chickpeas',
+    'Check metrics and video quality'
+  ),
+
+  S(
+    'snack-add-020-best-crispy-chickpeas',
+    'نخود برشته خیلی ترد',
+    'Crispy Roasted Chickpeas Recipe',
+    'i-r_KDjZy9U',
+    ['legume'],
+    ['ادویه دلخواه'],
+    ['ترد','گیاهی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','سفر','سرِ کار'],
+    '۲۵ دقیقه',
+    'نخود را خشک کن، ادویه بزن و تا ترد شدن کامل برشته کن.',
+    'برای کاربرهایی که خرچ‌خرچ می‌خوان، از چیپس آماده بهتره.',
+    'روغن کم و مقدار کنترل‌شده. کل سینی نباید یک وعده حساب شه.',
+    8.9,
+    'The Cooking Foodie / YouTube',
+    'Popular recipe channel; verify current metrics'
+  ),
+
+  S(
+    'snack-add-021-chickpea-crackers',
+    'چیپس نخود یک‌ماده‌ای',
+    'Only 1 Ingredient High-Protein Chickpea Snack',
+    'ytejRCk-4P8',
+    ['legume'],
+    ['ادویه'],
+    ['ترد','گیاهی','فیبردار'],
+    ['یه چیز ترد مثل چیپس','جلوی تلویزیون'],
+    '۲۰ دقیقه',
+    'نخود را به شکل خمیر یا پایهٔ نازک آماده کن و در فر تا ترد شدن بپز.',
+    'برای کسی که واقعاً حس چیپس می‌خواد، این از چیپس صنعتی بهتر و سیرکننده‌تره.',
+    'اگر به روغن زیاد نیاز داشت، نسخه فست‌لایف فقط با روغن کم یا هواپز اجرا شه.',
+    8.3,
+    'YouTube / chickpea chips',
+    'Verify engagement and practicality'
+  ),
+
+  S(
+    'snack-add-022-roasted-chickpeas-two-ways',
+    'نخود برشته دو طعم',
+    '2 Ways to Make Crispy Chickpeas',
+    'NUPDM7twOWM',
+    ['legume'],
+    ['سیر','ادویه دودی'],
+    ['ترد','گیاهی','چندمدلی'],
+    ['یه چیز ترد مثل چیپس','سفر','عصر'],
+    '۲۵ دقیقه',
+    'نخود را برشته کن و دو طعم درست کن: یکی سیر و سبزی، یکی دودی و تند.',
+    'چند طعم باعث می‌شه کاربر از نخود ترد خسته نشه.',
+    'نمک و روغن کنترل شه. طعم تند اگر شبه ملایم‌تر باشه.',
+    8.5,
+    'Pinch of Mint / YouTube',
+    'Search result shows meaningful engagement; verify before production',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-023-cottage-cheese-chips',
+    'چیپس کاتیج‌چیز',
+    'Crispy Cottage Cheese Chips',
+    'eBIkpd5mc_k',
+    ['cheese'],
+    ['ادویه'],
+    ['ترد','پروتئینی','کم‌کربوهیدرات'],
+    ['یه چیز ترد مثل چیپس','شب‌خوری سبک','یه چیز پروتئینی و سبک'],
+    '۲۰ دقیقه',
+    'کاتیج‌چیز را به شکل دایره‌های نازک روی کاغذ روغنی بگذار، ادویه بزن و تا ترد شدن بپز.',
+    'حس چیپس می‌ده ولی پروتئین بیشتری داره و کربوهیدراتش پایین‌تره.',
+    'پنیر شور را کم استفاده کن و مقدار سرو را مشخص کن. این هم آزاد و بی‌حساب نیست.',
+    8.4,
+    'YouTube / cottage cheese chips',
+    'Verify current views/likes'
+  ),
+
+  S(
+    'snack-add-024-one-ingredient-cottage-chips',
+    'چیپس تک‌ماده‌ای کاتیج‌چیز',
+    'One Ingredient Cottage Cheese Chips',
+    '8S4oBq7nlZQ',
+    ['cheese'],
+    ['ادویه'],
+    ['ترد','پروتئینی','کم‌کربوهیدرات'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم'],
+    '۱۵ دقیقه',
+    'کاتیج‌چیز را در قسمت‌های کوچک روی سینی بگذار و تا ترد شدن بپز.',
+    'خیلی ساده‌ست و برای وقتی که کاربر چیپس می‌خواد ولی نمی‌خواد سراغ چیپس صنعتی بره مناسبه.',
+    'سدیم پنیر مهمه. مقدار کم و کنترل‌شده پیشنهاد شه.',
+    8.2,
+    'YouTube / cottage cheese chips',
+    'Verify metrics before production'
+  ),
+
+  S(
+    'snack-add-025-cottage-cheese-fudge',
+    'فاج کاتیج‌چیز شکلاتی',
+    'Cottage Cheese Fudge',
+    'BxDsdWnwi2o',
+    ['cheese','choc'],
+    ['پودر کاکائو تلخ','وانیل'],
+    ['سرد','شیرین','پروتئینی','دسر سالم'],
+    ['دلم یه چیز شیرین می‌خواد','بعد شام','شب‌خوری سبک'],
+    '۱۰ دقیقه + سرد شدن',
+    'کاتیج‌چیز را با پودر کاکائو و مقدار کم شکلات تلخ مخلوط کن و سرد کن تا بافت فاج بگیره.',
+    'برای ولع شکلات خوبه، چون پایه‌اش پروتئینیه و مثل شکلات معمولی قند خالی نیست.',
+    'شکلات و شیرین‌کننده کم. این باید دسر کوچک باشه، نه ظرف بزرگ.',
+    8.5,
+    'The Cooking Foodie',
+    'Popular recipe channel; verify current metrics'
+  ),
+
+  S(
+    'snack-add-026-cottage-cheese-banana-pudding',
+    'پودینگ موز و کاتیج‌چیز',
+    'Protein Power Banana Cottage Cheese Pudding',
+    '-YAN0aU0tjQ',
+    ['cheese','banana','yogurt'],
+    ['دارچین','وانیل'],
+    ['سرد','شیرین','پروتئینی'],
+    ['دلم یه چیز شیرین می‌خواد','بعد ورزش','صبح'],
+    '۵ دقیقه',
+    'کاتیج‌چیز، ماست یونانی، مقدار کنترل‌شده موز و دارچین را بزن تا کرمی شه.',
+    'برای وقتی خوبه که چیز شیرین و خامه‌ای می‌خوای، اما می‌خوای پروتئین هم داشته باشی.',
+    'موز و خرما زیاد نشه. اگر در ویدیو شیرین‌کننده زیاد داره، حذف یا خیلی کم کن.',
+    8.2,
+    'YouTube / high protein cottage pudding',
+    'Verify engagement and ingredients'
+  ),
+
+  S(
+    'snack-add-027-yogurt-fruit-dip',
+    'دیپ میوه با ماست یونانی',
+    'Healthy Yogurt Fruit Dip',
+    'QIR-p4qo_9U',
+    ['yogurt','apple','banana','berry'],
+    ['دارچین','وانیل'],
+    ['سرد','بدون پخت','شیرین'],
+    ['دلم یه چیز شیرین می‌خواد','الان حوصلهٔ آشپزی ندارم','مهمانِ ناگهانی'],
+    '۵ دقیقه',
+    'ماست یونانی را با دارچین و کمی وانیل مخلوط کن و کنار سیب، موز یا توت سرو کن.',
+    'میوه تنها گاهی ولع را کامل جمع نمی‌کنه؛ ماست یونانی کمک می‌کنه سیرکننده‌تر شه.',
+    'عسل لازم نیست. اگر لازم شد، فقط چند قطره. پایه باید ماست باشه.',
+    8.7,
+    'YouTube / yogurt fruit dip',
+    'Verify current metrics'
+  ),
+
+  S(
+    'snack-add-028-best-greek-yogurt-fruit-dip',
+    'دیپ ماست یونانی برای سیب و توت',
+    'Best Greek Yogurt Fruit Dip',
+    'WLZsjGw-mjI',
+    ['yogurt','apple','berry','banana'],
+    ['دارچین','وانیل'],
+    ['سرد','بدون پخت','شیرین'],
+    ['دلم یه چیز شیرین می‌خواد','عصر','سرِ کار'],
+    '۵ دقیقه',
+    'ماست یونانی را با دارچین یا وانیل مخلوط کن و سیب قاچ‌شده یا توت را داخلش بزن.',
+    'حس دسر و دیپ می‌ده ولی از جنس غذاست: پروتئین ماست + فیبر میوه.',
+    'اگر رسپی کارامل یا شیرین‌کننده زیاد داره، در نسخه ته‌بندی حذف یا خیلی کم شه.',
+    8.5,
+    'YouTube / Greek yogurt fruit dip',
+    'Check engagement before production'
+  ),
+
+  S(
+    'snack-add-029-greek-yogurt-fruit-dips-3',
+    'دیپ میوه با ماست، سه مدل',
+    'Greek Yogurt Fruit Dips 3 Ways',
+    'ol2i8kKcmp0',
+    ['yogurt','apple','banana','berry'],
+    ['پودر کاکائو تلخ','لیمو','دارچین'],
+    ['سرد','بدون پخت','چندمدلی','شیرین'],
+    ['دلم یه چیز شیرین می‌خواد','مهمانِ ناگهانی','عصر'],
+    '۵ دقیقه',
+    'با ماست یونانی سه مدل دیپ درست کن: شکلاتی سبک، دارچینی، یا لیمویی. با میوه سرو کن.',
+    'چند مدل داشتن باعث می‌شه کاربر برای ولع شیرینی انتخاب‌های بیشتری داشته باشه.',
+    'مدل شکلاتی فقط با پودر کاکائو تلخ و مقدار خیلی کم شکلات تلخ؛ نه شکر زیاد.',
+    8.4,
+    'YouTube / Greek yogurt fruit dips',
+    'Verify current video metrics',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-030-yogurt-parfait',
+    'پارفی ماست یونانی و توت',
+    'High Protein Yogurt Parfait',
+    'PIW11dA2Y28',
+    ['yogurt','berry','oats','walnut'],
+    ['دارچین'],
+    ['سرد','شیرین','پروتئینی','فیبردار'],
+    ['دلم یه چیز شیرین می‌خواد','صبح','از ورزش اومدم و گرسنه‌ام'],
+    '۵ دقیقه',
+    'ماست یونانی را با توت، کمی جو دوسر و مقدار محدود مغزها لایه‌لایه کن.',
+    'هم حس دسر داره، هم پروتئین و فیبر؛ برای بعد ورزش یا صبح گزینهٔ خوبیه.',
+    'جو و مغزها کم باشند. گرانولای آماده یا شیرین‌شده اضافه نشه.',
+    8.5,
+    'YouTube / high protein yogurt parfait',
+    'Verify engagement and avoid sugary granola versions'
+  ),
+
+  S(
+    'snack-add-031-high-protein-yogurt-bowl',
+    'کاسه ماست پروتئینی پنج دقیقه‌ای',
+    'High Protein Yogurt Bowl',
+    'VkiziiuyuDY',
+    ['yogurt','berry','chia','walnut'],
+    ['دارچین'],
+    ['سرد','شیرین','پروتئینی'],
+    ['دلم یه چیز شیرین می‌خواد','از ورزش اومدم و گرسنه‌ام','صبح'],
+    '۵ دقیقه',
+    'ماست یونانی را در کاسه بریز، توت، چیا و مقدار کم مغز خردشده اضافه کن.',
+    'ساده‌ست ولی دقیقاً همان سه‌گانهٔ خوب را داره: پروتئین، فیبر و کمی چربی سالم.',
+    'مغزها محدود. عسل یا گرانولا اضافه نشه مگر خیلی کم و اختیاری.',
+    8.8,
+    'YouTube / high protein yogurt bowl',
+    'Verify metrics'
+  ),
+
+  S(
+    'snack-add-032-yogurt-bark-alt',
+    'برک ماست یخ‌زده',
+    'Yogurt Bark Healthy Snack',
+    'BJS3KNqw7ys',
+    ['yogurt','berry','choc'],
+    ['عسل خیلی کم'],
+    ['یخ‌زده','شیرین','دسر سالم'],
+    ['دلم یه چیز شیرین می‌خواد','بعد شام','شب‌خوری سبک'],
+    '۱۰ دقیقه + فریز',
+    'ماست یونانی را روی کاغذ روغنی پهن کن، توت و کمی شکلات تلخ اضافه کن و فریز کن.',
+    'حس بستنی می‌ده، ولی پایه‌اش ماست و میوه‌ست.',
+    'شکلات و عسل کنترل شه. این یک دسر کوچکه، نه اسنک آزاد.',
+    8.5,
+    'YouTube / yogurt bark',
+    'Keep only if not duplicate with existing DATA'
+  ),
+
+  S(
+    'snack-add-033-frozen-yogurt-bark-easy',
+    'برک ماست و میوه',
+    'How to Make Frozen Yogurt Bark',
+    '-kk3fEAETsM',
+    ['yogurt','berry','banana'],
+    ['دارچین'],
+    ['یخ‌زده','شیرین','بدون پخت'],
+    ['دلم یه چیز شیرین می‌خواد','بعد شام'],
+    '۱۰ دقیقه + فریز',
+    'ماست یونانی را پهن کن، میوهٔ خردشده اضافه کن و فریز کن.',
+    'برای جایگزینی بستنی یا شیرینی بعد شام مناسبه.',
+    'موز زیاد نشه و شیرین‌کننده حذف شه.',
+    8.1,
+    'YouTube / frozen yogurt bark',
+    'Verify engagement and avoid duplicate'
+  ),
+
+  S(
+    'snack-add-034-energy-balls-downshiftology',
+    'انرژی بال جو و مغزها',
+    'Energy Balls',
+    'eGEno0h3ujg',
+    ['oats','walnut','date'],
+    ['دارچین','پودر کاکائو'],
+    ['بدون پخت','شیرین','قابل حمل'],
+    ['دلم یه چیز شیرین می‌خواد','سفر','از ورزش اومدم و گرسنه‌ام'],
+    '۱۵ دقیقه',
+    'جو دوسر، خرما و مغزها را مخلوط کن و توپک‌های کوچک بساز.',
+    'از شیرینی صنعتی بهتره، ولی چون خرما و مغز داره باید اندازه‌اش مشخص بمونه.',
+    '۱ تا ۲ توپک کوچک کافیه. بهتره کنار ماست یونانی یا بعد از ورزش استفاده شه.',
+    7.8,
+    'YouTube / energy balls',
+    'Verify channel and metrics'
+  ),
+
+  S(
+    'snack-add-035-carrot-cake-energy-bites',
+    'توپک هویج و جو دوسر',
+    'Carrot Cake Energy Bites',
+    '5ZCcn4ud3_M',
+    ['oats','carrot','walnut','date'],
+    ['دارچین'],
+    ['بدون پخت','شیرین','فیبردار'],
+    ['دلم یه چیز شیرین می‌خواد','سفر','عصر'],
+    '۱۵ دقیقه',
+    'هویج رنده‌شده را با جو دوسر، خرما، گردو و دارچین مخلوط کن و توپک کوچک بساز.',
+    'هویج و جو فیبر می‌دن و حس کیک هویج را سالم‌تر می‌کنن.',
+    'خرما و گردو محدود. اندازهٔ هر توپک کوچک باشه.',
+    7.9,
+    'YouTube / carrot cake energy bites',
+    'Search result connects it to popular healthy snack ecosystem; verify metrics'
+  ),
+
+  S(
+    'snack-add-036-no-sugar-chocolate-energy-balls',
+    'توپک شکلاتی بدون پخت',
+    'No Sugar Chocolate Energy Balls',
+    'PbfxlOlPxh8',
+    ['oats','date','walnut','choc'],
+    ['پودر کاکائو تلخ'],
+    ['بدون پخت','شیرین','شکلاتی'],
+    ['دلم یه چیز شیرین می‌خواد','بعد شام','سفر'],
+    '۱۵ دقیقه',
+    'جو، خرما، مغزها و پودر کاکائو را مخلوط کن و توپک کوچک بساز.',
+    'برای هوس شکلات از شکلات‌خوری بی‌برنامه بهتره.',
+    'به خاطر خرما، مغز و شکلات، تعداد محدود باشه. این گزینه سالمه ولی سبک نیست.',
+    7.7,
+    'YouTube / chocolate energy balls',
+    'Search result shows related high-view ecosystem; verify metrics'
+  ),
+
+  S(
+    'snack-add-037-protein-balls-4-ways',
+    'پروتئین بال چند مدل',
+    'How to Make Protein Balls 4 Ways',
+    'xrzEQXijW8M',
+    ['oats','walnut','date','choc'],
+    ['دارچین','پودر کاکائو'],
+    ['بدون پخت','چندمدلی','شیرین'],
+    ['دلم یه چیز شیرین می‌خواد','از ورزش اومدم و گرسنه‌ام','سفر'],
+    '۱۵ دقیقه',
+    'از جو دوسر و مغزها چند مدل توپک کوچک بساز؛ مدل شکلاتی، دارچینی یا ساده.',
+    'برای آماده‌سازی هفتگی خوبه و جلوی خرید شیرینی تصادفی را می‌گیره.',
+    'اگر از پروتئین پودر استفاده شده و در ابزار نداریم، در نسخه اپ حذف یا در ex بنویس اختیاری.',
+    7.6,
+    'YouTube / protein balls',
+    'Verify current views/likes',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-038-scrambled-egg-salad',
+    'سالاد تخم‌مرغ همزده',
+    'The Best Scrambled Egg Salad',
+    'HngFMYlUoUQ',
+    ['egg','yogurt','cucumber','lettuce'],
+    ['خردل','لیمو'],
+    ['گرم یا سرد','پروتئینی','سریع'],
+    ['الان حوصلهٔ آشپزی ندارم','یه چیز پروتئینی و سبک','شب‌خوری سبک'],
+    '۸ دقیقه',
+    'تخم‌مرغ را سریع هم بزن و بپز، بعد با ماست یونانی، خیار و کمی خردل مخلوط کن و با کاهو بخور.',
+    'برای کسی که تخم‌مرغ آب‌پز آماده نداره، نسخهٔ سریع‌تری از سالاد تخم‌مرغه.',
+    'مایونز حذف. اگر با نان سرو شد، نان خیلی کم یا اختیاری باشه.',
+    8.4,
+    'YouTube / scrambled egg salad',
+    'Verify engagement'
+  ),
+
+  S(
+    'snack-add-039-egg-salad-lettuce-wraps',
+    'کاهوپیچ سالاد تخم‌مرغ',
+    'Healthy Egg Salad Lettuce Wraps',
+    'uxsF3HFPzHA',
+    ['egg','yogurt','lettuce','cucumber'],
+    ['خردل','شوید'],
+    ['سرد','بدون پخت','کم‌کربوهیدرات','پروتئینی'],
+    ['شب‌خوری سبک','یه چیز پروتئینی و سبک','سرِ کار'],
+    '۷ دقیقه',
+    'سالاد تخم‌مرغ ماست‌محور را داخل برگ‌های کاهو بگذار و با خیار سرو کن.',
+    'حس لقمه داره، اما نان نداره و برای شب یا اسنک سبک مناسب‌تره.',
+    'سس ماست‌محور بمونه؛ مایونز یا پنیر اضافه نکن.',
+    8.6,
+    'YouTube / egg salad lettuce wraps',
+    'Verify video metrics'
+  ),
+
+  S(
+    'snack-add-040-healthy-egg-salad-carrot-pepper',
+    'سالاد تخم‌مرغ با هویج و فلفل دلمه',
+    'Healthy Egg Salad Recipe',
+    'pgimyi2XsoY',
+    ['egg','carrot','pepper','yogurt'],
+    ['لیمو','خردل'],
+    ['سرد','پروتئینی','فیبردار'],
+    ['یه چیز پروتئینی و سبک','سرِ کار','عصر'],
+    '۸ دقیقه',
+    'تخم‌مرغ آب‌پز را با هویج رنده‌شده، فلفل دلمه و سس ماست یونانی مخلوط کن.',
+    'سبزیجات باعث می‌شن سالاد تخم‌مرغ حجیم‌تر و تردتر شه.',
+    'مایونز حذف و ماست یونانی جایگزین شه. نمک کم.',
+    8.1,
+    'YouTube / healthy egg salad',
+    'Verify engagement before production'
+  ),
+
+  S(
+    'snack-add-041-shrimp-cucumber-bites',
+    'لقمه میگو و خیار',
+    'Healthy Shrimp Cucumber Bites',
+    'search_replace_with_verified_video_id',
+    ['shrimp','cucumber','yogurt'],
+    ['لیمو','شوید'],
+    ['سرد','بدون پخت','پروتئینی','کم‌کربوهیدرات'],
+    ['یه چیز پروتئینی و سبک','مهمانِ ناگهانی','شب‌خوری سبک'],
+    '۷ دقیقه',
+    'خیار را حلقه کن، کمی ماست یونانی مزه‌دار روی آن بگذار و میگوی پخته رویش بچین.',
+    'سبک، پروتئینی و شیکه؛ برای شب یا وقتی اسنک کوچک ولی جدی می‌خوای خوبه.',
+    'اول باید ویدیوی پرمخاطب و معتبر پیدا شه. تا وقتی video id واقعی پیدا نشده نمایش نده.',
+    8.2,
+    'Needs YouTube search',
+    'Find a verified/high-engagement YouTube video before enabling',
+    {hidden:true}
+  ),
+
+  S(
+    'snack-add-042-turkey-cucumber-rollups-verified',
+    'رول بوقلمون و خیار',
+    'Turkey Cucumber Roll Ups',
+    'search_replace_with_verified_video_id',
+    ['turkey','cucumber','cheese'],
+    ['خردل'],
+    ['سرد','بدون پخت','پروتئینی','ترد'],
+    ['الان حوصلهٔ آشپزی ندارم','سرِ کار','یه چیز پروتئینی و سبک'],
+    '۵ دقیقه',
+    'ورقهٔ بوقلمون را با نوار خیار و مقدار کم پنیر رول کن و کمی خردل بزن.',
+    'خیلی سریع و قابل حمله و بدون نان هم حس لقمه می‌ده.',
+    'اول ویدیوی پرمخاطب معتبر برای همین فرمول پیدا کن. تا قبل از آن hidden باشه.',
+    8.2,
+    'Needs YouTube search',
+    'Find high-engagement source before enabling',
+    {hidden:true}
+  ),
+
+  S(
+    'snack-add-043-apple-yogurt-dip',
+    'سیب با دیپ ماست دارچینی',
+    'Apple with Greek Yogurt Dip',
+    'QIR-p4qo_9U',
+    ['apple','yogurt','walnut'],
+    ['دارچین'],
+    ['سرد','بدون پخت','شیرین'],
+    ['دلم یه چیز شیرین می‌خواد','شب‌خوری سبک','عصر'],
+    '۳ دقیقه',
+    'سیب را قاچ کن و با ماست یونانی دارچینی و مقدار خیلی کم مغز خردشده بخور.',
+    'حس دسر و دیپ می‌ده ولی پروتئین و فیبر داره.',
+    'مغزها کم. عسل اضافه نشه مگر چند قطره.',
+    8.5,
+    'YouTube / yogurt fruit dip',
+    'If duplicate with fruit dip card, merge as variation instead of separate video card'
+  ),
+
+  S(
+    'snack-add-044-cottage-cheese-savory-bowl-extra',
+    'کاسه کاتیج‌چیز شور با خیار و گوجه',
+    'Savory Cottage Cheese Bowl',
+    'WXfUMiLZS1o',
+    ['cheese','cucumber','tomato','herbs'],
+    ['فلفل سیاه','لیمو'],
+    ['سرد','بدون پخت','پروتئینی','سریع'],
+    ['الان حوصلهٔ آشپزی ندارم','یه چیز پروتئینی و سبک','عصر'],
+    '۵ دقیقه',
+    'کاتیج‌چیز را با خیار، گوجه، سبزی و کمی فلفل سیاه در کاسه بچین.',
+    'برای وقتی خوبه که چیز شیرین نمی‌خوای و یک اسنک سرد، سریع و پروتئینی لازم داری.',
+    'نمک زیاد نزن. اگر ویدیو تاپینگ پرچرب داره، حذف یا کم شه.',
+    8.4,
+    'YouTube / cottage cheese bowl',
+    'Search result shows related cottage bowl ecosystem; verify metrics'
+  ),
+
+  S(
+    'snack-add-045-cottage-cheese-salad-simple',
+    'سالاد ساده کاتیج‌چیز',
+    'Cottage Cheese Salad',
+    'SCfEWkhTr7k',
+    ['cheese','cucumber','tomato','pepper'],
+    ['لیمو','فلفل سیاه'],
+    ['سرد','بدون پخت','پروتئینی','کم‌کربوهیدرات'],
+    ['الان حوصلهٔ آشپزی ندارم','یه چیز پروتئینی و سبک','سرِ کار','شب‌خوری سبک'],
+    '۵ دقیقه',
+    'کاتیج‌چیز را با خیار، گوجه و فلفل دلمه خردشده مخلوط کن و کمی لیمو بزن.',
+    'یک اسنک شور و ساده‌ست که از پنیر تنها سیرکننده‌تر و جذاب‌تر می‌شه.',
+    'روغن یا سس اضافه لازم نیست. سبزیجات باید حجم اصلی را بدن.',
+    8.2,
+    'YouTube / cottage cheese salad',
+    'Verify engagement before production'
+  ),
+
+  S(
+    'snack-add-046-cottage-muffins',
+    'مافین کاتیج‌چیز و تخم‌مرغ',
+    'High Protein Cottage Cheese Muffins',
+    'rSs0yPSyFXc',
+    ['egg','cheese','spinach','pepper'],
+    ['ادویه'],
+    ['گرم','Meal prep','پروتئینی'],
+    ['از ورزش اومدم و گرسنه‌ام','سرِ کار','صبح'],
+    '۲۰ دقیقه',
+    'تخم‌مرغ و کاتیج‌چیز را با اسفناج و فلفل دلمه مخلوط کن و در قالب مافین بپز.',
+    'برای چند روز قابل آماده‌سازیه و وقتی گرسنه برمی‌گردی، گزینهٔ آماده داری.',
+    'پنیر اضافه لازم نیست. دو عدد با سبزیجات کافیه.',
+    8.7,
+    'YouTube / cottage cheese muffins',
+    'Verify metrics'
+  ),
+
+  S(
+    'snack-add-047-cottage-cheese-keto-cheetos',
+    'پفک کاتیج‌چیز سالم‌تر',
+    'Cottage Cheese Keto Cheetos',
+    '7h9-ryO5gzI',
+    ['cheese'],
+    ['ادویه پنیری','پاپریکا'],
+    ['ترد','پروتئینی','کم‌کربوهیدرات'],
+    ['یه چیز ترد مثل چیپس','شب‌خوری سبک'],
+    '۲۰ دقیقه',
+    'کاتیج‌چیز را با ادویهٔ مناسب به شکل تکه‌های کوچک بپز تا ترد شه.',
+    'برای کسی که دقیقاً پفک/چیپس می‌خواد، نسخهٔ کنترل‌شده‌تریه.',
+    'ادویه پنیری ممکنه شور و فرآوری‌شده باشه؛ مقدار کم و اختیاری. اگر ویدیو خیلی keto-junk است، حذفش کن.',
+    7.4,
+    'YouTube / cottage cheese keto snack',
+    'Use only after strict quality review'
+  ),
+
+  S(
+    'snack-add-048-cottage-cheese-cheezit',
+    'کراکر کاتیج‌چیز',
+    'Cottage Cheese Cheez-It Recipe',
+    'tXVFSq0IKqE',
+    ['cheese'],
+    ['ادویه'],
+    ['ترد','پروتئینی','کم‌کربوهیدرات'],
+    ['یه چیز ترد مثل چیپس','سرِ کار'],
+    '۲۰ دقیقه',
+    'کاتیج‌چیز را به شکل ورقه‌های نازک یا کراکر کوچک بپز تا ترد شه.',
+    'برای تردی‌خواهی خوبه ولی باید مثل اسنک کنترل‌شده مصرف شه.',
+    'اگر به پنیر اضافه، نمک زیاد یا ادویهٔ فرآوری‌شده نیاز داره، نسخه فست‌لایف را سبک‌تر کن.',
+    7.6,
+    'YouTube / cottage cheese cracker',
+    'Strict engagement and quality review required'
+  ),
+
+  S(
+    'snack-add-049-cucumber-subs',
+    'ساب خیار پروتئینی',
+    'Cucumber Subs 4 Ways',
+    'FrfXGtMWNXU',
+    ['cucumber','tuna','turkey','cheese'],
+    ['خردل','لیمو'],
+    ['سرد','بدون پخت','ترد','پروتئینی'],
+    ['الان حوصلهٔ آشپزی ندارم','سرِ کار','یه چیز پروتئینی و سبک'],
+    '۸ دقیقه',
+    'خیار را از وسط باز کن و داخلش را با تن، بوقلمون یا پنیر سبک پر کن.',
+    'حس ساندویچ می‌ده، اما سبک‌تر و پرآب‌تره.',
+    'اگر cream cheese زیاد داره، مقدارش کم یا با ماست یونانی سبک شه.',
+    8,
+    'YouTube / cucumber subs',
+    'Verify metrics before production',
+    {multi_recipe_video:true}
+  ),
+
+  S(
+    'snack-add-050-high-protein-cucumber-salads-extra',
+    'سالاد خیار پروتئینی چند مدل',
+    'High Protein Cucumber Salads',
+    'J-yIrctuXb0',
+    ['cucumber','egg','yogurt','tomato'],
+    ['پیاز','سبزی'],
+    ['سرد','ترد','پروتئینی','چندمدلی'],
+    ['یه چیز ترد مثل چیپس','الان حوصلهٔ آشپزی ندارم','عصر'],
+    '۷ دقیقه',
+    'خیار خردشده را با تخم‌مرغ آب‌پز، گوجه و ماست یونانی مخلوط کن.',
+    'خیار تردی و حجم می‌ده و تخم‌مرغ و ماست باعث می‌شن سالاد واقعاً سیرکننده شه.',
+    'اگر همین video_id قبلاً در DATA هست، duplicate نساز؛ فقط متن و tags همان آیتم را کامل‌تر کن.',
+    8.8,
+    'YouTube / cucumber salads',
+    'Use only if not already present'
+  )
+
+  ];
+  DATA=DATA.concat(ADDITIONAL_TAHBANDI_SNACK_SEEDS);
+
+  var APP_MODE='candidate-preview';
+  // ویدیوی واقعی = شناسهٔ ۱۱ کاراکتری معتبر یوتیوب و آیتمِ غیرمخفی.
+  // این خودش هر placeholder (مثل replace_with… یا search_replace…) و هر آیتم hidden را از نمایش حذف می‌کند.
+  function hasRealVideo(it){return !it.hidden&&/^[A-Za-z0-9_-]{11}$/.test(it.youtube_video_id||'');}
+  // گاردِ ضدِّ duplicate: id تکراری هرگز؛ youtube_video_id تکراری فقط وقتی multi_recipe_video:true باشد.
+  // آیتم‌های placeholder/hidden نگه داشته می‌شوند ولی چون hasRealVideo=false اصلاً رندر نمی‌شوند و جای ویدیوی واقعی را نمی‌گیرند.
+  function dedupeData(list){var seenId={},seenVid={},out=[];list.forEach(function(it){if(seenId[it.id])return;if(!hasRealVideo(it)){seenId[it.id]=1;out.push(it);return;}var v=it.youtube_video_id;if(seenVid[v]&&!it.multi_recipe_video)return;seenId[it.id]=1;seenVid[v]=1;out.push(it);});return out;}
+  DATA=dedupeData(DATA);
+  function availableData(){return DATA.filter(function(it){return hasRealVideo(it)&&(APP_MODE!=='production'||it.review_status==='popular_source_needs_final_content_check')})}
+  var PLAY_SVG='<svg class="play-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.4 6.8c0-1.05 1.16-1.7 2.06-1.15l9.05 5.2a1.33 1.33 0 0 1 0 2.3l-9.05 5.2c-.9.55-2.06-.1-2.06-1.15z" fill="currentColor"/></svg>';
+  var STORAGE='snacklab-saved-v3',CUSTOM_STORE='snacklab-custom-v1',saved=load(),customItems=loadCustom(),selIng={},selScen=null,toastTimer,currentView='home';
+  function load(){try{var a=JSON.parse(localStorage.getItem(STORAGE)||localStorage.getItem('snacklab-saved-v2'));return Array.isArray(a)?a:[];}catch(e){return [];}}
+  function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(saved));}catch(e){}}
+  function loadCustom(){try{var a=JSON.parse(localStorage.getItem(CUSTOM_STORE));return Array.isArray(a)?a.filter(function(x){return x&&x.id&&x.name&&GROUPS[x.group]}):[]}catch(e){return []}}
+  function persistCustom(){try{localStorage.setItem(CUSTOM_STORE,JSON.stringify(customItems))}catch(e){}}
+  function syncCustomNames(){customItems.forEach(function(x){NAME[x.id]=x.name})} syncCustomNames();
+  function groupItems(group){return GROUPS[group].concat(customItems.filter(function(x){return x.group===group}).map(function(x){return [x.name,x.id]}))}
+  function keyOf(it){return it.id||it.t} function isSaved(it){return saved.indexOf(keyOf(it))>=0||saved.indexOf(it.t)>=0}
+  function toggleSaved(it){var keys=[keyOf(it),it.t],i=saved.findIndex(function(x){return keys.indexOf(x)>=0});if(i>=0){saved.splice(i,1);showToast('از منوی تو برداشته شد')}else{saved.push(keyOf(it));showToast('به منوی تو اضافه شد')}persist()}
+  function showToast(m){clearTimeout(toastTimer);el('toast').textContent=m;el('toast').classList.add('show');toastTimer=setTimeout(function(){el('toast').classList.remove('show')},1900)}
+  function showView(name,push){currentView=name;['homeView','resView','menuView'].forEach(function(v){el(v).hidden=v!==name+'View'});if(push)history.pushState({v:name},'');if(name==='menu')renderMenu();window.scrollTo(0,0)}
+  function scenario(){return SCEN.find(function(x){return x.k===selScen})}
+  function buildGroup(id,arr,moreId){el(id).innerHTML=arr.map(function(x,i){return '<button class="pick'+(i>=6?' more':'')+(selIng[x[1]]?' on':'')+'" data-k="'+x[1]+'"><span class="tick"></span><span class="mo">'+ico(x[1])+'</span><b>'+esc(x[0])+'</b></button>'}).join('');el(id).querySelectorAll('.pick').forEach(function(b){b.onclick=function(){selIng[b.dataset.k]=!selIng[b.dataset.k];b.classList.toggle('on',!!selIng[b.dataset.k])}});var mb=el(moreId);mb.style.display=arr.length>6?'inline-block':'none';mb.onclick=function(){var on=el(id).classList.toggle('show-all');mb.textContent=on?'کمتر':'بیشتر'}}
+  function renderHome(){el('scenRow').innerHTML=SCEN.map(function(s){return '<button class="schip'+(selScen===s.k?' on':'')+'" data-k="'+s.k+'">'+s.l+'</button>'}).join('');el('scenRow').querySelectorAll('.schip').forEach(function(b){b.onclick=function(){selScen=selScen===b.dataset.k?null:b.dataset.k;el('scenRow').querySelectorAll('.schip').forEach(function(x){x.classList.toggle('on',x.dataset.k===selScen)})}});buildGroup('gP',groupItems('P'),'moreP');buildGroup('gV',groupItems('V'),'moreV');buildGroup('gC',groupItems('C'),'moreC');buildGroup('gF',groupItems('F'),'moreF');buildGroup('gH',groupItems('H'),'moreH')}
+  function qualityBoost(it){return it.tg.reduce(function(n,t){return n+(/پروتئینی|فیبردار|کم‌کربوهیدرات/.test(t)?3:0)},0)}
+  function rankedResults(){var keys=Object.keys(selIng).filter(function(k){return selIng[k]}),s=scenario(),pool=s?availableData().filter(s.f):availableData();return pool.map(function(it){var hits=keys.filter(function(k){return it.ing.indexOf(k)>=0}),weak=keys.filter(function(k){return it.ex.indexOf(NAME[k])>=0}),exact=keys.length>0&&hits.length===keys.length,score=it.fast_life_score*2+hits.length*34+weak.length*8+(s?36:0)+qualityBoost(it),percent=keys.length?Math.min(100,Math.round(hits.length/keys.length*75+(exact?25:0))):null;return {it:it,hits:hits,weak:weak,exact:exact,score:score,percent:percent}}).filter(function(x){return !keys.length||x.hits.length>0||x.weak.length>0}).sort(function(a,b){return b.score-a.score||b.it.fast_life_score-a.it.fast_life_score})}
+  function badgeFor(x,hasSelection){if(hasSelection&&x.percent>=50)return fa(x.percent)+'٪ نزدیک';if(x.exact)return 'ایده پیشنهادی';return x.it.ex.length?'با یه خرید کوچیک':'الهام'}
+  function missingFor(it,keys){var miss=it.ing.filter(function(k){return keys.indexOf(k)<0}).map(function(k){return NAME[k]||k}).concat(it.ex.filter(function(x){return !keys.some(function(k){return NAME[k]===x})}));if(!keys.length)return 'یک پیشنهاد سبک و سیرکننده برای شروع';if(!miss.length)return 'همهٔ مواد اصلیش رو داری';return miss.length<=2?'فقط '+miss.join(' و ')+' کم داری':'با یه خرید کوچیک می‌تونی درستش کنی'}
+  function card(itx,keys){var it=itx.it,thumb=it.youtube_video_id?'<button class="art" data-open="'+it.id+'" aria-label="دیدن دستور '+esc(it.t)+'"><img class="cardthumb" src="https://i.ytimg.com/vi/'+it.youtube_video_id+'/hqdefault.jpg" alt="" loading="lazy"><span class="match">'+badgeFor(itx,keys.length>0)+'</span><span class="cardplay" aria-hidden="true">'+PLAY_SVG+'</span></button>':'<button class="art" data-open="'+it.id+'"><span class="mo">'+ico(it.ing[0])+'</span></button>';return '<article class="recipe">'+thumb+'<div class="rbody"><h3 class="rtitle">'+esc(it.t)+'</h3><div class="en">'+esc(it.en)+'</div><div class="chips"><span class="chip">'+esc(it.tm)+'</span>'+it.tg.slice(0,2).map(function(t){return '<span class="chip">'+esc(t)+'</span>'}).join('')+'</div><div class="missing">'+esc(missingFor(it,keys))+'</div><div class="card-actions"><button class="openbtn" data-open="'+it.id+'">دستور و ویدیو ←</button><button class="fav'+(isSaved(it)?' on':'')+'" data-fav="'+it.id+'" aria-label="افزودن به منوی من">'+(isSaved(it)?I.heartf:I.heart)+'</button></div></div></article>'}
+  function renderResults(){var keys=Object.keys(selIng).filter(function(k){return selIng[k]}),list=rankedResults();if(!keys.length&&!selScen)list=list.slice(0,12);el('resCount').textContent=fa(list.length)+' ایده پیدا شد';el('resBody').innerHTML=list.length?list.map(function(x){return card(x,keys)}).join(''):'<div class="empty">ایدهٔ مناسبی پیدا نشد. یک حالت دیگر یا مواد کمتری انتخاب کن.</div>';el('resBody').querySelectorAll('[data-open]').forEach(function(b){b.onclick=function(){var it=availableData().find(function(x){return x.id===b.dataset.open});if(it)openDetail(it)}});el('resBody').querySelectorAll('[data-fav]').forEach(function(b){b.onclick=function(e){e.stopPropagation();var it=availableData().find(function(x){return x.id===b.dataset.fav});toggleSaved(it);renderResults()}})}
+  function openDetail(it){var mats=it.ing.map(function(k){return NAME[k]||k}).concat(it.ex),video=it.youtube_video_id?'<a class="video-thumb" href="'+it.youtube_url+'" target="_blank" rel="noopener noreferrer"><img src="https://i.ytimg.com/vi/'+it.youtube_video_id+'/hqdefault.jpg" alt="تصویر آموزش '+esc(it.t)+'"><span class="playmark" aria-hidden="true"><span>'+PLAY_SVG+'</span></span></a>':'';el('dmBody').innerHTML=video+'<h2 class="dtitle" id="detailTitle">'+esc(it.t)+'</h2><div class="en">'+esc(it.en)+'</div><div class="chips"><span class="chip">'+esc(it.tm)+'</span>'+it.tg.concat(it.sc).map(function(t){return '<span class="chip">'+esc(t)+'</span>'}).join('')+'</div><p class="source-note">منبع: '+esc(it.source_channel)+' · '+esc(it.engagement_note)+'<br>این ویدیو پیش از انتشار نهایی باید از نظر محتوا دستی بررسی شود.</p><div class="detailbox"><h3>مواد لازم</h3><div class="materials">'+mats.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div></div><div class="detailbox"><h3>طرز تهیه</h3><p>'+esc(spoken(it.r))+'</p></div><div class="detailbox"><h3>چرا انتخاب خوبیه؟</h3><p>'+esc(spoken(it.w))+'</p></div><div class="detailbox mod"><h3>نسخه Fast Life</h3><p>'+esc(spoken(it.mod))+'</p></div><div class="dmact"><a class="openbtn ytbtn" href="'+it.youtube_url+'" target="_blank" rel="noopener noreferrer">دیدن آموزش در یوتیوب ←</a><button class="openbtn" id="dmFav">'+(isSaved(it)?'در منوی توست':'افزودن به منوی من')+'</button></div>';el('dmFav').onclick=function(){toggleSaved(it);el('dmFav').textContent=isSaved(it)?'در منوی توست':'افزودن به منوی من'};el('dmodal').classList.add('open');document.body.style.overflow='hidden';el('dmcard').scrollTop=0;history.pushState({v:'detail',id:it.id},'')}
+  function closeDetail(){el('dmodal').classList.remove('open');document.body.style.overflow='';el('dmcard').style.transform=''}
+  function renderMenu(){var items=saved.map(function(k){return availableData().find(function(x){return x.id===k||x.t===k})}).filter(Boolean),rows=items.length?items.map(function(it,i){return '<div class="srow"><span class="sn">'+fa(i+1)+'</span><span>'+esc(it.t)+'</span><button class="rx" data-id="'+it.id+'">×</button></div>'}).join(''):'<div class="empty">هنوز چیزی به منویت اضافه نکردی.</div>';el('menuBody').innerHTML='<div class="scard" id="scard"><div class="shead"><div class="st">منوی ته بندی من</div><div class="sc">برای گرسنگی‌های کوچک و واقعی</div></div>'+rows+'<div class="sfoot">سبک، سیرکننده و قابل انجام · <b>Fast Life</b></div></div>';el('menuBody').querySelectorAll('.rx').forEach(function(b){b.onclick=function(){var it=availableData().find(function(x){return x.id===b.dataset.id});toggleSaved(it);renderMenu()}})}
+  function saveImage(){var card=el('scard');if(!card)return;if(typeof html2canvas==='undefined'){alert('برای ذخیره عکس می‌توانی اسکرین‌شات بگیری.');return}html2canvas(card,{backgroundColor:'#e9ebf0',scale:2,useCORS:true}).then(function(canvas){var a=document.createElement('a');a.href=canvas.toDataURL('image/jpeg',.95);a.download='منوی-ته-بندی.jpg';a.click()})}
+  el('customToggle').onclick=function(){el('customForm').classList.toggle('open');if(el('customForm').classList.contains('open'))el('customInput').focus()};el('customForm').onsubmit=function(e){e.preventDefault();var name=el('customInput').value.trim(),group=el('customGroup').value;if(!name)return;var existing=null;Object.keys(GROUPS).some(function(g){return groupItems(g).some(function(x){if(x[0]===name){existing=x[1];return true}return false})});if(existing)selIng[existing]=true;else{var id='custom-'+Date.now();customItems.push({id:id,name:name,group:group});NAME[id]=name;selIng[id]=true;persistCustom()}el('customInput').value='';el('customForm').classList.remove('open');renderHome()};
+  el('goBtn').onclick=function(){renderResults();showView('res',true)};el('surpriseBtn').onclick=function(){selIng={};selScen=null;document.querySelectorAll('.pick.on,.schip.on').forEach(function(x){x.classList.remove('on')});renderResults();showView('res',true)};el('menuBtn').onclick=function(){showView('menu',true)};el('rBack').onclick=function(){history.back()};el('mBack').onclick=function(){history.back()};el('saveImg').onclick=saveImage;el('dmClose').onclick=function(){history.back()};el('dmodal').onclick=function(e){if(e.target===el('dmodal'))history.back()};
+  window.addEventListener('popstate',function(e){if(el('dmodal').classList.contains('open')){closeDetail();return}showView(e.state&&e.state.v?e.state.v:'home',false)});
+  var sy=0,dy=0;el('dmcard').addEventListener('touchstart',function(e){sy=e.touches[0].clientY;dy=0},{passive:true});el('dmcard').addEventListener('touchmove',function(e){dy=Math.max(0,e.touches[0].clientY-sy);if(el('dmcard').scrollTop<=0)el('dmcard').style.transform='translateY('+Math.min(dy,180)+'px)'},{passive:true});el('dmcard').addEventListener('touchend',function(){if(dy>110&&el('dmcard').scrollTop<=0)history.back();else el('dmcard').style.transform='';dy=0},{passive:true});
+  history.replaceState({v:'home'},'');renderHome();
+})();
+
+</script>
+</body>
+</html>
