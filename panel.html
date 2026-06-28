@@ -49,6 +49,8 @@ tr:last-child td{border-bottom:0}
 .gate button{width:100%;margin-top:14px;border:none;background:var(--sage-d);color:#fff;border-radius:13px;padding:12px;font-family:inherit;font-size:14px;font-weight:800;cursor:pointer}
 .err{color:var(--warm);font-size:11.5px;margin-top:10px;min-height:14px}
 .note{font-size:11px;color:var(--muted);line-height:1.9;margin-top:8px}
+.selftoggle{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:11.5px;font-weight:700;color:var(--muted);-webkit-user-select:none;user-select:none}
+.selftoggle input{width:16px;height:16px;accent-color:var(--sage-d);cursor:pointer}
 .loading{text-align:center;color:var(--muted);font-size:13px;padding:40px}
 </style>
 </head>
@@ -69,7 +71,8 @@ tr:last-child td{border-bottom:0}
       <h1>پنلِ کاملِ ابزارهای فست لایف</h1>
       <p class="sub" id="rangeNote">آمارِ استفاده — از شروعِ تستِ این سه ابزار</p>
     </div>
-    <button class="btn" id="refresh" type="button">به‌روزرسانی ↻</button>
+    <label class="selftoggle" title="پیش‌فرض: همه دیده می‌شن. تیک بزن تا بازدیدهای خودت از آمار حذف بشن."><input type="checkbox" id="exSelf"><span>حذفِ بازدیدهای خودم</span></label>
+      <button class="btn" id="refresh" type="button">به‌روزرسانی ↻</button>
   </header>
   <div id="content"><div class="loading">در حال خواندن داده‌ها…</div></div>
 </main>
@@ -164,7 +167,7 @@ tr:last-child td{border-bottom:0}
   function render(rows,actions){
     rows=(rows||[]).filter(function(r){return inSet(r.tool);});
     actions=(actions||[]).filter(function(a){return inSet(a.tool);});
-    if(MYVID){rows=rows.filter(function(r){return r.visitor_id!==MYVID;});actions=actions.filter(function(a){return a.visitor_id!==MYVID;});}
+    var _exself=false;try{var _e=document.getElementById("exSelf");_exself=!!(_e&&_e.checked);}catch(e){}if(MYVID&&_exself){rows=rows.filter(function(r){return r.visitor_id!==MYVID;});actions=actions.filter(function(a){return a.visitor_id!==MYVID;});}
 
     if(!rows.length && !actions.length){
       el("content").innerHTML='<div class="panel"><h2>هنوز داده‌ای ثبت نشده</h2><p class="note">به‌محض اینکه کاربرها وارد ابزارها بشن، آمار اینجا ظاهر می‌شه. لینکِ تست رو که فرستادی، چند دقیقه بعد از اولین بازدید دوباره «به‌روزرسانی» بزن.</p></div>';
@@ -366,6 +369,7 @@ tr:last-child td{border-bottom:0}
   function card(k,v){return '<div class="card"><div class="k">'+k+'</div><div class="v">'+v+'</div></div>';}
 
   el("refresh").onclick=load;
+  (function(){var ex=el("exSelf");if(!ex)return;try{ex.checked=localStorage.getItem("fl_panel_exself")==="1";}catch(e){}ex.addEventListener("change",function(){try{localStorage.setItem("fl_panel_exself",ex.checked?"1":"0");}catch(e){}load();});})();
 })();
 </script>
 </body>
