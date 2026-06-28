@@ -129,7 +129,7 @@
   .helpnote{font-size:11px;color:var(--muted);text-align:center;margin-top:34px;padding-top:16px;line-height:2;box-shadow:inset 0 9px 12px -12px var(--dk)}
 </style>
 </head>
-<body>
+<body data-tool="پک خرید">
 <!-- ───── fastlife intro popup (injected) ───── -->
 <div id="flIntroOv" class="flintro-ov" role="dialog" aria-modal="true" aria-labelledby="flIntroTtl">
   <div class="flintro-card">
@@ -597,5 +597,24 @@
   applyState(init);
 })();
 </script>
+<!-- fl-analytics -->
+<script src="analytics.js"></script>
+<script>
+(function(){
+  if(!window.flLog) return;
+  document.addEventListener('click',function(ev){
+    var n=ev.target;
+    while(n&&n!==document){
+      if(n.classList&&(n.classList.contains('tab')||n.classList.contains('btn')||n.classList.contains('navbtn'))){
+        var t=(n.textContent||'').trim().replace(/\s+/g,' ').slice(0,40);
+        if(t){ if(/ذخیر|عکس/.test(t)) flLog('save_image',{label:t}); else flLog('click',{label:t}); }
+        break;
+      }
+      n=n.parentNode;
+    }
+  },true);
+})();
+</script>
+<!-- /fl-analytics -->
 </body>
 </html>

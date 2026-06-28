@@ -49,7 +49,7 @@
   body.shad .match{background:rgba(255,255,255,.85)}
 </style>
 </head>
-<body>
+<body data-tool="وعده‌ساز">
 <main class="wrap">
   <section id="builderView">
     <header><h1>وعده‌ساز</h1></header>
@@ -303,4 +303,23 @@ state.custom=state.custom.filter(x=>VALID_CATS.has(x.category));state.selected=s
   try{applyTheme(localStorage.getItem('fl_theme')||'minimal');}catch(e){applyTheme('minimal');}
 })();
 </script>
+<!-- fl-analytics -->
+<script src="analytics.js"></script>
+<script>
+(function(){
+  if(!window.flLog) return;
+  document.addEventListener('click',function(ev){
+    var n=ev.target;
+    while(n&&n!==document){
+      if(n.classList&&(n.classList.contains('btn')||n.classList.contains('opt')||n.classList.contains('tab'))){
+        var t=(n.textContent||'').trim().replace(/\s+/g,' ').slice(0,40);
+        if(t){ if(/ایده/.test(t)) flLog('ideas',{label:t}); else flLog('click',{label:t}); }
+        break;
+      }
+      n=n.parentNode;
+    }
+  },true);
+})();
+</script>
+<!-- /fl-analytics -->
 </body></html>

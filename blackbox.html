@@ -188,7 +188,7 @@
   .mbtn.ghost{font-size:12.5px;font-weight:700;color:var(--muted);margin-top:10px;box-shadow:3px 3px 8px var(--dk),-3px -3px 8px var(--lt)}
 </style>
 </head>
-<body>
+<body data-tool="جعبه سیاه">
 <!-- ───── fastlife intro popup (injected) ───── -->
 <div id="flIntroOv" class="flintro-ov" role="dialog" aria-modal="true" aria-labelledby="flIntroTtl">
   <div class="flintro-card">
@@ -766,5 +766,31 @@
   maybeBackupReminder();
 })();
 </script>
+<!-- fl-analytics -->
+<script src="analytics.js"></script>
+<script>
+(function(){
+  if(!window.flLog) return;
+  var LS='hansei-mottainai-v1';
+  function cnt(){try{return (JSON.parse(localStorage.getItem(LS)||'[]')||[]).length;}catch(e){return 0;}}
+  document.addEventListener('click',function(ev){
+    var n=ev.target,sb=null;
+    while(n&&n!==document){ if(n.id==='saveBtn'){sb=n;break;} n=n.parentNode; }
+    if(sb){ var b=cnt(); setTimeout(function(){ if(cnt()>b) flLog('entry_save'); },80); }
+  },true);
+  document.addEventListener('click',function(ev){
+    var n=ev.target;
+    while(n&&n!==document){
+      if(n.classList&&(n.classList.contains('btn')||n.classList.contains('navbtn')||n.classList.contains('tab'))){
+        var t=(n.textContent||'').trim().replace(/\s+/g,' ').slice(0,40);
+        if(t){ if(/گزارش/.test(t)) flLog('report_full',{label:t}); else if(/خلاصه/.test(t)) flLog('report_week',{label:t}); else flLog('click',{label:t}); }
+        break;
+      }
+      n=n.parentNode;
+    }
+  },true);
+})();
+</script>
+<!-- /fl-analytics -->
 </body>
 </html>

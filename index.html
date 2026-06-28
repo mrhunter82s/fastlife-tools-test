@@ -57,5 +57,24 @@ h1{font-size:24px;font-weight:800;color:var(--ink-d);margin:0}
 
   <p class="foot">برای برگشتن از هر ابزار به این صفحه، دکمهٔ «بازگشت» مرورگرت رو بزن.<br><b>فست لایف</b></p>
 </main>
+<!-- fl-analytics -->
+<script src="analytics.js"></script>
+<script>
+(function(){
+  if(!window.flLog) return;
+  document.addEventListener('click',function(ev){
+    var n=ev.target;
+    while(n&&n!==document){
+      if(n.tagName==='A'&&n.classList&&n.classList.contains('tool')){
+        var href=n.getAttribute('href')||'';
+        flLog('go_tool',{label:href,nav:true});
+        break;
+      }
+      n=n.parentNode;
+    }
+  },true);
+})();
+</script>
+<!-- /fl-analytics -->
 </body>
 </html>

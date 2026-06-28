@@ -263,7 +263,7 @@
   body.shad .themebtn.on{background:linear-gradient(145deg,#FFADAD,#DEDAF4);color:#5b4452;box-shadow:0 8px 16px -5px rgba(200,160,200,.55),inset 0 2px 0 rgba(255,255,255,.6)}
 </style>
 </head>
-<body>
+<body data-tool="چمه">
 <!-- ───── fastlife intro popup (injected) ───── -->
 <div id="flIntroOv" class="flintro-ov" role="dialog" aria-modal="true" aria-labelledby="flIntroTtl">
   <div class="flintro-card">
@@ -2187,5 +2187,40 @@ try{applyTheme(localStorage.getItem('fl_theme')||'minimal');}catch(e){applyTheme
 })();
 </script>
 
+<!-- fl-analytics -->
+<script src="analytics.js"></script>
+<script>
+(function(){
+  if(!window.flLog) return;
+  var CAP=1800;
+  function vis(){var s=document.querySelector('.screen.on');return s?s.id:null;}
+  var lastScreen=vis(), lastTs=Date.now();
+  function dwell(){return Math.min(CAP,(Date.now()-lastTs)/1000);}
+  function leave(nav){ if(lastScreen){ flLog('screen',{label:lastScreen,value:dwell(),nav:!!nav}); } }
+  if(typeof window.show==='function'){
+    var _show=window.show;
+    window.show=function(id){ try{leave(false);lastScreen=id;lastTs=Date.now();}catch(e){} return _show.apply(this,arguments); };
+  }
+  window.addEventListener('pagehide',function(){ try{leave(true);}catch(e){} });
+  function wrap(name,fn){ if(typeof window[name]==='function'){ var o=window[name]; window[name]=function(){ try{fn.apply(null,arguments);}catch(e){} return o.apply(this,arguments); }; } }
+  wrap('enterWorld',function(k){flLog('world',{label:String(k)});});
+  wrap('openProtector',function(){flLog('protector_open');});
+  wrap('saveGuard',function(){flLog('protector_save');});
+  wrap('startPartyBreath',function(){flLog('breath_start');});
+  wrap('showCurio',function(){flLog('fact_view');});
+  wrap('dwAns',function(b){flLog('did_work',{label:b?'yes':'no'});});
+  wrap('pickPhase',function(p){flLog('cycle',{label:String(p)});});
+  wrap('restart',function(){flLog('restart');});
+  document.addEventListener('click',function(ev){
+    var n=ev.target;
+    while(n&&n!==document){
+      var oc=n.getAttribute&&n.getAttribute('onclick');
+      if(oc&&oc.indexOf('location.href')>=0){ var m=oc.match(/location\.href='([^']+\.html)'/); if(m) flLog('go_dest',{label:m[1],nav:true}); break; }
+      n=n.parentNode;
+    }
+  },true);
+})();
+</script>
+<!-- /fl-analytics -->
 </body>
 </html>

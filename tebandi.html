@@ -39,7 +39,7 @@
 
 </style>
 </head>
-<body>
+<body data-tool="ته‌بندی">
 
 <div class="wrap" id="homeView">
   <header><h1>ته بندی</h1><p class="sub">میان‌وعده‌های سالم، سبک و سیرکننده</p></header>
@@ -1686,5 +1686,24 @@ var DATA = [
 })();
 
 </script>
+<!-- fl-analytics -->
+<script src="analytics.js"></script>
+<script>
+(function(){
+  if(!window.flLog) return;
+  document.addEventListener('click',function(ev){
+    var n=ev.target;
+    while(n&&n!==document){
+      if(n.classList&&(n.classList.contains('btn')||n.classList.contains('opt')||n.classList.contains('tab'))){
+        var t=(n.textContent||'').trim().replace(/\s+/g,' ').slice(0,40);
+        if(t){ if(/ایده/.test(t)) flLog('ideas',{label:t}); else flLog('click',{label:t}); }
+        break;
+      }
+      n=n.parentNode;
+    }
+  },true);
+})();
+</script>
+<!-- /fl-analytics -->
 </body>
 </html>

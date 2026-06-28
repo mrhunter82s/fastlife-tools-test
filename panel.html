@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>پنل کامل — ابزارهای فست لایف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#e9ebf0;--lt:#fff;--dk:#c4c8d2;--ink:#4a4e58;--ink-d:#363941;--muted:#969ca8;--line:#d7dae1;--sage:#8aa472;--sage-d:#5f7a45;--warm:#c88f6a}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;direction:rtl;text-align:right;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:26px 16px 80px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h1{font-size:22px;font-weight:800;color:var(--ink-d);margin:0}
+.sub{font-size:12px;color:var(--muted);margin:2px 0 0}
+.btn{border:none;background:var(--bg);border-radius:13px;padding:10px 16px;font-family:inherit;font-size:12.5px;font-weight:800;color:var(--sage-d);cursor:pointer;box-shadow:4px 4px 9px var(--dk),-4px -4px 9px var(--lt)}
+.btn:active{box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}
+.card{background:var(--bg);border-radius:20px;padding:16px;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}
+.card .k{font-size:11.5px;color:var(--muted);font-weight:700}
+.card .v{font-size:24px;font-weight:800;color:var(--ink-d);margin-top:5px;line-height:1.2}
+.card .v small{font-size:13px;color:var(--muted);font-weight:600}
+.panel{background:var(--bg);border-radius:22px;padding:18px;margin:16px 0;box-shadow:6px 6px 14px var(--dk),-6px -6px 14px var(--lt)}
+.panel h2{font-size:15px;font-weight:800;color:var(--ink-d);margin:0 0 4px}
+.panel .h2note{font-size:11px;color:var(--muted);margin:0 0 12px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:9px 8px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--sage-d);font-weight:800;font-size:11.5px}
+td.mono{direction:ltr;text-align:right;color:var(--muted);font-size:11px}
+tr:last-child td{border-bottom:0}
+.bar{height:7px;border-radius:6px;background:var(--line);overflow:hidden;min-width:60px}
+.bar>span{display:block;height:100%;background:var(--sage)}
+.chartbox{position:relative;height:240px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.two{grid-template-columns:1fr}}
+.pill{display:inline-block;background:var(--bg);border-radius:999px;padding:3px 10px;font-size:11px;font-weight:700;color:var(--sage-d);box-shadow:2px 2px 5px var(--dk),-2px -2px 5px var(--lt);margin:2px}
+.jbtn{cursor:pointer;color:var(--sage-d);font-weight:800}
+.journey{font-size:11px;color:var(--muted);direction:rtl;line-height:2;display:none;background:var(--bg);border-radius:12px;padding:10px 12px;margin-top:6px;box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}
+.journey b{color:var(--ink-d)}
+.step{white-space:nowrap}
+.gate{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+.gate .box{width:100%;max-width:340px;background:var(--bg);border-radius:22px;padding:24px 20px;text-align:center;box-shadow:7px 7px 16px var(--dk),-7px -7px 16px var(--lt)}
+.gate h2{margin:0 0 4px;font-size:18px;color:var(--ink-d)}
+.gate p{margin:0 0 16px;font-size:12px;color:var(--muted)}
+.gate input{width:100%;border:none;background:var(--bg);border-radius:13px;padding:12px 14px;font-family:inherit;font-size:15px;text-align:center;color:var(--ink-d);outline:none;box-shadow:inset 3px 3px 7px var(--dk),inset -3px -3px 7px var(--lt)}
+.gate button{width:100%;margin-top:14px;border:none;background:var(--sage-d);color:#fff;border-radius:13px;padding:12px;font-family:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.err{color:var(--warm);font-size:11.5px;margin-top:10px;min-height:14px}
+.note{font-size:11px;color:var(--muted);line-height:1.9;margin-top:8px}
+.loading{text-align:center;color:var(--muted);font-size:13px;padding:40px}
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <div class="box">
+    <h2>پنلِ کامل</h2>
+    <p>این صفحه خصوصیه. رمزِ پنل رو وارد کن.</p>
+    <input id="code" type="password" inputmode="text" placeholder="رمز" autocomplete="off">
+    <button id="enter" type="button">ورود</button>
+    <div class="err" id="err"></div>
+  </div>
+</div>
+
+<main class="wrap" id="app" style="display:none">
+  <header>
+    <div>
+      <h1>پنلِ کاملِ ابزارهای فست لایف</h1>
+      <p class="sub" id="rangeNote">آمارِ استفاده — از شروعِ تستِ این سه ابزار</p>
+    </div>
+    <button class="btn" id="refresh" type="button">به‌روزرسانی ↻</button>
+  </header>
+  <div id="content"><div class="loading">در حال خواندن داده‌ها…</div></div>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var SUPABASE_URL="https://tgkoksukglkcnqkydafb.supabase.co";
+  var SUPABASE_KEY="sb_publishable_33ulCqJBPT5btXV8cFuShg_OMDAKKpC";
+  var PANEL_CODE="fastlife";
+  var RESET_SINCE="2026-06-28T00:00:00Z"; // فقط داده‌های این تستِ جدید
+  var TOOLSET=["پک خرید","چمه","جعبه سیاه","وعده‌ساز","ته‌بندی","خانه"];
+  var TOOLORDER={"خانه":0,"پک خرید":1,"چمه":2,"جعبه سیاه":3,"وعده‌ساز":4,"ته‌بندی":5};
+
+  // نام‌های خوانا برای صفحه‌های چمه
+  var SCREENS={
+    "sc-intro":"شروع","sc-fast":"الان فستی؟","sc-aloneg":"تنها یا جمع؟","sc-alone":"تنها — چی پشتشه",
+    "sc-cycle":"چرخهٔ ماهیانه","sc-cycle-when":"چرخه (نامعلوم)","sc-cycle-result":"نتیجهٔ چرخه",
+    "sc-world":"موقعیت (دنیا)","sc-wstuck":"گیر کردم","sc-wrx":"نسخهٔ موقعیت","sc-weat":"خوردنِ موقعیت",
+    "sc-wave":"موجِ ۳ دقیقه","sc-wavepre":"قبلِ موج","sc-wave-choose":"بعدِ موج — انتخاب",
+    "sc-wpassed":"موج رد شد","sc-didwork":"جواب داد؟","sc-reflect":"بازتاب","sc-wreflect":"بازتابِ موقعیت",
+    "sc-protector":"کارتِ محافظ","sc-guard-setup":"ساختِ کارتِ محافظ","sc-guard-why":"چرا کارتِ محافظ","sc-guardcheck":"چکِ محافظ",
+    "sc-breath-intro":"تنفس","sc-breath-why":"چرا تنفس",
+    "sc-plain":"غذای ساده؟","sc-real":"گرسنگیِ واقعی","sc-crave":"هوس","sc-craved":"هوسِ خاص","sc-justcrave":"فقط هوسه",
+    "sc-danger":"علائمِ خطر","sc-lastmeal":"آخرین وعده","sc-eat":"بخور","sc-eathealthy":"یه چیزِ سالم",
+    "sc-leisure":"بی‌حوصلگی","sc-study":"درس/کار","sc-swaps":"جایگزین‌ها","sc-shorten":"کوتاه‌کردنِ فست",
+    "sc-breakfast":"وعدهٔ بعدی","sc-breakwarn":"هشدارِ شکستن","sc-breakclose":"بستنِ شکستن","sc-havefood":"غذا داری؟",
+    "sc-nf-realfood":"غیرفست — غذای واقعی","sc-nf-danger":"غیرفست — خطر","sc-nf-eatsoon":"غیرفست — زود بخور",
+    "sc-nf-lastmeal":"غیرفست — آخرین وعده","sc-nf-advice":"غیرفست — راهنمایی","sc-nf-craving":"غیرفست — هوس",
+    "sc-nfwaveok":"غیرفست — موج رد شد","sc-nfclose":"غیرفست — بستن","sc-env-detail":"محیط","sc-restok":"استراحت","sc-aloneok":"تنها — اوکی"
+  };
+  var DEST={"blackbox.html":"جعبه سیاه","meal.html":"وعده‌ساز","tebandi.html":"ته‌بندی"};
+  var WORLDS={party:"مهمونی",upset:"ناراحتی/عصبانیت",tired:"خستگی",mindless:"بی‌هدف",taste:"وسوسهٔ مزه",unknown:"نمی‌دونم",partynf:"مهمونی (غیرفست)",upset_nf:"ناراحتی (غیرفست)",tired_nf:"خستگی (غیرفست)"};
+  var PHASE={luteal:"قبل پریود",menses:"پریود",follicular:"بعد پریود",ovulation:"تخمک‌گذاری"};
+
+  // مجموعه‌ای از صفحه‌ها که «وقتِ هر قابلیت» را می‌سازند
+  var FEAT_SCREENS={
+    "کارتِ محافظ":["sc-protector","sc-guard-setup","sc-guard-why","sc-guardcheck"],
+    "تنفسِ ۳ دقیقه":["sc-breath-intro","sc-breath-why","sc-wave","sc-wavepre","sc-wave-choose"]
+  };
+
+  var faD="۰۱۲۳۴۵۶۷۸۹";
+  function fa(v){return String(v).replace(/[0-9]/g,function(d){return faD[d];});}
+  function fmtDur(sec){sec=Math.round(sec||0);
+    if(sec<60)return fa(sec)+" ثانیه";
+    var m=Math.floor(sec/60),s=sec%60;
+    if(m<60)return fa(m)+" دقیقه"+(s?" و "+fa(s)+" ثانیه":"");
+    var h=Math.floor(m/60),mm=m%60;return fa(h)+" ساعت"+(mm?" و "+fa(mm)+" دقیقه":"");
+  }
+  function fmtClock(sec){sec=Math.round(sec||0);var m=Math.floor(sec/60),s=sec%60;return fa(m)+":"+fa(s<10?"0"+s:s);}
+  function fmtDate(iso){try{var d=new Date(iso);return fa(d.toLocaleString("fa-IR",{month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}));}catch(e){return iso;}}
+  function el(id){return document.getElementById(id);}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c];});}
+  function scName(id){return SCREENS[id]||id;}
+  var MYVID=null;try{MYVID=localStorage.getItem("fl_vid");}catch(e){}
+
+  /* ---- gate ---- */
+  function doOpen(){el("gate").style.display="none";el("app").style.display="block";load();}
+  function unlock(){
+    if(el("code").value.trim().toLowerCase()===PANEL_CODE){try{localStorage.setItem("fl_panel_ok","1");}catch(e){}doOpen();}
+    else{el("err").textContent="رمز درست نیست.";}
+  }
+  el("enter").onclick=unlock;
+  el("code").addEventListener("keydown",function(e){if(e.key==="Enter")unlock();});
+  try{if(localStorage.getItem("fl_panel_ok")==="1")doOpen();}catch(e){}
+
+  /* ---- data ---- */
+  function sinceISO(){return new Date(Date.parse(RESET_SINCE)||0).toISOString();}
+  function get(path){
+    return fetch(SUPABASE_URL.replace(/\/+$/,"")+path,{headers:{"apikey":SUPABASE_KEY,"Authorization":"Bearer "+SUPABASE_KEY}})
+      .then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();});
+  }
+  function fetchEvents(){
+    var s=encodeURIComponent(sinceISO());
+    return get("/rest/v1/events?select=session_id,visitor_id,tool,started_at,updated_at,active_seconds&started_at=gte."+s+"&order=started_at.desc&limit=50000");
+  }
+  function fetchActions(){
+    var s=encodeURIComponent(sinceISO());
+    return get("/rest/v1/actions?select=visitor_id,session_id,tool,action,label,value,created_at&created_at=gte."+s+"&order=created_at.asc&limit=80000")
+      .catch(function(){return [];});
+  }
+
+  function load(){
+    el("content").innerHTML='<div class="loading">در حال خواندن داده‌ها…</div>';
+    Promise.all([fetchEvents(),fetchActions()]).then(function(r){render(r[0],r[1]);}).catch(function(e){
+      el("content").innerHTML='<div class="panel"><h2>خطا در خواندن داده‌ها</h2><p class="note">پیام: '+esc(String(e.message||e))+'<br>اگه جدولِ actions رو تازه ساختی و این خطا مونده، یه‌بار دیگه «به‌روزرسانی» بزن.</p></div>';
+    });
+  }
+
+  function inSet(t){return TOOLSET.indexOf(t)>=0;}
+
+  function render(rows,actions){
+    rows=(rows||[]).filter(function(r){return inSet(r.tool);});
+    actions=(actions||[]).filter(function(a){return inSet(a.tool);});
+    if(MYVID){rows=rows.filter(function(r){return r.visitor_id!==MYVID;});actions=actions.filter(function(a){return a.visitor_id!==MYVID;});}
+
+    if(!rows.length && !actions.length){
+      el("content").innerHTML='<div class="panel"><h2>هنوز داده‌ای ثبت نشده</h2><p class="note">به‌محض اینکه کاربرها وارد ابزارها بشن، آمار اینجا ظاهر می‌شه. لینکِ تست رو که فرستادی، چند دقیقه بعد از اولین بازدید دوباره «به‌روزرسانی» بزن.</p></div>';
+      return;
+    }
+
+    /* ---------- aggregate events ---------- */
+    var byTool={}, visitors={}, allSec=0;
+    rows.forEach(function(r){
+      var t=r.tool||"—",sec=Number(r.active_seconds)||0;allSec+=sec;
+      if(!byTool[t])byTool[t]={visits:0,sec:0,vis:{}};
+      byTool[t].visits++;byTool[t].sec+=sec;byTool[t].vis[r.visitor_id]=1;
+      if(!visitors[r.visitor_id])visitors[r.visitor_id]={visits:0,sec:0,last:r.updated_at,tools:{},acts:0};
+      var V=visitors[r.visitor_id];V.visits++;V.sec+=sec;V.tools[t]=1;
+      if(new Date(r.updated_at)>new Date(V.last))V.last=r.updated_at;
+    });
+    var toolNames=Object.keys(byTool).sort(function(a,b){return (TOOLORDER[a]==null?9:TOOLORDER[a])-(TOOLORDER[b]==null?9:TOOLORDER[b]);});
+    var uniqueAll=Object.keys(visitors).length, totalVisits=rows.length, avgVisit=totalVisits?allSec/totalVisits:0;
+
+    /* ---------- aggregate actions ---------- */
+    var actAgg={};                 // action -> {total, vis:{}}
+    var chScreens={};              // chame screen label -> {users:{}, count, sec}
+    var dest={}, didWork={yes:{c:0,v:{}},no:{c:0,v:{}}}, worlds={}, cyc={}, feats={};
+    var byVisitorActs={};          // vid -> [actions...]
+    actions.forEach(function(a){
+      var v=a.visitor_id||"—", ac=a.action||"—", lab=a.label||"", val=Number(a.value)||0, t=a.tool||"";
+      if(!actAgg[ac])actAgg[ac]={total:0,vis:{}};
+      actAgg[ac].total++;actAgg[ac].vis[v]=1;
+      if(!byVisitorActs[v])byVisitorActs[v]=[];byVisitorActs[v].push(a);
+      if(visitors[v])visitors[v].acts++;
+      if(t==="چمه"){
+        if(ac==="screen"){var L=lab||"—";if(!chScreens[L])chScreens[L]={users:{},count:0,sec:0};chScreens[L].users[v]=1;chScreens[L].count++;chScreens[L].sec+=val;}
+        else if(ac==="go_dest"){var d=DEST[lab]||lab;if(!dest[d])dest[d]={c:0,v:{}};dest[d].c++;dest[d].v[v]=1;}
+        else if(ac==="did_work"){var key=(lab==="yes")?"yes":"no";didWork[key].c++;didWork[key].v[v]=1;}
+        else if(ac==="world"){var w=WORLDS[lab]||lab||"—";if(!worlds[w])worlds[w]={c:0,v:{}};worlds[w].c++;worlds[w].v[v]=1;}
+        else if(ac==="cycle"){var p=PHASE[lab]||lab||"—";if(!cyc[p])cyc[p]={c:0,v:{}};cyc[p].c++;cyc[p].v[v]=1;}
+      }
+    });
+    // چون screen labelها idِ خام‌اند (sc-...)، زمانِ قابلیت‌ها را از همان idها جمع می‌زنیم
+    var featTime={};
+    Object.keys(FEAT_SCREENS).forEach(function(fn){var s=0,u={};FEAT_SCREENS[fn].forEach(function(sid){var o=chScreens[sid];if(o){s+=o.sec;Object.keys(o.users).forEach(function(x){u[x]=1;});}});featTime[fn]={sec:s,users:Object.keys(u).length};});
+
+    var html="";
+
+    /* ===== overview ===== */
+    html+='<div class="cards">'+
+      card("افرادِ یکتا",fa(uniqueAll)+' <small>نفر</small>')+
+      card("کلِ بازدیدها",fa(totalVisits)+' <small>بار</small>')+
+      card("کلِ زمان",fmtDur(allSec))+
+      card("میانگینِ هر بازدید",fmtDur(avgVisit))+
+      card("کلِ اکشن‌ها",fa(actions.length)+' <small>رویداد</small>')+
+    '</div>';
+
+    /* ===== per tool ===== */
+    html+='<div class="panel"><h2>به تفکیکِ هر ابزار</h2><table><thead><tr>'+
+      '<th>ابزار</th><th>افرادِ یکتا</th><th>بازدید</th><th>کلِ زمان</th><th>میانگینِ هر بازدید</th></tr></thead><tbody>';
+    toolNames.forEach(function(t){var d=byTool[t];
+      html+='<tr><td><b>'+esc(t)+'</b></td><td>'+fa(Object.keys(d.vis).length)+'</td><td>'+fa(d.visits)+'</td><td>'+fmtDur(d.sec)+'</td><td>'+fmtDur(d.visits?d.sec/d.visits:0)+'</td></tr>';
+    });
+    html+='</tbody></table></div>';
+
+    /* ===== چمه: مقصدهای نهایی ===== */
+    var destKeys=Object.keys(dest).sort(function(a,b){return dest[b].c-dest[a].c;});
+    html+='<div class="panel"><h2>چمه › مقصدِ نهایی</h2><p class="h2note">آخرِ مسیر، طرف به کدوم ابزار فرستاده شد.</p>';
+    if(destKeys.length){
+      html+='<table><thead><tr><th>مقصد</th><th>دفعات</th><th>افرادِ یکتا</th></tr></thead><tbody>';
+      destKeys.forEach(function(d){html+='<tr><td><b>'+esc(d)+'</b></td><td>'+fa(dest[d].c)+'</td><td>'+fa(Object.keys(dest[d].v).length)+'</td></tr>';});
+      html+='</tbody></table><div class="chartbox" style="height:200px;margin-top:12px"><canvas id="cDest"></canvas></div>';
+    } else html+='<p class="note">هنوز کسی به مقصدِ نهایی نرسیده.</p>';
+    html+='</div>';
+
+    /* ===== چمه: قابلیت‌ها ===== */
+    html+='<div class="panel"><h2>چمه › قابلیت‌ها (مصرف و زمان)</h2><table><thead><tr>'+
+      '<th>قابلیت</th><th>دفعاتِ استفاده</th><th>افرادِ یکتا</th><th>زمانِ صرف‌شده</th></tr></thead><tbody>';
+    html+='<tr><td><b>کارتِ محافظ — باز کردن</b></td><td>'+fa((actAgg.protector_open||{total:0}).total)+'</td><td>'+fa(Object.keys((actAgg.protector_open||{vis:{}}).vis).length)+'</td><td>'+(featTime["کارتِ محافظ"]?fmtDur(featTime["کارتِ محافظ"].sec):'—')+'</td></tr>';
+    html+='<tr><td><b>کارتِ محافظ — ساختن/ذخیره</b></td><td>'+fa((actAgg.protector_save||{total:0}).total)+'</td><td>'+fa(Object.keys((actAgg.protector_save||{vis:{}}).vis).length)+'</td><td>—</td></tr>';
+    html+='<tr><td><b>تنفسِ ۳ دقیقه</b></td><td>'+fa((actAgg.breath_start||{total:0}).total)+'</td><td>'+fa(Object.keys((actAgg.breath_start||{vis:{}}).vis).length)+'</td><td>'+(featTime["تنفسِ ۳ دقیقه"]?fmtDur(featTime["تنفسِ ۳ دقیقه"].sec):'—')+'</td></tr>';
+    html+='<tr><td><b>فکت‌های جذاب</b></td><td>'+fa((actAgg.fact_view||{total:0}).total)+'</td><td>'+fa(Object.keys((actAgg.fact_view||{vis:{}}).vis).length)+'</td><td>—</td></tr>';
+    html+='</tbody></table></div>';
+
+    /* ===== چمه: «جواب داد؟» + موقعیت‌ها + چرخه ===== */
+    html+='<div class="two">';
+    html+='<div class="panel"><h2>چمه › «جواب داد؟»</h2><table><thead><tr><th>پاسخ</th><th>دفعات</th><th>افرادِ یکتا</th></tr></thead><tbody>'+
+      '<tr><td><b style="color:var(--sage-d)">آره</b></td><td>'+fa(didWork.yes.c)+'</td><td>'+fa(Object.keys(didWork.yes.v).length)+'</td></tr>'+
+      '<tr><td><b style="color:var(--warm)">نه</b></td><td>'+fa(didWork.no.c)+'</td><td>'+fa(Object.keys(didWork.no.v).length)+'</td></tr>'+
+      '</tbody></table></div>';
+    var wk=Object.keys(worlds).sort(function(a,b){return worlds[b].c-worlds[a].c;});
+    html+='<div class="panel"><h2>چمه › موقعیت‌ها</h2>';
+    if(wk.length){html+='<table><thead><tr><th>موقعیت</th><th>دفعات</th><th>یکتا</th></tr></thead><tbody>';
+      wk.forEach(function(w){html+='<tr><td>'+esc(w)+'</td><td>'+fa(worlds[w].c)+'</td><td>'+fa(Object.keys(worlds[w].v).length)+'</td></tr>';});
+      html+='</tbody></table>';}else html+='<p class="note">داده‌ای نیست.</p>';
+    html+='</div></div>';
+
+    /* ===== چمه: صفحه‌ها (زمان + رسیدن) ===== */
+    var scList=Object.keys(chScreens).map(function(id){return {id:id,d:chScreens[id]};}).sort(function(a,b){return b.d.sec-a.d.sec;});
+    if(scList.length){
+      var maxSec=scList[0].d.sec||1;
+      html+='<div class="panel"><h2>چمه › هر بخش چقدر استفاده شد و چقدر زمان بُرد</h2><p class="h2note">مرتب‌شده بر اساسِ کلِ زمان. «افرادِ یکتا» یعنی چند نفر به این بخش رسیدن.</p>'+
+        '<table><thead><tr><th>بخش</th><th>افرادِ یکتا</th><th>دفعاتِ ورود</th><th>کلِ زمان</th><th>میانگین</th><th></th></tr></thead><tbody>';
+      scList.forEach(function(o){var d=o.d,uv=Object.keys(d.users).length;
+        html+='<tr><td><b>'+esc(scName(o.id))+'</b><div class="mono" style="font-size:10px">'+esc(o.id)+'</div></td>'+
+          '<td>'+fa(uv)+'</td><td>'+fa(d.count)+'</td><td>'+fmtDur(d.sec)+'</td><td>'+fmtDur(d.count?d.sec/d.count:0)+'</td>'+
+          '<td style="width:120px"><div class="bar"><span style="width:'+Math.round(d.sec/maxSec*100)+'%"></span></div></td></tr>';
+      });
+      html+='</tbody></table></div>';
+    }
+
+    /* ===== قیفِ تکمیل ===== */
+    var MAIN={"پک خرید":"save_image","چمه":"go_dest","جعبه سیاه":"entry_save","وعده‌ساز":"ideas"};
+    var MAINLBL={save_image:"ذخیرهٔ پک",go_dest:"رسیدن به مقصد",entry_save:"ثبتِ لغزش",ideas:"گرفتنِ ایده"};
+    var doers={};
+    actions.forEach(function(a){if(MAIN[a.tool]===a.action){if(!doers[a.tool])doers[a.tool]={};doers[a.tool][a.visitor_id]=1;}});
+    var fL=[],fV=[],fD=[];
+    html+='<div class="panel"><h2>قیفِ تکمیل — چند نفر کارِ اصلی را انجام دادند</h2><table><thead><tr>'+
+      '<th>ابزار</th><th>کارِ اصلی</th><th>بازدیدکنندهٔ یکتا</th><th>انجام‌دهنده</th><th>نرخِ تبدیل</th></tr></thead><tbody>';
+    ["پک خرید","چمه","جعبه سیاه","وعده‌ساز"].forEach(function(tl){
+      var uv=byTool[tl]?Object.keys(byTool[tl].vis).length:0;
+      var dd=doers[tl]?Object.keys(doers[tl]).length:0;
+      var rate=uv?Math.round(dd/uv*100):0;
+      html+='<tr><td><b>'+esc(tl)+'</b></td><td>'+(MAINLBL[MAIN[tl]]||MAIN[tl])+'</td><td>'+fa(uv)+'</td><td>'+fa(dd)+'</td><td><b style="color:var(--sage-d)">'+fa(rate)+'٪</b></td></tr>';
+      fL.push(tl);fV.push(uv);fD.push(dd);
+    });
+    html+='</tbody></table><div class="chartbox" style="height:220px;margin-top:14px"><canvas id="cFunnel"></canvas></div></div>';
+
+    /* ===== charts row ===== */
+    html+='<div class="two"><div class="panel"><h2>کلِ زمان در هر ابزار (دقیقه)</h2><div class="chartbox"><canvas id="c1"></canvas></div></div>'+
+      '<div class="panel"><h2>تعداد بازدید در هر ابزار</h2><div class="chartbox"><canvas id="c2"></canvas></div></div></div>';
+
+    /* ===== همهٔ اکشن‌ها ===== */
+    var actNames=Object.keys(actAgg).sort(function(a,b){return actAgg[b].total-actAgg[a].total;});
+    if(actNames.length){
+      html+='<div class="panel"><h2>همهٔ اکشن‌ها</h2><table><thead><tr><th>اکشن</th><th>تعدادِ کل</th><th>کاربرِ یکتا</th></tr></thead><tbody>';
+      actNames.forEach(function(ac){html+='<tr><td class="mono">'+esc(ac)+'</td><td>'+fa(actAgg[ac].total)+'</td><td>'+fa(Object.keys(actAgg[ac].vis).length)+'</td></tr>';});
+      html+='</tbody></table></div>';
+    }
+
+    /* ===== کاربرها + سفرِ هر کس ===== */
+    var vlist=Object.keys(visitors).map(function(id){return {id:id,v:visitors[id]};}).sort(function(a,b){return b.v.sec-a.v.sec;});
+    html+='<div class="panel"><h2>کاربرها و سفرشون</h2><p class="h2note">روی «نمایشِ سفر» بزن تا قدم‌به‌قدمِ مسیرِ هر کاربر رو ببینی.</p>'+
+      '<table><thead><tr><th>کاربر</th><th>ورود</th><th>کلِ زمان</th><th>اکشن</th><th>ابزارها</th><th>آخرین</th><th></th></tr></thead><tbody>';
+    vlist.forEach(function(o,i){
+      var tools=Object.keys(o.v.tools).map(function(t){return '<span class="pill">'+esc(t)+'</span>';}).join("");
+      html+='<tr><td class="mono">#'+fa(i+1)+' · '+esc(o.id.slice(0,8))+'</td><td>'+fa(o.v.visits)+'</td><td>'+fmtDur(o.v.sec)+'</td><td>'+fa(o.v.acts)+'</td><td>'+tools+'</td><td>'+fmtDate(o.v.last)+'</td>'+
+        '<td><span class="jbtn" data-jv="'+esc(o.id)+'">نمایشِ سفر ▾</span></td></tr>';
+      html+='<tr><td colspan="7" style="border:0;padding:0 8px"><div class="journey" id="jr-'+esc(o.id)+'"></div></td></tr>';
+    });
+    html+='</tbody></table></div>';
+
+    /* ===== آخرین بازدیدها ===== */
+    html+='<div class="panel"><h2>آخرین بازدیدها</h2><table><thead><tr><th>ابزار</th><th>کاربر</th><th>شروع</th><th>مدت</th></tr></thead><tbody>';
+    rows.slice(0,40).forEach(function(r){html+='<tr><td>'+esc(r.tool||"—")+'</td><td class="mono">'+esc((r.visitor_id||"").slice(0,8))+'</td><td>'+fmtDate(r.started_at)+'</td><td>'+fmtDur(r.active_seconds)+'</td></tr>';});
+    html+='</tbody></table></div>';
+
+    el("content").innerHTML=html;
+
+    /* ---- journey expanders ---- */
+    function journeyHtml(vid){
+      var list=(byVisitorActs[vid]||[]).slice().sort(function(a,b){return new Date(a.created_at)-new Date(b.created_at);});
+      if(!list.length)return '<i>اکشنی ثبت نشده.</i>';
+      return list.map(function(a){
+        var lab=a.action, extra="";
+        if(a.action==="screen"){lab="🧭 "+scName(a.label); if(a.value)extra=' <span style="color:var(--sage-d)">('+fmtClock(a.value)+')</span>';}
+        else if(a.action==="go_dest"){lab="➡️ مقصد: "+(DEST[a.label]||a.label);}
+        else if(a.action==="world"){lab="🌍 "+(WORLDS[a.label]||a.label);}
+        else if(a.action==="did_work"){lab=(a.label==="yes"?"✅ جواب داد":"❌ جواب نداد");}
+        else if(a.action==="protector_open"){lab="🛡️ کارتِ محافظ";}
+        else if(a.action==="protector_save"){lab="🛡️ ساختِ کارتِ محافظ";}
+        else if(a.action==="breath_start"){lab="🫧 تنفس";}
+        else if(a.action==="fact_view"){lab="💡 فکت";}
+        else if(a.action==="cycle"){lab="🌙 چرخه: "+(PHASE[a.label]||a.label);}
+        else if(a.action==="entry_save"){lab="📦 ثبتِ لغزش";}
+        else if(a.action==="save_image"){lab="📸 ذخیرهٔ پک";}
+        else if(a.action==="enter"){lab="▶️ ورود ["+esc(a.tool)+"]";}
+        else if(a.action==="restart"){lab="🔄 از اول";}
+        else if(a.action==="click"){lab="• "+(a.label||"کلیک");}
+        else if(a.action==="ideas"){lab="💭 ایده";}
+        else lab=esc(a.action)+(a.label?": "+esc(a.label):"");
+        return '<span class="step">'+lab+extra+'</span>';
+      }).join('  <b>‹</b>  ');
+    }
+    Array.prototype.forEach.call(document.querySelectorAll(".jbtn"),function(b){
+      b.onclick=function(){var vid=b.getAttribute("data-jv");var box=el("jr-"+vid);
+        if(box.style.display==="block"){box.style.display="none";b.textContent="نمایشِ سفر ▾";}
+        else{if(!box.innerHTML)box.innerHTML=journeyHtml(vid);box.style.display="block";b.textContent="بستن ▴";}
+      };
+    });
+
+    /* ---- charts ---- */
+    if(window.Chart){
+      var green="#8aa472",peach="#c88f6a",grey="#c4c8d2";
+      new Chart(el("c1"),{type:"bar",data:{labels:toolNames,datasets:[{data:toolNames.map(function(t){return Math.round(byTool[t].sec/60);}),backgroundColor:green,borderRadius:8}]},options:barOpts()});
+      new Chart(el("c2"),{type:"bar",data:{labels:toolNames,datasets:[{data:toolNames.map(function(t){return byTool[t].visits;}),backgroundColor:peach,borderRadius:8}]},options:barOpts()});
+      if(el("cDest")&&destKeys.length){new Chart(el("cDest"),{type:"bar",data:{labels:destKeys,datasets:[{label:"دفعات",data:destKeys.map(function(d){return dest[d].c;}),backgroundColor:green,borderRadius:8},{label:"افرادِ یکتا",data:destKeys.map(function(d){return Object.keys(dest[d].v).length;}),backgroundColor:grey,borderRadius:8}]},options:barOpts(true)});}
+      if(el("cFunnel")){new Chart(el("cFunnel"),{type:"bar",data:{labels:fL,datasets:[{label:"بازدیدکنندهٔ یکتا",data:fV,backgroundColor:grey,borderRadius:8},{label:"انجام‌دهنده",data:fD,backgroundColor:green,borderRadius:8}]},options:barOpts(true)});}
+    }
+  }
+
+  function barOpts(legend){return {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:!!legend,labels:{font:{family:"Vazirmatn"}}}},scales:{x:{ticks:{font:{family:"Vazirmatn"}},grid:{display:false}},y:{beginAtZero:true,ticks:{font:{family:"Vazirmatn"}}}}};}
+  function card(k,v){return '<div class="card"><div class="k">'+k+'</div><div class="v">'+v+'</div></div>';}
+
+  el("refresh").onclick=load;
+})();
+</script>
+</body>
+</html>
